@@ -1,0 +1,470 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "reservation": "Reservation"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Taste, Quality, Satisfaction",
+      "title": "Welcome to Mira Bistro",
+      "description": "QR menu experience and modern restaurant management system.",
+      "ctaMenu": "View Menu",
+      "ctaReservation": "Make a Reservation"
+    },
+    "about": {
+      "label": "About",
+      "title": "A Story Full of Flavor",
+      "description": "At Mira Bistro, we serve our guests dishes prepared with the freshest ingredients in a warm and welcoming atmosphere. We bring quality to every detail and passion to every plate.",
+      "featureIngredients": "Fresh Ingredients",
+      "featureIngredientsDesc": "We use fresh and local products every day.",
+      "featureChefs": "Expert Chefs",
+      "featureChefsDesc": "Our experienced chefs create unique flavors.",
+      "featureGuests": "Guest Focused",
+      "featureGuestsDesc": "Your satisfaction is always our priority."
+    },
+    "featuredMenu": {
+      "label": "Featured from the Menu",
+      "title": "Explore Our Flavors",
+      "cta": "View Full Menu"
+    },
+    "qr": {
+      "label": "QR Menu System",
+      "title": "Accessing Our Menu Is So Easy!",
+      "description": "Scan the QR code on your table to instantly access our menu and explore all our flavors from your phone.",
+      "step1Title": "Scan the QR Code",
+      "step1Desc": "Scan the QR code with your phone camera.",
+      "step2Title": "Explore the Menu",
+      "step2Desc": "Browse all food and drink options.",
+      "step3Title": "Enjoy",
+      "step3Desc": "Enjoy the flavors you love."
+    },
+    "testimonials": {
+      "label": "What Do Our Guests Say?",
+      "title": "Reviews"
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Get in Touch with Us",
+      "addressLabel": "Address",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursLabel": "Opening Hours"
+    }
+  },
+  "menuPage": {
+    "label": "Mira Bistro Menu",
+    "title": "Discover Our Flavors",
+    "description": "Browse our carefully prepared dishes and discover your favorite flavors.",
+    "all": "All",
+    "starters": "Starters",
+    "salads": "Salads",
+    "mains": "Main Courses",
+    "burgers": "Burgers",
+    "pasta": "Pasta",
+    "desserts": "Desserts",
+    "drinks": "Drinks"
+  },
+  "menu": {
+    "title": "Mira Bistro Menu",
+    "subtitle": "Discover our flavors prepared with fresh ingredients.",
+    "all": "Full Menu",
+    "backToMenu": "Back to Menu"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading..."
+  },
+  "footer": {
+    "tagline": "We combine modern gastronomy with warm atmosphere and refined presentation.",
+    "quick_links": "Quick Links",
+    "menu_label": "Menu",
+    "contact_label": "Contact",
+
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "menu": "Menu",
+      "gallery": "Gallery",
+      "contact": "Contact"
+    },
+
+    "menu": {
+      "starters": "Starters",
+      "salads": "Salads",
+      "mains": "Main Courses",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+
+    "contact": {
+      "street": "Cumhuriyet Ave. No: 12",
+      "city": "Kadikoy / Istanbul",
+      "phone": "+90 555 123 45 67",
+      "email": "info@mirabistro.com"
+    },
+
+    "copyright": "© 2026 Mira Bistro. All rights reserved."
+  },
+  "productDetail": {
+    "backToMenu": "Back to Menu",
+    "preparationTime": "Preparation Time",
+    "backToQrMenu": "Back to QR Menu",
+    "portion": "Portion",
+    "viewFullMenu": "View Full Menu",
+    "makeReservation": "Make a Reservation",
+    "relatedLabel": "From the Same Category",
+    "relatedTitle": "You May Also Like",
+    "labels": {
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan",
+      "glutenFree": "Gluten Free"
+    },
+    "categories": {
+      "starters": "Starters",
+      "salads": "Salads",
+      "mains": "Main Courses",
+      "burgers": "Burgers",
+      "pasta": "Pasta",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    }
+  },
+  "adminLogin": {
+    "label": "Management Panel",
+    "title": "Admin Login",
+    "description": "Sign in to manage menu, tables, and QR codes.",
+    "email": "Email",
+    "password": "Password",
+    "remember": "Remember me",
+    "forgotPassword": "Forgot password",
+    "loginButton": "Sign In",
+    "demoTitle": "Demo:",
+    "demoText": "The real authentication system will be enabled after Supabase auth integration."
+  },
+  "admin": {
+    "common": {
+      "create": "Create",
+      "update": "Update",
+      "delete": "Delete",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "back": "Back",
+      "search": "Search",
+      "active": "Active",
+      "inactive": "Inactive",
+      "preview": "Preview",
+      "actions": "Actions"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "categories": "Categories",
+      "tables": "Tables & QR",
+      "reservations": "Reservations",
+      "settings": "Settings"
+    },
+    "header": {
+      "searchPlaceholder": "Search...",
+      "adminName": "Admin",
+      "adminRole": "Super Admin"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Welcome back to Mira Bistro admin panel.",
+      "stats": {
+        "totalProducts": "Total Products",
+        "qrTables": "QR Tables",
+        "ordersToday": "Orders Today",
+        "revenue": "Revenue"
+      },
+      "recentOrders": {
+        "title": "Recent Orders",
+        "description": "Latest restaurant activity.",
+        "table": "Table",
+        "productsOrdered": "products ordered",
+        "timeAgo": "min ago"
+      },
+      "qrUsage": {
+        "title": "QR Usage",
+        "description": "QR menu performance overview."
+      }
+    },
+    "products": {
+      "title": "Products",
+      "description": "Manage menu items, prices and categories.",
+      "addProduct": "Add Product",
+      "searchPlaceholder": "Search products...",
+      "empty": {
+        "title": "No products found",
+        "description": "There are no products to display yet. You can start by adding a new product."
+      },
+      "table": {
+        "product": "Product",
+        "category": "Category",
+        "price": "Price",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "form": {
+        "addTitle": "Add Product",
+        "addDescription": "Create a new menu item for your restaurant.",
+        "editTitle": "Edit Product",
+        "editDescription": "Update menu item details.",
+        "productName": "Product Name",
+        "description": "Description",
+        "descPlaceHolder": "Write product description...",
+        "price": "Price",
+        "category": "Category",
+        "preparationTime": "Preparation Time",
+        "portion": "Portion",
+        "productImage": "Product Image",
+        "uploadImage": "Upload Product Image",
+        "chooseFile": "Choose File",
+        "visibility": "Visibility",
+        "featuredProduct": "Featured Product",
+        "productActive": "Product Active",
+        "createProduct": "Create Product",
+        "updateProduct": "Update Product",
+        "vegetarian": "Vejetaryen",
+        "vegan": "Vegan",
+        "glutenFree": "Glutensiz"
+      }
+    },
+    "categories": {
+      "title": "Categories",
+      "description": "Manage menu categories.",
+      "listTitle": "Menu Categories",
+      "listDescription": "Organize your restaurant menu by categories.",
+      "addCategory": "Add Category",
+      "searchPlaceholder": "Search categories...",
+      "empty": {
+        "title": "No categories found",
+        "description": "There are no categories to display yet. You can start by adding a new category."
+      },
+      "status": {
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "table": {
+        "category": "Category",
+        "slug": "Slug",
+        "status": "Status",
+        "actions": "Actions"
+      },
+
+      "form": {
+        "addTitle": "Add Category",
+        "addDescription": "Create a new menu category.",
+
+        "editTitle": "Edit Category",
+        "editDescription": "Update category details.",
+
+        "categoryName": "Category Name",
+        "slug": "Slug",
+        "description": "Description",
+
+        "visibility": "Visibility",
+
+        "featuredCategory": "Featured Category",
+        "categoryActive": "Category Active",
+
+        "createCategory": "Create Category",
+        "updateCategory": "Update Category"
+      }
+    },
+    "tables": {
+      "title": "QR Codes",
+      "description": "Manage restaurant tables and QR menu access.",
+      "addTable": "Add Table",
+      "searchPlaceholder": "Search tables...",
+      "empty": {
+        "title": "No tables found",
+        "description": "There are no tables to display yet. You can start by adding a new table."
+      },
+      "table": {
+        "table": "Table",
+        "capacity": "Capacity",
+        "status": "Status",
+        "qrUrl": "QR URL",
+        "actions": "Actions"
+      },
+      "status": {
+        "available": "Available",
+        "occupied": "Occupied",
+        "maintenance": "Maintenance",
+        "active": "Active",
+        "inactive": "Inactive"
+      },
+      "form": {
+        "addTitle": "Add Table",
+        "addDescription": "Create a new restaurant table and QR access.",
+        "editTitle": "Edit Table",
+        "editDescription": "Update table details and QR visibility.",
+        "tableName": "Table Name",
+        "tableSlug": "Table Slug",
+        "capacity": "Capacity",
+        "status": "Status",
+        "statuses": {
+          "available": "Available",
+          "occupied": "Occupied",
+          "maintenance": "Maintenance"
+        },
+        "qrPreview": "QR Preview",
+        "qrUrl": "QR URL",
+        "visibility": "Visibility",
+        "qrActive": "QR Active",
+        "tableActive": "Table Active",
+        "createTable": "Create Table",
+        "updateTable": "Update Table"
+      },
+      "preview": "Preview"
+    },
+    "reservations": {
+      "title": "Reservations",
+      "description": "Manage customer reservation requests.",
+      "empty": {
+        "title": "No reservations found",
+        "description": "There are no reservation requests yet."
+      },
+      "table": {
+        "guest": "Guest",
+        "date": "Date",
+        "time": "Time",
+        "people": "Guests",
+        "status": "Status",
+        "note": "Note",
+        "actions": "Actions"
+      },
+
+      "status": {
+        "pending": "Pending",
+        "confirmed": "Confirmed",
+        "cancelled": "Cancelled"
+      },
+
+      "actions": {
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "galleryPage": {
+    "hero": {
+      "label": "Gallery",
+      "title": "Discover the Mira Bistro Atmosphere",
+      "description": "Selected moments reflecting the Mira Bistro experience, from our dishes to interior details."
+    },
+    "filters": {
+      "all": "All",
+      "food": "Food",
+      "interior": "Interior",
+      "ambience": "Ambience"
+    },
+    "cta": {
+      "title": "Experience It in Person",
+      "description": "We invite you to discover the warm atmosphere and signature flavors of Mira Bistro.",
+      "reservation": "Make a Reservation",
+      "menu": "View Menu"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "label": "Contact",
+      "title": "Get in Touch with Mira Bistro",
+      "description": "Contact us for reservations, events, or private dining experiences."
+    },
+    "cards": {
+      "address": {
+        "title": "Address",
+        "value": "Bagdat Avenue No:24, Istanbul"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "+90 532 000 00 00"
+      },
+      "email": {
+        "title": "Email",
+        "value": "hello@mirabistro.com"
+      }
+    },
+    "hours": {
+      "label": "Opening Hours",
+      "title": "A Special Experience Every Day",
+      "description": "Mira Bistro welcomes guests every day of the week.",
+      "weekdays": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "map": {
+      "label": "Location",
+      "title": "Visit Us"
+    },
+    "cta": {
+      "title": "Your Table Awaits",
+      "description": "Reserve your table for an unforgettable evening at Mira Bistro.",
+      "reservation": "Make Reservation",
+      "menu": "View Menu"
+    }
+  },
+  "reservationPage": {
+    "hero": {
+      "label": "Reservation",
+      "title": "Reserve Your Table",
+      "description": "Fill out the reservation form for a memorable Mira Bistro experience."
+    },
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "date": "Date",
+      "time": "Time",
+      "guestCount": "Guest Count",
+      "note": "Note",
+      "notePlaceholder": "You can write your special requests...",
+      "submit": "Send Reservation",
+      "success": "Your reservation request has been received."
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Mira Bistro | Fine Dining Restaurant",
+      "description": "Modern gastronomy and a premium restaurant experience."
+    },
+
+    "about": {
+      "title": "About Us | Mira Bistro",
+      "description": "Discover the story and culinary philosophy of Mira Bistro."
+    },
+
+    "menu": {
+      "title": "Menu | Mira Bistro",
+      "description": "Explore our chef-crafted signature dishes."
+    },
+
+    "gallery": {
+      "title": "Gallery | Mira Bistro",
+      "description": "Discover the atmosphere of Mira Bistro."
+    },
+
+    "contact": {
+      "title": "Contact | Mira Bistro",
+      "description": "Reservation and contact information."
+    },
+
+    "reservations": {
+      "title": "Reservations | Mira Bistro",
+      "description": "Reserve your table now."
+    }
+  }
+}

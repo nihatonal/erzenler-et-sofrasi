@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-red: #A5161A;
+    --color-red-light: #C91F24;
+    --color-red-dark: #7F1115;
+    --color-green: #173B28;
+    --color-green-dark: #0E2418;
+    --color-cream: #FBF7EF;
+    --color-ivory: #FFFDF8;
+    --color-sand: #E7DED3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-green font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-red px-6 py-3 text-sm font-semibold text-white shadow-red transition hover:bg-brand-redLight active:bg-brand-redDark;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-brand-red px-6 py-3 text-sm font-semibold text-brand-red transition hover:bg-brand-red hover:text-white;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.25em] text-brand-red;
+  }
+
+  .dark-card {
+    @apply rounded-3xl border border-dark-border bg-dark-card shadow-card;
+  }
+
+  .admin-card {
+    @apply rounded-2xl border border-admin-border bg-admin-card shadow-admin;
+  }
+    .admin-label {
+    @apply text-xs font-semibold uppercase tracking-[0.16em] text-brand-muted;
+  }
+
+.admin-input {
+  @apply h-12
+         w-full
+         rounded-xl
+         border
+         border-brand-sand
+         bg-brand-cream
+         px-4
+         text-sm
+         text-brand-green
+         outline-none
+         transition
+         focus:border-brand-red;
+}
+}
