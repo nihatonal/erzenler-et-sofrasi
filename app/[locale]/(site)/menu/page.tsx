@@ -117,7 +117,7 @@ export default async function MenuPage({ params }: MenuPageProps) {
           en: product.description_en,
           ru: product.description_ru,
         },
-        image: product.image_url || "/images/menu/fettuccine.png",
+        image: product.image_url || "/images/menu/fettuccine.webp",
         priceTry: Number(product.price_try ?? 0),
         priceUsd: Number(product.price_usd ?? 0),
         preparationMinutes: product.preparation_minutes ?? 0,

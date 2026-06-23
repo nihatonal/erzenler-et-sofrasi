@@ -1,0 +1,198 @@
+insert into products (
+  restaurant_id,
+  category_id,
+  slug,
+
+  name_tr,
+  name_en,
+  name_ru,
+  name_ar,
+
+  description_tr,
+  description_en,
+  description_ru,
+  description_ar,
+
+  image_url,
+
+  price_try,
+  old_price_try,
+  discount_percent,
+
+  is_active,
+  is_popular,
+  is_recommended,
+  is_new,
+  is_discounted,
+
+  is_vegetarian,
+  is_vegan,
+  is_gluten_free,
+  is_spicy
+)
+values
+
+(
+  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
+  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
+  'ezo-gelin-corbasi',
+
+  'Ezo Gelin Çorbası',
+  'Ezogelin Soup',
+  'Суп Эзогелин',
+  'شوربة إيزو جيلين',
+
+  'Tırnaklı Pide ve Söğüş ile servis edilir.',
+  'Served with Turkish bread and garnish.',
+  'Подаётся с хлебом и гарниром.',
+  'يقدم مع الخبز والمقبلات.',
+
+  null,
+
+  180,
+  null,
+  null,
+
+  true,
+  true,
+  false,
+  false,
+  false,
+
+  true,
+  true,
+  false,
+  false
+),
+
+(
+  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
+  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
+  'tavuk-suyu-corbasi',
+
+  'Tavuk Suyu Çorbası',
+  'Chicken Broth Soup',
+  'Куриный суп',
+  'شوربة مرق الدجاج',
+
+  'Tırnaklı Pide ve Söğüş ile servis edilir.',
+  'Served with Turkish bread and garnish.',
+  'Подаётся с хлебом и гарниром.',
+  'يقدم مع الخبز والمقبلات.',
+
+  null,
+
+  250,
+  null,
+  null,
+
+  true,
+  false,
+  false,
+  false,
+  false,
+
+  false,
+  false,
+  false,
+  false
+),
+
+(
+  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
+  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
+  'mercimek-corbasi',
+
+  'Mercimek Çorbası',
+  'Lentil Soup',
+  'Чечевичный суп',
+  'شوربة العدس',
+
+  'Tırnaklı Pide ve Söğüş ile servis edilir.',
+  'Served with Turkish bread and garnish.',
+  'Подаётся с хлебом и гарниром.',
+  'يقدم مع الخبز والمقبلات.',
+
+  null,
+
+  180,
+  null,
+  null,
+
+  true,
+  true,
+  false,
+  false,
+  false,
+
+  true,
+  true,
+  false,
+  false
+),
+
+(
+  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
+  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
+  'iskembe-corbasi',
+
+  'İşkembe Çorbası',
+  'Tripe Soup',
+  'Суп из рубца',
+  'Суп из рубца',
+
+  'Tırnaklı Pide ve Söğüş ile servis edilir.',
+  'Served with Turkish bread and garnish.',
+  'Подаётся с хлебом и гарниром.',
+  'يقدم مع الخبز والمقبلات.',
+
+  null,
+
+  360,
+  null,
+  null,
+
+  true,
+  false,
+  true,
+  false,
+  false,
+
+  false,
+  false,
+  true,
+  true
+),
+
+(
+  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
+  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
+  'kelle-paca-corbasi',
+
+  'Kelle Paça Çorbası',
+  'Kelle Paca Soup',
+  'Суп Келле Пача',
+  'شوربة كيلي باشا',
+
+  'Tırnaklı Pide ve Söğüş ile servis edilir.',
+  'Served with Turkish bread and garnish.',
+  'Подаётся с хлебом и гарниром.',
+  'يقدم مع الخبز والمقبلات.',
+
+  null,
+
+  360,
+  null,
+  null,
+
+  true,
+  false,
+  true,
+  false,
+  false,
+
+  false,
+  false,
+  true,
+  true
+);

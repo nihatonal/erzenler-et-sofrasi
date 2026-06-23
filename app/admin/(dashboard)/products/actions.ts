@@ -149,14 +149,18 @@ export async function updateProductAction(
 export async function deleteProductAction(productId: string) {
   const { supabase, restaurantId } = await getAdminContext();
 
-  const { error } = await supabase
+  const { error, count } = await supabase
     .from("products")
-    .delete()
+    .delete({ count: "exact" })
     .eq("id", productId)
     .eq("restaurant_id", restaurantId);
 
   if (error) {
     throw new Error(error.message);
+  }
+
+  if (!count) {
+    throw new Error("Ürün silinemedi veya yetkiniz yok.");
   }
 
   revalidatePath("/admin/products");
@@ -245,6 +249,59 @@ export async function deleteProductRemovableAction(
     .from("product_removables")
     .delete()
     .eq("id", removableId)
+    .eq("product_id", productId)
+    .eq("restaurant_id", restaurantId);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+}
+
+export async function createProductRecommendationAction(
+  productId: string,
+  formData: FormData,
+) {
+  const { supabase, restaurantId } = await getAdminContext();
+
+  const recommendedProductId = String(
+    formData.get("recommended_product_id") || "",
+  );
+
+  if (!recommendedProductId) {
+    throw new Error("Önerilen ürün seçilmedi.");
+  }
+
+  if (recommendedProductId === productId) {
+    throw new Error("Ürün kendisine öneri olarak eklenemez.");
+  }
+
+  const payload = {
+    restaurant_id: restaurantId,
+    product_id: productId,
+    recommended_product_id: recommendedProductId,
+    sort_order: Number(formData.get("sort_order") || 0),
+    is_active: getBoolean(formData, "is_active"),
+  };
+
+  const { error } = await supabase
+    .from("product_recommendations")
+    .insert(payload);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+}
+
+export async function deleteProductRecommendationAction(
+  productId: string,
+  recommendationId: string,
+) {
+  const { supabase, restaurantId } = await getAdminContext();
+
+  const { error } = await supabase
+    .from("product_recommendations")
+    .delete()
+    .eq("id", recommendationId)
     .eq("product_id", productId)
     .eq("restaurant_id", restaurantId);
 

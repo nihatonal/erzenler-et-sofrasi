@@ -9,7 +9,7 @@ type SafeImageProps = ImageProps & {
 
 export function SafeImage({
   src,
-  fallbackSrc = '/images/menu/fettuccine.png',
+  fallbackSrc = '/images/menu/fettuccine.webp',
   ...props
 }: SafeImageProps) {
   const [imageSrc, setImageSrc] = useState(src);

@@ -7,12 +7,15 @@ import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { ProductForm } from "@/components/admin/products/ProductForm";
 import { ProductOptionsPanel } from "@/components/admin/products/ProductOptionsPanel";
 import { ProductRemovablesPanel } from "@/components/admin/products/ProductRemovablesPanel";
+import { ProductRecommendationsPanel } from "@/components/admin/products/ProductRecommendationsPanel";
 
 import {
   createProductOptionAction,
   createProductRemovableAction,
+  createProductRecommendationAction,
   deleteProductOptionAction,
   deleteProductRemovableAction,
+  deleteProductRecommendationAction,
   updateProductAction,
 } from "@/app/admin/(dashboard)/products/actions";
 
@@ -81,7 +84,23 @@ type EditProductClientProps = {
   productId: string;
   restaurantId: string;
 };
+type ProductRecommendation = {
+  id: string;
+  recommended_product_id: string;
+  sort_order: number | null;
+  is_active: boolean;
+  products: {
+    id: string;
+    name_tr: string;
+    price_try: number;
+    image_url: string | null;
+  } | null;
+};
 
+type RecommendationProductOption = {
+  id: string;
+  name_tr: string;
+};
 export function EditProductClient({
   productId,
   restaurantId,
@@ -92,6 +111,12 @@ export function EditProductClient({
   const [removables, setRemovables] = useState<ProductRemovable[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorText, setErrorText] = useState("");
+  const [recommendations, setRecommendations] = useState<
+    ProductRecommendation[]
+  >([]);
+  const [recommendationProducts, setRecommendationProducts] = useState<
+    RecommendationProductOption[]
+  >([]);
 
   const loadProductData = useCallback(async () => {
     setIsLoading(true);
@@ -100,12 +125,18 @@ export function EditProductClient({
     const supabase = createSupabaseBrowserClient();
 
     try {
-      const [productResult, categoriesResult, optionsResult, removablesResult] =
-        await Promise.all([
-          supabase
-            .from("products")
-            .select(
-              `
+      const [
+        productResult,
+        categoriesResult,
+        optionsResult,
+        removablesResult,
+        recommendationsResult,
+        recommendationProductsResult,
+      ] = await Promise.all([
+        supabase
+          .from("products")
+          .select(
+            `
               id,
               slug,
               category_id,
@@ -130,23 +161,23 @@ export function EditProductClient({
               is_gluten_free,
               is_spicy,
               is_active
+            `,
+          )
+          .eq("id", productId)
+          .eq("restaurant_id", restaurantId)
+          .single(),
+
+        supabase
+          .from("categories")
+          .select("id, name_tr")
+          .eq("restaurant_id", restaurantId)
+          .eq("is_active", true)
+          .order("sort_order", { ascending: true }),
+
+        supabase
+          .from("product_options")
+          .select(
             `
-            )
-            .eq("id", productId)
-            .eq("restaurant_id", restaurantId)
-            .single(),
-
-          supabase
-            .from("categories")
-            .select("id, name_tr")
-            .eq("restaurant_id", restaurantId)
-            .eq("is_active", true)
-            .order("sort_order", { ascending: true }),
-
-          supabase
-            .from("product_options")
-            .select(
-              `
               id,
               option_group,
               name_tr,
@@ -156,16 +187,16 @@ export function EditProductClient({
               price_difference_try,
               sort_order,
               is_active
-            `
-            )
-            .eq("product_id", productId)
-            .eq("restaurant_id", restaurantId)
-            .order("sort_order", { ascending: true }),
+            `,
+          )
+          .eq("product_id", productId)
+          .eq("restaurant_id", restaurantId)
+          .order("sort_order", { ascending: true }),
 
-          supabase
-            .from("product_removables")
-            .select(
-              `
+        supabase
+          .from("product_removables")
+          .select(
+            `
               id,
               name_tr,
               name_en,
@@ -173,12 +204,39 @@ export function EditProductClient({
               name_ar,
               sort_order,
               is_active
+            `,
+          )
+          .eq("product_id", productId)
+          .eq("restaurant_id", restaurantId)
+          .order("sort_order", { ascending: true }),
+        supabase
+          .from("product_recommendations")
+          .select(
             `
-            )
-            .eq("product_id", productId)
-            .eq("restaurant_id", restaurantId)
-            .order("sort_order", { ascending: true }),
-        ]);
+    id,
+    recommended_product_id,
+    sort_order,
+    is_active,
+    products:recommended_product_id (
+      id,
+      name_tr,
+      price_try,
+      image_url
+    )
+  `,
+          )
+          .eq("product_id", productId)
+          .eq("restaurant_id", restaurantId)
+          .order("sort_order", { ascending: true }),
+
+        supabase
+          .from("products")
+          .select("id, name_tr")
+          .eq("restaurant_id", restaurantId)
+          .eq("is_active", true)
+          .neq("id", productId)
+          .order("name_tr", { ascending: true }),
+      ]);
 
       if (productResult.error || !productResult.data) {
         throw productResult.error || new Error("Ürün bulunamadı.");
@@ -188,6 +246,14 @@ export function EditProductClient({
       setCategories((categoriesResult.data || []) as CategoryRow[]);
       setOptions((optionsResult.data || []) as ProductOption[]);
       setRemovables((removablesResult.data || []) as ProductRemovable[]);
+      setRecommendations(
+        (recommendationsResult.data || []) as ProductRecommendation[],
+      );
+
+      setRecommendationProducts(
+        (recommendationProductsResult.data ||
+          []) as RecommendationProductOption[],
+      );
     } catch (error) {
       console.error(error);
       setErrorText("Ürün bilgileri yüklenemedi.");
@@ -254,6 +320,14 @@ export function EditProductClient({
         removables={removables}
         createAction={createProductRemovableAction}
         deleteAction={deleteProductRemovableAction}
+      />
+
+      <ProductRecommendationsPanel
+        productId={product.id}
+        recommendations={recommendations}
+        products={recommendationProducts}
+        createAction={createProductRecommendationAction}
+        deleteAction={deleteProductRecommendationAction}
       />
     </>
   );

@@ -89,7 +89,7 @@ export function CategoryCard({
             name="name_tr"
             defaultValue={category.name_tr}
             required
-            className="admin-input mt-2"
+            className="admin-input mt-2 bg-brand-greenLight/20"
           />
         </div>
 

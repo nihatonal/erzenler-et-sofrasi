@@ -117,7 +117,7 @@ export default async function ProductDetailPage({
         : currentLocale === 'en'
           ? product.description_en
           : product.description_ru,
-    image: product.image_url || '/images/menu/fettuccine.png',
+    image: product.image_url || '/images/menu/fettuccine.webp',
     price:
       currentLocale === 'tr'
         ? Number(product.price_try ?? 0)
@@ -172,7 +172,7 @@ export default async function ProductDetailPage({
           : currentLocale === 'en'
             ? related.description_en
             : related.description_ru,
-      image: related.image_url || '/images/menu/fettuccine.png',
+      image: related.image_url || '/images/menu/fettuccine.webp',
       price:
         currentLocale === 'tr'
           ? Number(related.price_try ?? 0)

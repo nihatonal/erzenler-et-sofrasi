@@ -64,7 +64,7 @@ export async function FeaturedMenuSection({
             : item.description_ru,
       priceTry: Number(item.price_try ?? 0),
       priceUsd: Number(item.price_usd ?? 0),
-      image: item.image_url || "/images/menu/fettuccine.png",
+      image: item.image_url || "/images/menu/fettuccine.webp",
     })) ?? [];
 
   return (
