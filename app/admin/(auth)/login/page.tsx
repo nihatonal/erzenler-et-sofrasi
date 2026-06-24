@@ -55,7 +55,7 @@ export default function AdminLoginPage() {
                   type="email"
                   placeholder="admin@restaurant.com"
                   required
-                  className="h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
+                  className="pl-2 h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
                 />
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function AdminLoginPage() {
                   type="password"
                   placeholder="••••••••"
                   required
-                  className="h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
+                  className="pl-2 h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
                 />
               </div>
             </div>

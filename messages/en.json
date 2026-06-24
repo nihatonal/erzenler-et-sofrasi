@@ -54,24 +54,83 @@
       "hoursLabel": "Opening Hours"
     }
   },
-  "menuPage": {
-    "label": "Mira Bistro Menu",
-    "title": "Discover Our Flavors",
-    "description": "Browse our carefully prepared dishes and discover your favorite flavors.",
-    "all": "All",
-    "starters": "Starters",
-    "salads": "Salads",
-    "mains": "Main Courses",
-    "burgers": "Burgers",
-    "pasta": "Pasta",
-    "desserts": "Desserts",
-    "drinks": "Drinks"
-  },
   "menu": {
-    "title": "Mira Bistro Menu",
-    "subtitle": "Discover our flavors prepared with fresh ingredients.",
-    "all": "Full Menu",
-    "backToMenu": "Back to Menu"
+    "eyebrow": "Digital Menu",
+    "searchPlaceholder": "Search products...",
+    "allCategories": "All",
+    "add": "Add",
+    "menuOnly": "Menu",
+    "free": "Free",
+    "orderMode": {
+      "table": "Table Order",
+      "delivery": "Online Order",
+      "menuOnly": "Menu Only"
+    },
+    "badges": {
+      "popular": "Popular",
+      "recommended": "Chef's Choice",
+      "new": "New",
+      "discounted": "Discounted"
+    },
+    "empty": {
+      "title": "No products found",
+      "description": "Try a different category or search term."
+    },
+    "detail": {
+      "eyebrow": "Product Detail",
+      "options": "Options",
+      "removables": "Removable Ingredients",
+      "note": "Order Note",
+      "notePlaceholder": "E.g.: Medium rare please",
+      "addToCart": "Add to Cart",
+      "recommendations": "Goes well with this"
+    },
+    "cart": {
+      "items": "items",
+      "view": "View Cart"
+    }
+  },
+  "checkout": {
+    "back": "Back to Menu",
+    "title": "Your Cart",
+    "without": "Remove",
+    "note": "Note",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Select items from the menu to place an order.",
+      "backToMenu": "Back to Menu"
+    },
+    "success": {
+      "title": "Order received",
+      "description": "Your order has been sent to the restaurant and will be prepared shortly.",
+      "backToMenu": "Back to Menu"
+    },
+    "table": {
+      "title": "Table Order"
+    },
+    "delivery": {
+      "title": "Delivery Details"
+    },
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "city": "City",
+      "district": "District",
+      "neighborhood": "Neighborhood",
+      "street": "Street / Avenue",
+      "buildingNo": "No",
+      "floor": "Floor",
+      "apartmentNo": "Apartment",
+      "addressNote": "Address Note",
+      "customerNote": "Order Note"
+    },
+    "summary": {
+      "subtotal": "Subtotal",
+      "total": "Total"
+    },
+    "submit": "Confirm Order",
+    "submitting": "Submitting..."
   },
   "common": {
     "save": "Save",
@@ -110,273 +169,6 @@
     },
 
     "copyright": "© 2026 Mira Bistro. All rights reserved."
-  },
-  "productDetail": {
-    "backToMenu": "Back to Menu",
-    "preparationTime": "Preparation Time",
-    "backToQrMenu": "Back to QR Menu",
-    "portion": "Portion",
-    "viewFullMenu": "View Full Menu",
-    "makeReservation": "Make a Reservation",
-    "relatedLabel": "From the Same Category",
-    "relatedTitle": "You May Also Like",
-    "labels": {
-      "vegetarian": "Vegetarian",
-      "vegan": "Vegan",
-      "glutenFree": "Gluten Free"
-    },
-    "categories": {
-      "starters": "Starters",
-      "salads": "Salads",
-      "mains": "Main Courses",
-      "burgers": "Burgers",
-      "pasta": "Pasta",
-      "desserts": "Desserts",
-      "drinks": "Drinks"
-    }
-  },
-  "adminLogin": {
-    "label": "Management Panel",
-    "title": "Admin Login",
-    "description": "Sign in to manage menu, tables, and QR codes.",
-    "email": "Email",
-    "password": "Password",
-    "remember": "Remember me",
-    "forgotPassword": "Forgot password",
-    "loginButton": "Sign In",
-    "demoTitle": "Demo:",
-    "demoText": "The real authentication system will be enabled after Supabase auth integration."
-  },
-  "admin": {
-    "common": {
-      "create": "Create",
-      "update": "Update",
-      "delete": "Delete",
-      "edit": "Edit",
-      "save": "Save",
-      "cancel": "Cancel",
-      "back": "Back",
-      "search": "Search",
-      "active": "Active",
-      "inactive": "Inactive",
-      "preview": "Preview",
-      "actions": "Actions"
-    },
-    "sidebar": {
-      "dashboard": "Dashboard",
-      "products": "Products",
-      "categories": "Categories",
-      "tables": "Tables & QR",
-      "reservations": "Reservations",
-      "settings": "Settings"
-    },
-    "header": {
-      "searchPlaceholder": "Search...",
-      "adminName": "Admin",
-      "adminRole": "Super Admin"
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "description": "Welcome back to Mira Bistro admin panel.",
-      "stats": {
-        "totalProducts": "Total Products",
-        "qrTables": "QR Tables",
-        "ordersToday": "Orders Today",
-        "revenue": "Revenue"
-      },
-      "recentOrders": {
-        "title": "Recent Orders",
-        "description": "Latest restaurant activity.",
-        "table": "Table",
-        "productsOrdered": "products ordered",
-        "timeAgo": "min ago"
-      },
-      "qrUsage": {
-        "title": "QR Usage",
-        "description": "QR menu performance overview."
-      }
-    },
-    "products": {
-      "title": "Products",
-      "description": "Manage menu items, prices and categories.",
-      "addProduct": "Add Product",
-      "searchPlaceholder": "Search products...",
-      "empty": {
-        "title": "No products found",
-        "description": "There are no products to display yet. You can start by adding a new product."
-      },
-      "table": {
-        "product": "Product",
-        "category": "Category",
-        "price": "Price",
-        "status": "Status",
-        "actions": "Actions"
-      },
-      "status": {
-        "active": "Active",
-        "inactive": "Inactive"
-      },
-      "form": {
-        "addTitle": "Add Product",
-        "addDescription": "Create a new menu item for your restaurant.",
-        "editTitle": "Edit Product",
-        "editDescription": "Update menu item details.",
-        "productName": "Product Name",
-        "description": "Description",
-        "descPlaceHolder": "Write product description...",
-        "price": "Price",
-        "category": "Category",
-        "preparationTime": "Preparation Time",
-        "portion": "Portion",
-        "productImage": "Product Image",
-        "uploadImage": "Upload Product Image",
-        "chooseFile": "Choose File",
-        "visibility": "Visibility",
-        "featuredProduct": "Featured Product",
-        "productActive": "Product Active",
-        "createProduct": "Create Product",
-        "updateProduct": "Update Product",
-        "vegetarian": "Vejetaryen",
-        "vegan": "Vegan",
-        "glutenFree": "Glutensiz"
-      }
-    },
-    "categories": {
-      "title": "Categories",
-      "description": "Manage menu categories.",
-      "listTitle": "Menu Categories",
-      "listDescription": "Organize your restaurant menu by categories.",
-      "addCategory": "Add Category",
-      "searchPlaceholder": "Search categories...",
-      "empty": {
-        "title": "No categories found",
-        "description": "There are no categories to display yet. You can start by adding a new category."
-      },
-      "status": {
-        "active": "Active",
-        "inactive": "Inactive"
-      },
-      "table": {
-        "category": "Category",
-        "slug": "Slug",
-        "status": "Status",
-        "actions": "Actions"
-      },
-
-      "form": {
-        "addTitle": "Add Category",
-        "addDescription": "Create a new menu category.",
-
-        "editTitle": "Edit Category",
-        "editDescription": "Update category details.",
-
-        "categoryName": "Category Name",
-        "slug": "Slug",
-        "description": "Description",
-
-        "visibility": "Visibility",
-
-        "featuredCategory": "Featured Category",
-        "categoryActive": "Category Active",
-
-        "createCategory": "Create Category",
-        "updateCategory": "Update Category"
-      }
-    },
-    "tables": {
-      "title": "QR Codes",
-      "description": "Manage restaurant tables and QR menu access.",
-      "addTable": "Add Table",
-      "searchPlaceholder": "Search tables...",
-      "empty": {
-        "title": "No tables found",
-        "description": "There are no tables to display yet. You can start by adding a new table."
-      },
-      "table": {
-        "table": "Table",
-        "capacity": "Capacity",
-        "status": "Status",
-        "qrUrl": "QR URL",
-        "actions": "Actions"
-      },
-      "status": {
-        "available": "Available",
-        "occupied": "Occupied",
-        "maintenance": "Maintenance",
-        "active": "Active",
-        "inactive": "Inactive"
-      },
-      "form": {
-        "addTitle": "Add Table",
-        "addDescription": "Create a new restaurant table and QR access.",
-        "editTitle": "Edit Table",
-        "editDescription": "Update table details and QR visibility.",
-        "tableName": "Table Name",
-        "tableSlug": "Table Slug",
-        "capacity": "Capacity",
-        "status": "Status",
-        "statuses": {
-          "available": "Available",
-          "occupied": "Occupied",
-          "maintenance": "Maintenance"
-        },
-        "qrPreview": "QR Preview",
-        "qrUrl": "QR URL",
-        "visibility": "Visibility",
-        "qrActive": "QR Active",
-        "tableActive": "Table Active",
-        "createTable": "Create Table",
-        "updateTable": "Update Table"
-      },
-      "preview": "Preview"
-    },
-    "reservations": {
-      "title": "Reservations",
-      "description": "Manage customer reservation requests.",
-      "empty": {
-        "title": "No reservations found",
-        "description": "There are no reservation requests yet."
-      },
-      "table": {
-        "guest": "Guest",
-        "date": "Date",
-        "time": "Time",
-        "people": "Guests",
-        "status": "Status",
-        "note": "Note",
-        "actions": "Actions"
-      },
-
-      "status": {
-        "pending": "Pending",
-        "confirmed": "Confirmed",
-        "cancelled": "Cancelled"
-      },
-
-      "actions": {
-        "confirm": "Confirm",
-        "cancel": "Cancel"
-      }
-    }
-  },
-  "galleryPage": {
-    "hero": {
-      "label": "Gallery",
-      "title": "Discover the Mira Bistro Atmosphere",
-      "description": "Selected moments reflecting the Mira Bistro experience, from our dishes to interior details."
-    },
-    "filters": {
-      "all": "All",
-      "food": "Food",
-      "interior": "Interior",
-      "ambience": "Ambience"
-    },
-    "cta": {
-      "title": "Experience It in Person",
-      "description": "We invite you to discover the warm atmosphere and signature flavors of Mira Bistro.",
-      "reservation": "Make a Reservation",
-      "menu": "View Menu"
-    }
   },
   "contactPage": {
     "hero": {

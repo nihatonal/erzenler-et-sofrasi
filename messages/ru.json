@@ -54,24 +54,83 @@
       "hoursLabel": "Часы работы"
     }
   },
-  "menuPage": {
-    "label": "Меню Mira Bistro",
-    "title": "Откройте наши вкусы",
-    "description": "Посмотрите наши тщательно приготовленные блюда и найдите свои любимые вкусы.",
-    "all": "Все",
-    "starters": "Закуски",
-    "salads": "Салаты",
-    "mains": "Основные блюда",
-    "burgers": "Бургеры",
-    "pasta": "Паста",
-    "desserts": "Десерты",
-    "drinks": "Напитки"
-  },
   "menu": {
-    "title": "Меню Mira Bistro",
-    "subtitle": "Откройте для себя блюда, приготовленные из свежих ингредиентов.",
-    "all": "Всё меню",
-    "backToMenu": "Назад к меню"
+    "eyebrow": "Цифровое меню",
+    "searchPlaceholder": "Поиск продуктов...",
+    "allCategories": "Все",
+    "add": "Добавить",
+    "menuOnly": "Меню",
+    "free": "Бесплатно",
+    "orderMode": {
+      "table": "Заказ за столик",
+      "delivery": "Онлайн-заказ",
+      "menuOnly": "Только меню"
+    },
+    "badges": {
+      "popular": "Популярное",
+      "recommended": "Выбор шефа",
+      "new": "Новинка",
+      "discounted": "Со скидкой"
+    },
+    "empty": {
+      "title": "Продукты не найдены",
+      "description": "Попробуйте другую категорию или поисковый запрос."
+    },
+    "detail": {
+      "eyebrow": "Детали продукта",
+      "options": "Варианты",
+      "removables": "Убираемые ингредиенты",
+      "note": "Примечание к заказу",
+      "notePlaceholder": "Например: Слабой прожарки",
+      "addToCart": "В корзину",
+      "recommendations": "Хорошо сочетается с этим"
+    },
+    "cart": {
+      "items": "товар(ов)",
+      "view": "Посмотреть корзину"
+    }
+  },
+  "checkout": {
+    "back": "Вернуться в меню",
+    "title": "Ваша корзина",
+    "without": "Убрать",
+    "note": "Примечание",
+    "empty": {
+      "title": "Ваша корзина пуста",
+      "description": "Выберите блюда из меню, чтобы сделать заказ.",
+      "backToMenu": "Вернуться в меню"
+    },
+    "success": {
+      "title": "Заказ принят",
+      "description": "Ваш заказ передан в ресторан и будет приготовлен в ближайшее время.",
+      "backToMenu": "Вернуться в меню"
+    },
+    "table": {
+      "title": "Заказ за столик"
+    },
+    "delivery": {
+      "title": "Данные для доставки"
+    },
+    "fields": {
+      "fullName": "Имя и фамилия",
+      "phone": "Телефон",
+      "email": "Email",
+      "city": "Город",
+      "district": "Район",
+      "neighborhood": "Микрорайон",
+      "street": "Улица / Проспект",
+      "buildingNo": "№",
+      "floor": "Этаж",
+      "apartmentNo": "Квартира",
+      "addressNote": "Примечание к адресу",
+      "customerNote": "Примечание к заказу"
+    },
+    "summary": {
+      "subtotal": "Промежуточный итог",
+      "total": "Итого"
+    },
+    "submit": "Подтвердить заказ",
+    "submitting": "Отправка..."
   },
   "common": {
     "save": "Сохранить",
@@ -110,273 +169,6 @@
     },
 
     "copyright": "© 2026 Mira Bistro. Все права защищены."
-  },
-  "productDetail": {
-    "backToMenu": "Назад к меню",
-    "backToQrMenu": "Назад к QR-меню",
-    "preparationTime": "Время приготовления",
-    "portion": "Порция",
-    "viewFullMenu": "Посмотреть всё меню",
-    "makeReservation": "Забронировать",
-    "relatedLabel": "Из той же категории",
-    "relatedTitle": "Вам также может понравиться",
-    "labels": {
-      "vegetarian": "Вегетарианское",
-      "vegan": "Веганское",
-      "glutenFree": "Без глютена"
-    },
-    "categories": {
-      "starters": "Закуски",
-      "salads": "Салаты",
-      "mains": "Основные блюда",
-      "burgers": "Бургеры",
-      "pasta": "Паста",
-      "desserts": "Десерты",
-      "drinks": "Напитки"
-    }
-  },
-  "adminLogin": {
-    "label": "Панель управления",
-    "title": "Вход администратора",
-    "description": "Войдите, чтобы управлять меню, столами и QR-кодами.",
-    "email": "Эл. почта",
-    "password": "Пароль",
-    "remember": "Запомнить меня",
-    "forgotPassword": "Забыли пароль",
-    "loginButton": "Войти",
-    "demoTitle": "Демо:",
-    "demoText": "Настоящая система входа будет активирована после интеграции Supabase auth."
-  },
-  "admin": {
-    "common": {
-      "create": "Создать",
-      "update": "Обновить",
-      "delete": "Удалить",
-      "edit": "Редактировать",
-      "save": "Сохранить",
-      "cancel": "Отмена",
-      "back": "Назад",
-      "search": "Поиск",
-      "active": "Активно",
-      "inactive": "Неактивно",
-      "preview": "Предпросмотр",
-      "actions": "Действия"
-    },
-    "sidebar": {
-      "dashboard": "Панель",
-      "products": "Продукты",
-      "categories": "Категории",
-      "tables": "Столы и QR",
-      "reservations": "Бронирования",
-      "settings": "Настройки"
-    },
-    "header": {
-      "searchPlaceholder": "Поиск...",
-      "adminName": "Админ",
-      "adminRole": "Супер админ"
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "description": "Добро пожаловать обратно в панель управления Mira Bistro.",
-      "stats": {
-        "totalProducts": "Всего продуктов",
-        "qrTables": "QR-столы",
-        "ordersToday": "Заказы сегодня",
-        "revenue": "Доход"
-      },
-      "recentOrders": {
-        "title": "Последние заказы",
-        "description": "Последняя активность ресторана.",
-        "table": "Стол",
-        "productsOrdered": "продукта заказано",
-        "timeAgo": "мин назад"
-      },
-      "qrUsage": {
-        "title": "Использование QR",
-        "description": "Обзор эффективности QR-меню."
-      }
-    },
-    "products": {
-      "title": "Продукты",
-      "description": "Управление меню, ценами и категориями.",
-      "addProduct": "Добавить продукт",
-      "searchPlaceholder": "Поиск продуктов...",
-      "empty": {
-        "title": "Товары не найдены",
-        "description": "Пока нет товаров для отображения. Начните с добавления нового товара."
-      },
-      "table": {
-        "product": "Продукт",
-        "category": "Категория",
-        "price": "Цена",
-        "status": "Статус",
-        "actions": "Действия"
-      },
-      "status": {
-        "active": "Активно",
-        "inactive": "Неактивно"
-      },
-      "form": {
-        "addTitle": "Добавить продукт",
-        "addDescription": "Создайте новый пункт меню для ресторана.",
-        "editTitle": "Редактировать продукт",
-        "editDescription": "Обновите информацию о продукте.",
-        "productName": "Название продукта",
-        "description": "Описание",
-        "descPlaceHolder": "Write product description...",
-        "price": "Цена",
-        "category": "Категория",
-        "preparationTime": "Время приготовления",
-        "portion": "Порция",
-        "productImage": "Изображение продукта",
-        "uploadImage": "Загрузить изображение",
-        "chooseFile": "Выбрать файл",
-        "visibility": "Видимость",
-        "featuredProduct": "Рекомендуемый продукт",
-        "productActive": "Продукт активен",
-        "createProduct": "Создать продукт",
-        "updateProduct": "Обновить продукт",
-        "vegetarian": "Вегетарианское",
-        "vegan": "Веганское",
-        "glutenFree": "Без глютена"
-      }
-    },
-    "categories": {
-      "title": "Категории",
-      "description": "Управление категориями меню.",
-      "listTitle": "Категории меню",
-      "listDescription": "Организуйте меню ресторана по категориям.",
-      "addCategory": "Добавить категорию",
-      "searchPlaceholder": "Поиск категорий...",
-      "empty": {
-        "title": "Категории не найдены",
-        "description": "Пока нет категорий для отображения. Начните с добавления новой категории."
-      },
-      "status": {
-        "active": "Активно",
-        "inactive": "Неактивно"
-      },
-      "table": {
-        "category": "Категория",
-        "slug": "Slug",
-        "status": "Статус",
-        "actions": "Действия"
-      },
-
-      "form": {
-        "addTitle": "Добавить категорию",
-        "addDescription": "Создайте новую категорию меню.",
-
-        "editTitle": "Редактировать категорию",
-        "editDescription": "Обновите информацию о категории.",
-
-        "categoryName": "Название категории",
-        "slug": "Slug",
-        "description": "Описание",
-
-        "visibility": "Видимость",
-
-        "featuredCategory": "Рекомендуемая категория",
-        "categoryActive": "Категория активна",
-
-        "createCategory": "Создать категорию",
-        "updateCategory": "Обновить категорию"
-      }
-    },
-    "tables": {
-      "title": "QR-коды",
-      "description": "Управление столами ресторана и доступом к QR-меню.",
-      "addTable": "Добавить стол",
-      "searchPlaceholder": "Поиск столов...",
-      "empty": {
-        "title": "Столы не найдены",
-        "description": "Пока нет столов для отображения. Начните с добавления нового стола."
-      },
-      "table": {
-        "table": "Стол",
-        "capacity": "Вместимость",
-        "status": "Статус",
-        "qrUrl": "QR URL",
-        "actions": "Действия"
-      },
-      "status": {
-        "available": "Свободен",
-        "occupied": "Занят",
-        "maintenance": "На обслуживании",
-        "active": "Активно",
-        "inactive": "Неактивно"
-      },
-      "form": {
-        "addTitle": "Добавить стол",
-        "addDescription": "Создайте новый стол и QR-доступ.",
-        "editTitle": "Редактировать стол",
-        "editDescription": "Обновите данные стола и видимость QR.",
-        "tableName": "Название стола",
-        "tableSlug": "Slug стола",
-        "capacity": "Вместимость",
-        "status": "Статус",
-        "statuses": {
-          "available": "Свободен",
-          "occupied": "Занят",
-          "maintenance": "На обслуживании"
-        },
-        "qrPreview": "Предпросмотр QR",
-        "qrUrl": "QR URL",
-        "visibility": "Видимость",
-        "qrActive": "QR активен",
-        "tableActive": "Стол активен",
-        "createTable": "Создать стол",
-        "updateTable": "Обновить стол"
-      },
-      "preview": "Предпросмотр"
-    },
-    "reservations": {
-      "title": "Бронирования",
-      "description": "Управляйте запросами на бронирование.",
-      "empty": {
-        "title": "Бронирования не найдены",
-        "description": "Пока нет запросов на бронирование."
-      },
-      "table": {
-        "guest": "Гость",
-        "date": "Дата",
-        "time": "Время",
-        "people": "Гости",
-        "status": "Статус",
-        "note": "Примечание",
-        "actions": "Действия"
-      },
-
-      "status": {
-        "pending": "Ожидает",
-        "confirmed": "Подтверждено",
-        "cancelled": "Отменено"
-      },
-
-      "actions": {
-        "confirm": "Подтвердить",
-        "cancel": "Отменить"
-      }
-    }
-  },
-  "galleryPage": {
-    "hero": {
-      "label": "Галерея",
-      "title": "Откройте атмосферу Mira Bistro",
-      "description": "Избранные кадры, отражающие опыт Mira Bistro: от блюд до деталей интерьера."
-    },
-    "filters": {
-      "all": "Все",
-      "food": "Блюда",
-      "interior": "Интерьер",
-      "ambience": "Атмосфера"
-    },
-    "cta": {
-      "title": "Почувствуйте это лично",
-      "description": "Приглашаем вас открыть для себя теплую атмосферу и фирменные вкусы Mira Bistro.",
-      "reservation": "Забронировать",
-      "menu": "Посмотреть меню"
-    }
   },
   "contactPage": {
     "hero": {

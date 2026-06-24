@@ -18,12 +18,16 @@ export type CategoryRow = {
   is_active: boolean;
 };
 
+type LocaleCode = "tr" | "en" | "ru" | "ar";
+
 type AdminCategoriesClientProps = {
   restaurantId: string;
+  enabledLocales: LocaleCode[];
 };
 
 export function AdminCategoriesClient({
   restaurantId,
+  enabledLocales,
 }: AdminCategoriesClientProps) {
   const [categories, setCategories] = useState<CategoryRow[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +52,7 @@ export function AdminCategoriesClient({
           name_ar,
           sort_order,
           is_active
-        `
+        `,
         )
         .eq("restaurant_id", restaurantId)
         .order("sort_order", { ascending: true });
@@ -71,8 +75,8 @@ export function AdminCategoriesClient({
   function handleOptimisticCreate(category: CategoryRow) {
     setCategories((current) =>
       [...current, category].sort(
-        (a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0)
-      )
+        (a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0),
+      ),
     );
   }
 
@@ -80,19 +84,22 @@ export function AdminCategoriesClient({
     setCategories((current) =>
       current
         .map((item) => (item.id === categoryId ? updated : item))
-        .sort(
-          (a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0)
-        )
+        .sort((a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0)),
     );
   }
 
   function handleOptimisticDelete(categoryId: string) {
-    setCategories((current) => current.filter((item) => item.id !== categoryId));
+    setCategories((current) =>
+      current.filter((item) => item.id !== categoryId),
+    );
   }
 
   return (
     <div className="grid gap-8 xl:grid-cols-[420px_1fr]">
-      <CategoryForm onOptimisticCreate={handleOptimisticCreate} />
+      <CategoryForm
+        enabledLocales={enabledLocales}
+        onOptimisticCreate={handleOptimisticCreate}
+      />
 
       <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
         <div className="flex items-center justify-between gap-4">
@@ -133,6 +140,7 @@ export function AdminCategoriesClient({
         ) : (
           <CategoryList
             categories={categories}
+            enabledLocales={enabledLocales}
             onOptimisticUpdate={handleOptimisticUpdate}
             onOptimisticDelete={handleOptimisticDelete}
           />

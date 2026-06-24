@@ -3,7 +3,10 @@
 import { createCategoryAction } from "@/app/admin/(dashboard)/categories/actions";
 import type { CategoryRow } from "./AdminCategoriesClient";
 
+type LocaleCode = "tr" | "en" | "ru" | "ar";
+
 type CategoryFormProps = {
+  enabledLocales?: LocaleCode[];
   onOptimisticCreate: (category: CategoryRow) => void;
 };
 
@@ -21,7 +24,15 @@ function toSlug(value: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export function CategoryForm({ onOptimisticCreate }: CategoryFormProps) {
+export function CategoryForm({
+  enabledLocales,
+  onOptimisticCreate,
+}: CategoryFormProps) {
+  const activeLocales = enabledLocales || ["tr", "en", "ru", "ar"];
+  const showEn = activeLocales.includes("en");
+  const showRu = activeLocales.includes("ru");
+  const showAr = activeLocales.includes("ar");
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -72,22 +83,30 @@ export function CategoryForm({ onOptimisticCreate }: CategoryFormProps) {
           />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
-          <div>
-            <label className="admin-label">Ad EN</label>
-            <input name="name_en" className="admin-input mt-2" />
-          </div>
+        {(showEn || showRu || showAr) && (
+          <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
+            {showEn && (
+              <div>
+                <label className="admin-label">Ad EN</label>
+                <input name="name_en" className="admin-input mt-2" />
+              </div>
+            )}
 
-          <div>
-            <label className="admin-label">Ad RU</label>
-            <input name="name_ru" className="admin-input mt-2" />
-          </div>
+            {showRu && (
+              <div>
+                <label className="admin-label">Ad RU</label>
+                <input name="name_ru" className="admin-input mt-2" />
+              </div>
+            )}
 
-          <div>
-            <label className="admin-label">Ad AR</label>
-            <input name="name_ar" dir="rtl" className="admin-input mt-2" />
+            {showAr && (
+              <div>
+                <label className="admin-label">Ad AR</label>
+                <input name="name_ar" dir="rtl" className="admin-input mt-2" />
+              </div>
+            )}
           </div>
-        </div>
+        )}
 
         <div>
           <label className="admin-label">Sıralama</label>

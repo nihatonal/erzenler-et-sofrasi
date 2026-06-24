@@ -54,25 +54,83 @@
       "hoursLabel": "Çalışma Saatleri"
     }
   },
-  "menuPage": {
-    "label": "Mira Bistro Menü",
-    "title": "Lezzetlerimizi Keşfedin",
-    "description": "Özenle hazırlanan yemeklerimizi inceleyin ve favori lezzetlerinizi keşfedin.",
-
-    "all": "Tümü",
-    "starters": "Başlangıçlar",
-    "salads": "Salatalar",
-    "mains": "Ana Yemekler",
-    "burgers": "Burgerler",
-    "pasta": "Makarnalar",
-    "desserts": "Tatlılar",
-    "drinks": "İçecekler"
-  },
   "menu": {
-    "title": "Mira Bistro Menü",
-    "subtitle": "Taze malzemelerle hazırlanan lezzetlerimizi keşfedin.",
-    "all": "Tüm Menü",
-    "backToMenu": "Menüye Dön"
+    "eyebrow": "القائمة الرقمية",
+    "searchPlaceholder": "ابحث عن منتج...",
+    "allCategories": "الكل",
+    "add": "إضافة",
+    "menuOnly": "القائمة",
+    "free": "مجاني",
+    "orderMode": {
+      "table": "طلب على الطاولة",
+      "delivery": "طلب أونلاين",
+      "menuOnly": "القائمة فقط"
+    },
+    "badges": {
+      "popular": "الأكثر طلباً",
+      "recommended": "اختيار الشيف",
+      "new": "جديد",
+      "discounted": "مخفّض"
+    },
+    "empty": {
+      "title": "لم يتم العثور على منتجات",
+      "description": "جرّب فئة مختلفة أو كلمة بحث أخرى."
+    },
+    "detail": {
+      "eyebrow": "تفاصيل المنتج",
+      "options": "الخيارات",
+      "removables": "مكوّنات قابلة للإزالة",
+      "note": "ملاحظة الطلب",
+      "notePlaceholder": "مثال: نضج متوسط من فضلك",
+      "addToCart": "أضف إلى السلة",
+      "recommendations": "يتناسب جيداً مع هذا"
+    },
+    "cart": {
+      "items": "عناصر",
+      "view": "عرض السلة"
+    }
+  },
+  "checkout": {
+    "back": "العودة إلى القائمة",
+    "title": "سلة مشترياتك",
+    "without": "إزالة",
+    "note": "ملاحظة",
+    "empty": {
+      "title": "سلتك فارغة",
+      "description": "اختر عناصر من القائمة لتقديم طلبك.",
+      "backToMenu": "العودة إلى القائمة"
+    },
+    "success": {
+      "title": "تم استلام طلبك",
+      "description": "تم إرسال طلبك إلى المطعم وسيتم تحضيره في أقرب وقت.",
+      "backToMenu": "العودة إلى القائمة"
+    },
+    "table": {
+      "title": "طلب على الطاولة"
+    },
+    "delivery": {
+      "title": "تفاصيل التوصيل"
+    },
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "city": "المدينة",
+      "district": "الحي",
+      "neighborhood": "الحارة",
+      "street": "الشارع / الجادة",
+      "buildingNo": "رقم المبنى",
+      "floor": "الطابق",
+      "apartmentNo": "الشقة",
+      "addressNote": "ملاحظة العنوان",
+      "customerNote": "ملاحظة الطلب"
+    },
+    "summary": {
+      "subtotal": "المجموع الجزئي",
+      "total": "الإجمالي"
+    },
+    "submit": "تأكيد الطلب",
+    "submitting": "جارٍ الإرسال..."
   },
   "common": {
     "save": "Kaydet",
@@ -111,276 +169,6 @@
     },
 
     "copyright": "© 2026 Mira Bistro. Tüm hakları saklıdır."
-  },
-  "productDetail": {
-    "backToMenu": "Menüye Dön",
-    "backToQrMenu": "QR Menüye Dön",
-    "preparationTime": "Hazırlık Süresi",
-    "portion": "Porsiyon",
-    "viewFullMenu": "Tüm Menüyü Gör",
-    "makeReservation": "Rezervasyon Yap",
-    "relatedLabel": "Aynı Kategoriden",
-    "relatedTitle": "Bunları Da Beğenebilirsiniz",
-    "labels": {
-      "vegetarian": "Vejetaryen",
-      "vegan": "Vegan",
-      "glutenFree": "Glutensiz"
-    },
-    "categories": {
-      "starters": "Başlangıçlar",
-      "salads": "Salatalar",
-      "mains": "Ana Yemekler",
-      "burgers": "Burgerler",
-      "pasta": "Makarnalar",
-      "desserts": "Tatlılar",
-      "drinks": "İçecekler"
-    }
-  },
-  "adminLogin": {
-    "label": "Yönetim Paneli",
-    "title": "Admin Girişi",
-    "description": "Menü, masa ve QR kod yönetimi için hesabınıza giriş yapın.",
-    "email": "E-posta",
-    "password": "Şifre",
-    "remember": "Beni hatırla",
-    "forgotPassword": "Şifremi unuttum",
-    "loginButton": "Giriş Yap",
-    "demoTitle": "Demo:",
-    "demoText": "Supabase auth entegrasyonundan sonra gerçek giriş sistemi aktif edilecek."
-  },
-  "admin": {
-    "common": {
-      "create": "Oluştur",
-      "update": "Güncelle",
-      "delete": "Sil",
-      "edit": "Düzenle",
-      "save": "Kaydet",
-      "cancel": "İptal",
-      "back": "Geri Dön",
-      "search": "Ara",
-      "active": "Aktif",
-      "inactive": "Pasif",
-      "preview": "Önizle",
-      "actions": "İşlemler"
-    },
-    "sidebar": {
-      "dashboard": "Dashboard",
-      "products": "Ürünler",
-      "categories": "Kategoriler",
-      "tables": "Masalar & QR",
-      "reservations": "Rezervasyonlar",
-      "settings": "Ayarlar"
-    },
-    "header": {
-      "searchPlaceholder": "Ara...",
-      "adminName": "Admin",
-      "adminRole": "Süper Admin"
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "description": "Mira Bistro yönetim paneline tekrar hoş geldiniz.",
-      "stats": {
-        "totalProducts": "Toplam Ürün",
-        "qrTables": "QR Masalar",
-        "ordersToday": "Bugünkü Siparişler",
-        "revenue": "Gelir"
-      },
-      "recentOrders": {
-        "title": "Son Siparişler",
-        "description": "Restorandaki son aktiviteler.",
-        "table": "Masa",
-        "productsOrdered": "ürün sipariş edildi",
-        "timeAgo": "dk önce"
-      },
-      "qrUsage": {
-        "title": "QR Kullanımı",
-        "description": "QR menü performans özeti."
-      }
-    },
-    "products": {
-      "title": "Ürünler",
-      "description": "Menü ürünlerini, fiyatları ve kategorileri yönetin.",
-      "addProduct": "Ürün Ekle",
-      "searchPlaceholder": "Ürün ara...",
-      "empty": {
-        "title": "Ürün bulunamadı",
-        "description": "Henüz gösterilecek ürün yok. Yeni ürün ekleyerek başlayabilirsiniz."
-      },
-      "table": {
-        "product": "Ürün",
-        "category": "Kategori",
-        "price": "Fiyat",
-        "status": "Durum",
-        "actions": "İşlemler"
-      },
-      "status": {
-        "active": "Aktif",
-        "inactive": "Pasif"
-      },
-      "form": {
-        "addTitle": "Ürün Ekle",
-        "addDescription": "Restoranınız için yeni bir menü ürünü oluşturun.",
-        "editTitle": "Ürünü Düzenle",
-        "editDescription": "Menü ürünü detaylarını güncelleyin.",
-        "productName": "Ürün Adı",
-        "description": "Açıklama",
-        "descPlaceHolder": "Write product description...",
-        "price": "Fiyat",
-        "category": "Kategori",
-        "preparationTime": "Hazırlık Süresi",
-        "portion": "Porsiyon",
-        "productImage": "Ürün Görseli",
-        "uploadImage": "Ürün Görseli Yükle",
-        "chooseFile": "Dosya Seç",
-        "visibility": "Görünürlük",
-        "featuredProduct": "Öne Çıkan Ürün",
-        "productActive": "Ürün Aktif",
-        "createProduct": "Ürün Oluştur",
-        "updateProduct": "Ürünü Güncelle",
-        "vegetarian": "Vejetaryen",
-        "vegan": "Vegan",
-        "glutenFree": "Glutensiz"
-      }
-    },
-    "categories": {
-      "title": "Kategoriler",
-      "description": "Menü kategorilerini yönetin.",
-      "listTitle": "Menü Kategorileri",
-      "listDescription": "Restoran menünüzü kategorilere ayırın.",
-      "addCategory": "Kategori Ekle",
-      "searchPlaceholder": "Kategori ara...",
-      "empty": {
-        "title": "Kategori bulunamadı",
-        "description": "Henüz gösterilecek kategori yok. Yeni kategori ekleyerek başlayabilirsiniz."
-      },
-
-      "status": {
-        "active": "Aktif",
-        "inactive": "Pasif"
-      },
-      "table": {
-        "category": "Kategori",
-        "slug": "Slug",
-        "status": "Durum",
-        "actions": "İşlemler"
-      },
-
-      "form": {
-        "addTitle": "Kategori Ekle",
-        "addDescription": "Yeni menü kategorisi oluşturun.",
-
-        "editTitle": "Kategori Düzenle",
-        "editDescription": "Kategori detaylarını güncelleyin.",
-
-        "categoryName": "Kategori Adı",
-        "slug": "Slug",
-        "description": "Açıklama",
-
-        "visibility": "Görünürlük",
-
-        "featuredCategory": "Öne Çıkan Kategori",
-        "categoryActive": "Kategori Aktif",
-
-        "createCategory": "Kategori Oluştur",
-        "updateCategory": "Kategoriyi Güncelle"
-      }
-    },
-    "tables": {
-      "title": "QR Kodlar",
-      "description": "Restoran masalarını ve QR menü erişimini yönetin.",
-      "addTable": "Masa Ekle",
-      "searchPlaceholder": "Masa ara...",
-      "empty": {
-        "title": "Masa bulunamadı",
-        "description": "Henüz gösterilecek masa yok. Yeni masa ekleyerek başlayabilirsiniz."
-      },
-      "table": {
-        "table": "Masa",
-        "capacity": "Kapasite",
-        "status": "Durum",
-        "qrUrl": "QR URL",
-        "actions": "İşlemler"
-      },
-      "status": {
-        "available": "Müsait",
-        "occupied": "Dolu",
-        "maintenance": "Bakımda",
-        "active": "Aktif",
-        "inactive": "Pasif"
-      },
-      "form": {
-        "addTitle": "Masa Ekle",
-        "addDescription": "Yeni masa ve QR erişimi oluşturun.",
-        "editTitle": "Masa Düzenle",
-        "editDescription": "Masa bilgilerini ve QR görünürlüğünü güncelleyin.",
-        "tableName": "Masa Adı",
-        "tableSlug": "Masa Slug",
-        "capacity": "Kapasite",
-        "status": "Durum",
-        "statuses": {
-          "available": "Müsait",
-          "occupied": "Dolu",
-          "maintenance": "Bakımda"
-        },
-        "qrPreview": "QR Önizleme",
-        "qrUrl": "QR URL",
-        "visibility": "Görünürlük",
-        "qrActive": "QR Aktif",
-        "tableActive": "Masa Aktif",
-        "createTable": "Masa Oluştur",
-        "updateTable": "Masayı Güncelle"
-      },
-      "preview": "Önizle"
-    },
-    "reservations": {
-      "title": "Rezervasyonlar",
-      "description": "Müşteri rezervasyon taleplerini yönetin.",
-      "empty": {
-        "title": "Rezervasyon bulunamadı",
-        "description": "Henüz gelen rezervasyon talebi yok."
-      },
-      "table": {
-        "guest": "Misafir",
-        "date": "Tarih",
-        "time": "Saat",
-        "people": "Kişi",
-        "status": "Durum",
-        "note": "Not",
-        "actions": "İşlem"
-      },
-      "status": {
-        "pending": "Bekliyor",
-        "confirmed": "Onaylandı",
-        "cancelled": "İptal"
-      },
-      "actions": {
-        "confirm": "Onayla",
-        "cancel": "İptal Et"
-      }
-    },
-    "empty": {
-      "title": "Kayıt bulunamadı",
-      "description": "Henüz gösterilecek bir kayıt yok."
-    }
-  },
-  "galleryPage": {
-    "hero": {
-      "label": "Galeri",
-      "title": "Mira Bistro Atmosferini Keşfedin",
-      "description": "Lezzetlerimizden iç mekan detaylarına, Mira Bistro deneyimini yansıtan seçili kareler."
-    },
-    "filters": {
-      "all": "Tümü",
-      "food": "Lezzetler",
-      "interior": "İç Mekan",
-      "ambience": "Atmosfer"
-    },
-    "cta": {
-      "title": "Bu Deneyimi Yerinde Yaşayın",
-      "description": "Mira Bistro’nun sıcak atmosferini ve özel lezzetlerini keşfetmek için sizi bekliyoruz.",
-      "reservation": "Rezervasyon Yap",
-      "menu": "Menüyü İncele"
-    }
   },
   "contactPage": {
     "hero": {

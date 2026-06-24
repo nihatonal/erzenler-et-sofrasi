@@ -12,21 +12,31 @@ type ProductRemovable = {
   sort_order: number | null;
   is_active: boolean;
 };
+type LocaleCode = "tr" | "en" | "ru" | "ar";
 
 type ProductRemovablesPanelProps = {
   productId: string;
   removables: ProductRemovable[];
+  enabledLocales?: LocaleCode[];
   createAction: (productId: string, formData: FormData) => Promise<void> | void;
-  deleteAction: (productId: string, removableId: string) => Promise<void> | void;
+  deleteAction: (
+    productId: string,
+    removableId: string,
+  ) => Promise<void> | void;
 };
 
 export function ProductRemovablesPanel({
   productId,
   removables,
+  enabledLocales,
   createAction,
   deleteAction,
 }: ProductRemovablesPanelProps) {
   const [items, setItems] = useState(removables);
+  const activeLocales = enabledLocales || ["tr", "en", "ru", "ar"];
+  const showEn = activeLocales.includes("en");
+  const showRu = activeLocales.includes("ru");
+  const showAr = activeLocales.includes("ar");
 
   async function handleCreate(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -107,16 +117,26 @@ export function ProductRemovablesPanel({
           </div>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
-          <input name="name_en" placeholder="EN" className="admin-input" />
-          <input name="name_ru" placeholder="RU" className="admin-input" />
-          <input
-            name="name_ar"
-            placeholder="AR"
-            dir="rtl"
-            className="admin-input"
-          />
-        </div>
+        {(showEn || showRu || showAr) && (
+          <div className="grid gap-4 lg:grid-cols-3">
+            {showEn && (
+              <input name="name_en" placeholder="EN" className="admin-input" />
+            )}
+
+            {showRu && (
+              <input name="name_ru" placeholder="RU" className="admin-input" />
+            )}
+
+            {showAr && (
+              <input
+                name="name_ar"
+                placeholder="AR"
+                dir="rtl"
+                className="admin-input"
+              />
+            )}
+          </div>
+        )}
 
         <div className="flex items-center justify-between gap-4">
           <label className="flex items-center gap-3 text-sm font-medium text-brand-green">

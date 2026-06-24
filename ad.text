@@ -1,198 +1,145 @@
-insert into products (
+
+
+with target_category as (
+  select id
+  from public.categories
+  where restaurant_id = '079f545e-d21f-4fe0-8ac6-265aeefceeee'
+    and slug = 'tava-izgara-cesitleri'
+  limit 1
+),
+
+product_seed as (
+  select * from (
+    values
+      (
+        'et-sote',
+        'Et Sote',
+        'Meat Sauté',
+        'Мясное соте',
+        'سوتيه لحم',
+        'Pilav, ekmek ve meze ile servis edilir.',
+        'Served with rice, bread and meze.',
+        'Подаётся с рисом, хлебом и мезе.',
+        'يقدم مع الأرز والخبز والمقبلات.',
+        600
+      ),
+      (
+        'sac-tava',
+        'Saç Tava',
+        'Sac Tava',
+        'Садж тава',
+        'ساج طاوة',
+        'Pilav, ekmek ve meze ile servis edilir.',
+        'Served with rice, bread and meze.',
+        'Подаётся с рисом, хлебом и мезе.',
+        'يقدم مع الأرز والخبز والمقبلات.',
+        600
+      ),
+      (
+        'coban-kavurma',
+        'Çoban Kavurma',
+        'Çoban Kavurma',
+        'Чобан кавурма',
+        'تشوبان قاورما',
+        'Pilav, ekmek ve meze ile servis edilir.',
+        'Served with rice, bread and meze.',
+        'Подаётся с рисом, хлебом и мезе.',
+        'يقدم مع الأرز والخبز والمقبلات.',
+        600
+      ),
+      (
+        'tavuk-sote',
+        'Tavuk Sote',
+        'Chicken Sauté',
+        'Куриное соте',
+        'سوتيه دجاج',
+        'Pilav, ekmek ve meze ile servis edilir.',
+        'Served with rice, bread and meze.',
+        'Подаётся с рисом, хлебом и мезе.',
+        'يقدم مع الأرز والخبز والمقبلات.',
+        400
+      ),
+      (
+        'kuzu-ciger',
+        'Kuzu Ciğer',
+        'Lamb Liver',
+        'Баранья печень',
+        'كبدة ضأن',
+        'Bulgur Pilavı, Lavaş, Sumaklı Soğan, Közlenmiş Biber ve Meze ile servis edilir.',
+        'Served with bulgur pilaf, lavash, sumac onion, roasted pepper and meze.',
+        'Подаётся с булгуром, лавашом, луком с сумахом, печёным перцем и мезе.',
+        'يقدم مع البرغل واللافاش والبصل بالسماق والفلفل المشوي والمقبلات.',
+        450
+      )
+  ) as t(
+    slug,
+    name_tr,
+    name_en,
+    name_ru,
+    name_ar,
+    description_tr,
+    description_en,
+    description_ru,
+    description_ar,
+    price_try
+  )
+)
+
+insert into public.products (
   restaurant_id,
   category_id,
   slug,
-
   name_tr,
   name_en,
   name_ru,
   name_ar,
-
   description_tr,
   description_en,
   description_ru,
   description_ar,
-
   image_url,
-
   price_try,
   old_price_try,
   discount_percent,
-
   is_active,
   is_popular,
   is_recommended,
   is_new,
   is_discounted,
-
   is_vegetarian,
   is_vegan,
   is_gluten_free,
   is_spicy
 )
-values
-
-(
+select
   '079f545e-d21f-4fe0-8ac6-265aeefceeee',
-  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
-  'ezo-gelin-corbasi',
-
-  'Ezo Gelin Çorbası',
-  'Ezogelin Soup',
-  'Суп Эзогелин',
-  'شوربة إيزو جيلين',
-
-  'Tırnaklı Pide ve Söğüş ile servis edilir.',
-  'Served with Turkish bread and garnish.',
-  'Подаётся с хлебом и гарниром.',
-  'يقدم مع الخبز والمقبلات.',
-
+  (select id from target_category),
+  ps.slug,
+  ps.name_tr,
+  ps.name_en,
+  ps.name_ru,
+  ps.name_ar,
+  ps.description_tr,
+  ps.description_en,
+  ps.description_ru,
+  ps.description_ar,
   null,
-
-  180,
+  ps.price_try,
   null,
   null,
-
-  true,
-  true,
-  false,
-  false,
-  false,
-
-  true,
-  true,
-  false,
-  false
-),
-
-(
-  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
-  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
-  'tavuk-suyu-corbasi',
-
-  'Tavuk Suyu Çorbası',
-  'Chicken Broth Soup',
-  'Куриный суп',
-  'شوربة مرق الدجاج',
-
-  'Tırnaklı Pide ve Söğüş ile servis edilir.',
-  'Served with Turkish bread and garnish.',
-  'Подаётся с хлебом и гарниром.',
-  'يقدم مع الخبز والمقبلات.',
-
-  null,
-
-  250,
-  null,
-  null,
-
   true,
   false,
   false,
   false,
   false,
-
   false,
   false,
   false,
   false
-),
-
-(
-  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
-  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
-  'mercimek-corbasi',
-
-  'Mercimek Çorbası',
-  'Lentil Soup',
-  'Чечевичный суп',
-  'شوربة العدس',
-
-  'Tırnaklı Pide ve Söğüş ile servis edilir.',
-  'Served with Turkish bread and garnish.',
-  'Подаётся с хлебом и гарниром.',
-  'يقدم مع الخبز والمقبلات.',
-
-  null,
-
-  180,
-  null,
-  null,
-
-  true,
-  true,
-  false,
-  false,
-  false,
-
-  true,
-  true,
-  false,
-  false
-),
-
-(
-  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
-  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
-  'iskembe-corbasi',
-
-  'İşkembe Çorbası',
-  'Tripe Soup',
-  'Суп из рубца',
-  'Суп из рубца',
-
-  'Tırnaklı Pide ve Söğüş ile servis edilir.',
-  'Served with Turkish bread and garnish.',
-  'Подаётся с хлебом и гарниром.',
-  'يقدم مع الخبز والمقبلات.',
-
-  null,
-
-  360,
-  null,
-  null,
-
-  true,
-  false,
-  true,
-  false,
-  false,
-
-  false,
-  false,
-  true,
-  true
-),
-
-(
-  '079f545e-d21f-4fe0-8ac6-265aeefceeee',
-  'fcfa3584-4b2c-4c68-91f1-6f9e6b4a134b',
-  'kelle-paca-corbasi',
-
-  'Kelle Paça Çorbası',
-  'Kelle Paca Soup',
-  'Суп Келле Пача',
-  'شوربة كيلي باشا',
-
-  'Tırnaklı Pide ve Söğüş ile servis edilir.',
-  'Served with Turkish bread and garnish.',
-  'Подаётся с хлебом и гарниром.',
-  'يقدم مع الخبز والمقبلات.',
-
-  null,
-
-  360,
-  null,
-  null,
-
-  true,
-  false,
-  true,
-  false,
-  false,
-
-  false,
-  false,
-  true,
-  true
+from product_seed ps
+where not exists (
+  select 1
+  from public.products p
+  where p.restaurant_id = '079f545e-d21f-4fe0-8ac6-265aeefceeee'
+    and p.slug = ps.slug
 );

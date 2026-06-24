@@ -5,12 +5,27 @@ import { getAdminRestaurant } from "@/lib/admin/get-admin-restaurant";
 export default async function NewProductPage() {
   const { supabase, restaurantId } = await getAdminRestaurant();
 
-  const { data: categories } = await supabase
-    .from("categories")
-    .select("id, name_tr")
-    .eq("restaurant_id", restaurantId)
-    .eq("is_active", true)
-    .order("sort_order", { ascending: true });
+  const [categoriesResult, settingsResult] = await Promise.all([
+    supabase
+      .from("categories")
+      .select("id, name_tr")
+      .eq("restaurant_id", restaurantId)
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true }),
+
+    supabase
+      .from("restaurant_settings")
+      .select("enabled_locales")
+      .eq("restaurant_id", restaurantId)
+      .single(),
+  ]);
+
+  const enabledLocales = settingsResult.data?.enabled_locales || [
+    "tr",
+    "en",
+    "ru",
+    "ar",
+  ];
 
   return (
     <>
@@ -24,7 +39,8 @@ export default async function NewProductPage() {
 
         <ProductForm
           mode="create"
-          categories={categories || []}
+          categories={categoriesResult.data || []}
+          enabledLocales={enabledLocales}
           action={createProductAction}
         />
       </main>

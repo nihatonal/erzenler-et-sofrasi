@@ -7,6 +7,8 @@ import { ArrowLeft, ImagePlus } from "lucide-react";
 
 import { uploadProductImage } from "@/lib/supabase/upload-product-image";
 
+type LocaleCode = "tr" | "en" | "ru" | "ar";
+
 type Category = {
   id: string;
   name_tr: string;
@@ -50,6 +52,7 @@ type ProductFormProps = {
   mode: "create" | "edit";
   product?: Product;
   categories: Category[];
+  enabledLocales?: LocaleCode[];
   action: (formData: FormData) => void;
 };
 
@@ -57,6 +60,7 @@ export function ProductForm({
   mode,
   product,
   categories,
+  enabledLocales,
   action,
 }: ProductFormProps) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -67,6 +71,12 @@ export function ProductForm({
 
   const [imageUrl, setImageUrl] = useState(product?.image_url || "");
   const [isUploading, setIsUploading] = useState(false);
+
+  const activeLocales = enabledLocales || ["tr", "en", "ru", "ar"];
+
+  const showEn = activeLocales.includes("en");
+  const showRu = activeLocales.includes("ru");
+  const showAr = activeLocales.includes("ar");
 
   async function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -106,7 +116,38 @@ export function ProductForm({
   return (
     <form className="grid gap-8 xl:grid-cols-[1fr_380px]" action={action}>
       <input type="hidden" name="image_url" value={imageUrl} />
+      {!showEn && (
+        <>
+          <input type="hidden" name="name_en" value={product?.name_en || ""} />
+          <input
+            type="hidden"
+            name="description_en"
+            value={product?.description_en || ""}
+          />
+        </>
+      )}
 
+      {!showRu && (
+        <>
+          <input type="hidden" name="name_ru" value={product?.name_ru || ""} />
+          <input
+            type="hidden"
+            name="description_ru"
+            value={product?.description_ru || ""}
+          />
+        </>
+      )}
+
+      {!showAr && (
+        <>
+          <input type="hidden" name="name_ar" value={product?.name_ar || ""} />
+          <input
+            type="hidden"
+            name="description_ar"
+            value={product?.description_ar || ""}
+          />
+        </>
+      )}
       <div className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
         <div className="mb-6">
           <Link
@@ -152,68 +193,84 @@ export function ProductForm({
             />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3 bg-brand-greenLight/10 p-2 rounded-xl">
-            <div>
-              <label className="admin-label">Ürün Adı EN</label>
-              <input
-                name="name_en"
-                defaultValue={product?.name_en || ""}
-                className="admin-input mt-3"
-              />
-            </div>
+          {(showEn || showRu || showAr) && (
+            <div className="grid gap-6 md:grid-cols-3 bg-brand-greenLight/10 p-2 rounded-xl">
+              {showEn && (
+                <div>
+                  <label className="admin-label">Ürün Adı EN</label>
+                  <input
+                    name="name_en"
+                    defaultValue={product?.name_en || ""}
+                    className="admin-input mt-3"
+                  />
+                </div>
+              )}
 
-            <div>
-              <label className="admin-label">Ürün Adı RU</label>
-              <input
-                name="name_ru"
-                defaultValue={product?.name_ru || ""}
-                className="admin-input mt-3"
-              />
-            </div>
+              {showRu && (
+                <div>
+                  <label className="admin-label">Ürün Adı RU</label>
+                  <input
+                    name="name_ru"
+                    defaultValue={product?.name_ru || ""}
+                    className="admin-input mt-3"
+                  />
+                </div>
+              )}
 
-            <div>
-              <label className="admin-label">Ürün Adı AR</label>
-              <input
-                name="name_ar"
-                dir="rtl"
-                defaultValue={product?.name_ar || ""}
-                className="admin-input mt-3"
-              />
+              {showAr && (
+                <div>
+                  <label className="admin-label">Ürün Adı AR</label>
+                  <input
+                    name="name_ar"
+                    dir="rtl"
+                    defaultValue={product?.name_ar || ""}
+                    className="admin-input mt-3"
+                  />
+                </div>
+              )}
             </div>
-          </div>
+          )}
 
-          <div className="grid gap-6 md:grid-cols-3 bg-brand-greenLight/10 p-2 rounded-xl">
-            <div>
-              <label className="admin-label">Açıklama EN</label>
-              <textarea
-                name="description_en"
-                rows={4}
-                defaultValue={product?.description_en || ""}
-                className="admin-input mt-3 py-4"
-              />
-            </div>
+          {(showEn || showRu || showAr) && (
+            <div className="grid gap-6 md:grid-cols-3 bg-brand-greenLight/10 p-2 rounded-xl">
+              {showEn && (
+                <div>
+                  <label className="admin-label">Açıklama EN</label>
+                  <textarea
+                    name="description_en"
+                    rows={4}
+                    defaultValue={product?.description_en || ""}
+                    className="admin-input mt-3 py-4"
+                  />
+                </div>
+              )}
 
-            <div>
-              <label className="admin-label">Açıklama RU</label>
-              <textarea
-                name="description_ru"
-                rows={4}
-                defaultValue={product?.description_ru || ""}
-                className="admin-input mt-3 py-4"
-              />
-            </div>
+              {showRu && (
+                <div>
+                  <label className="admin-label">Açıklama RU</label>
+                  <textarea
+                    name="description_ru"
+                    rows={4}
+                    defaultValue={product?.description_ru || ""}
+                    className="admin-input mt-3 py-4"
+                  />
+                </div>
+              )}
 
-            <div>
-              <label className="admin-label">Açıklama AR</label>
-              <textarea
-                name="description_ar"
-                rows={4}
-                dir="rtl"
-                defaultValue={product?.description_ar || ""}
-                className="admin-input mt-3 py-4"
-              />
+              {showAr && (
+                <div>
+                  <label className="admin-label">Açıklama AR</label>
+                  <textarea
+                    name="description_ar"
+                    rows={4}
+                    dir="rtl"
+                    defaultValue={product?.description_ar || ""}
+                    className="admin-input mt-3 py-4"
+                  />
+                </div>
+              )}
             </div>
-          </div>
+          )}
 
           <div className="grid gap-6 md:grid-cols-3">
             <div>

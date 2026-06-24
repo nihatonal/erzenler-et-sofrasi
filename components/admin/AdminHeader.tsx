@@ -3,8 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { LanguageSwitcher } from "../language/LanguageSwitcher";
 import { type Locale } from "@/i18n";
 import { LogOut } from "lucide-react";
-import { logoutAction } from "@/app/[locale]/(auth)/admin/login/actions";
-import { AdminMobileMenu } from "./AdminMobileMenu";
+import { logoutAction } from "@/app/admin/(auth)/login/actions";
+
+
 
 type AdminHeaderProps = {
   title: string;
@@ -22,7 +23,7 @@ export async function AdminHeader({
     locale: currentLocale,
     namespace: "admin.header",
   });
-  const logout = logoutAction.bind(null, locale);
+  const logout = logoutAction.bind(null);
   return (
     <header className="flex h-24 max-w-full items-center overflow-x-hidden border-b border-neutral-200 bg-white px-4 lg:px-10">
       <div className="flex min-w-0 flex-1 items-center justify-between gap-3">
@@ -73,8 +74,6 @@ export async function AdminHeader({
               <p className="text-xs text-neutral-500">{t("adminRole")}</p>
             </div>
           </div>
-
-          <AdminMobileMenu locale={locale as Locale} />
         </div>
       </div>
     </header>

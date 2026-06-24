@@ -8,8 +8,11 @@ import {
 } from "@/app/admin/(dashboard)/categories/actions";
 import type { CategoryRow } from "./AdminCategoriesClient";
 
+type LocaleCode = "tr" | "en" | "ru" | "ar";
+
 type CategoryCardProps = {
   category: CategoryRow;
+  enabledLocales?: LocaleCode[];
   onOptimisticUpdate: (categoryId: string, category: CategoryRow) => void;
   onOptimisticDelete: (categoryId: string) => void;
 };
@@ -30,9 +33,15 @@ function toSlug(value: string) {
 
 export function CategoryCard({
   category,
+  enabledLocales,
   onOptimisticUpdate,
   onOptimisticDelete,
 }: CategoryCardProps) {
+  const activeLocales = enabledLocales || ["tr", "en", "ru", "ar"];
+  const showEn = activeLocales.includes("en");
+  const showRu = activeLocales.includes("ru");
+  const showAr = activeLocales.includes("ar");
+
   async function handleUpdate(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -64,7 +73,9 @@ export function CategoryCard({
   }
 
   async function handleDelete() {
-    const confirmed = confirm("Bu kategoriyi silmek istediğinize emin misiniz?");
+    const confirmed = confirm(
+      "Bu kategoriyi silmek istediğinize emin misiniz?",
+    );
     if (!confirmed) return;
 
     onOptimisticDelete(category.id);
@@ -82,6 +93,15 @@ export function CategoryCard({
       onSubmit={handleUpdate}
       className="rounded-2xl border border-brand-sand bg-white p-4"
     >
+      {!showEn && (
+        <input type="hidden" name="name_en" value={category.name_en || ""} />
+      )}
+      {!showRu && (
+        <input type="hidden" name="name_ru" value={category.name_ru || ""} />
+      )}
+      {!showAr && (
+        <input type="hidden" name="name_ar" value={category.name_ar || ""} />
+      )}
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr_90px_110px]">
         <div>
           <label className="admin-label">TR</label>
@@ -123,29 +143,37 @@ export function CategoryCard({
         </label>
       </div>
 
-      <div className="mt-4 grid gap-4 lg:grid-cols-3">
-        <input
-          name="name_en"
-          defaultValue={category.name_en || ""}
-          placeholder="EN"
-          className="admin-input"
-        />
+      {(showEn || showRu || showAr) && (
+        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+          {showEn && (
+            <input
+              name="name_en"
+              defaultValue={category.name_en || ""}
+              placeholder="EN"
+              className="admin-input"
+            />
+          )}
 
-        <input
-          name="name_ru"
-          defaultValue={category.name_ru || ""}
-          placeholder="RU"
-          className="admin-input"
-        />
+          {showRu && (
+            <input
+              name="name_ru"
+              defaultValue={category.name_ru || ""}
+              placeholder="RU"
+              className="admin-input"
+            />
+          )}
 
-        <input
-          name="name_ar"
-          defaultValue={category.name_ar || ""}
-          placeholder="AR"
-          dir="rtl"
-          className="admin-input"
-        />
-      </div>
+          {showAr && (
+            <input
+              name="name_ar"
+              defaultValue={category.name_ar || ""}
+              placeholder="AR"
+              dir="rtl"
+              className="admin-input"
+            />
+          )}
+        </div>
+      )}
 
       <div className="mt-4 flex justify-end gap-2">
         <button

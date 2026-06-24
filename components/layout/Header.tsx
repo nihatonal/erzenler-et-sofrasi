@@ -66,10 +66,10 @@ export function Header({ locale }: HeaderProps) {
           <Link href={`/${locale}`} className="group">
             <div className="text-center leading-none text-white">
               <div className="font-display text-4xl tracking-[0.18em] transition group-hover:text-brand-gold">
-                MIRA
+                ERZENLER
               </div>
               <div className="mt-1 text-xs tracking-[0.35em] text-white/80">
-                BISTRO
+                ET SOFRASI
               </div>
             </div>
           </Link>

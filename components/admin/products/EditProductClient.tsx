@@ -23,6 +23,7 @@ type CategoryRow = {
   id: string;
   name_tr: string;
 };
+type LocaleCode = "tr" | "en" | "ru" | "ar";
 
 type ProductRow = {
   id: string;
@@ -117,6 +118,12 @@ export function EditProductClient({
   const [recommendationProducts, setRecommendationProducts] = useState<
     RecommendationProductOption[]
   >([]);
+  const [enabledLocales, setEnabledLocales] = useState<LocaleCode[]>([
+    "tr",
+    "en",
+    "ru",
+    "ar",
+  ]);
 
   const loadProductData = useCallback(async () => {
     setIsLoading(true);
@@ -132,6 +139,7 @@ export function EditProductClient({
         removablesResult,
         recommendationsResult,
         recommendationProductsResult,
+        settingsResult,
       ] = await Promise.all([
         supabase
           .from("products")
@@ -236,6 +244,12 @@ export function EditProductClient({
           .eq("is_active", true)
           .neq("id", productId)
           .order("name_tr", { ascending: true }),
+
+        supabase
+          .from("restaurant_settings")
+          .select("enabled_locales")
+          .eq("restaurant_id", restaurantId)
+          .single(),
       ]);
 
       if (productResult.error || !productResult.data) {
@@ -249,7 +263,26 @@ export function EditProductClient({
       setRecommendations(
         (recommendationsResult.data || []) as ProductRecommendation[],
       );
-
+      setEnabledLocales(
+        (
+          (settingsResult.data?.enabled_locales || [
+            "tr",
+            "en",
+            "ru",
+            "ar",
+          ]) as LocaleCode[]
+        ).includes("tr")
+          ? (settingsResult.data?.enabled_locales as LocaleCode[]) || [
+              "tr",
+              "en",
+              "ru",
+              "ar",
+            ]
+          : [
+              "tr",
+              ...((settingsResult.data?.enabled_locales || []) as LocaleCode[]),
+            ],
+      );
       setRecommendationProducts(
         (recommendationProductsResult.data ||
           []) as RecommendationProductOption[],
@@ -305,12 +338,14 @@ export function EditProductClient({
         mode="edit"
         product={product}
         categories={categories}
+        enabledLocales={enabledLocales}
         action={updateProductAction.bind(null, product.id)}
       />
 
       <ProductOptionsPanel
         productId={product.id}
         options={options}
+        enabledLocales={enabledLocales}
         createAction={createProductOptionAction}
         deleteAction={deleteProductOptionAction}
       />
@@ -318,6 +353,7 @@ export function EditProductClient({
       <ProductRemovablesPanel
         productId={product.id}
         removables={removables}
+        enabledLocales={enabledLocales}
         createAction={createProductRemovableAction}
         deleteAction={deleteProductRemovableAction}
       />

@@ -1,181 +1,89 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowLeft, QrCode } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useState, useTransition } from "react";
+import { createTableAction } from "@/app/admin/(dashboard)/tables/actions";
 
-import { type Locale } from '@/i18n';
-import { type RestaurantTable } from '@/data/tables';
 
 type TableFormProps = {
-  locale: Locale;
-  mode: 'create' | 'edit';
-  table?: RestaurantTable;
-  action?: (formData: FormData) => void;
+  mode: "create";
+  onCreated: () => void;
+  onCancel: () => void;
 };
 
-export function TableForm({
-  locale,
-  mode,
-  table,
-  action,
-}: TableFormProps) {
-  const isEdit = mode === 'edit';
+export function TableForm({ onCreated, onCancel }: TableFormProps) {
+  const [isPending, startTransition] = useTransition();
+  const [label, setLabel] = useState("");
+  const [capacity, setCapacity] = useState(4);
 
-  const t = useTranslations('admin.tables.form');
-  const common = useTranslations('admin.common');
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("label", label);
+    formData.append("capacity", String(capacity));
+    formData.append("status", "available");
+    formData.append("qr_active", "on");
+    formData.append("is_active", "on");
+
+    startTransition(async () => {
+      try {
+        await createTableAction(formData);
+        setLabel("");
+        setCapacity(4);
+        onCreated();
+      } catch (error) {
+        console.error(error);
+        alert("Masa oluşturulamadı.");
+      }
+    });
+  }
 
   return (
-    <main className="flex-1 p-6 lg:p-10">
-      <div className="mb-6">
-        <Link
-          href={`/${locale}/admin/tables`}
-          className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-brand-gold transition hover:text-brand-goldDark"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {common('back')}
-        </Link>
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-2xl border border-brand-sand bg-white p-5"
+    >
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <label className="admin-label">Masa Adı</label>
+          <input
+            value={label}
+            onChange={(event) => setLabel(event.target.value)}
+            className="admin-input mt-2"
+            placeholder="Masa 1"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="admin-label">Kapasite</label>
+          <input
+            type="number"
+            min={1}
+            value={capacity}
+            onChange={(event) => setCapacity(Number(event.target.value))}
+            className="admin-input mt-2"
+          />
+        </div>
       </div>
 
-      <form
-        action={action}
-        className="grid gap-8 xl:grid-cols-[1fr_360px]"
-      >
-        <div className="admin-card p-6 lg:p-8">
-          <div className="grid gap-6">
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                {t('tableName')}
-              </label>
+      <div className="mt-5 flex justify-end gap-3">
+        <button
+          type="button"
+          onClick={onCancel}
+          className="h-11 rounded-xl border border-brand-sand px-5 text-sm font-semibold"
+        >
+          Vazgeç
+        </button>
 
-              <input
-                name="label"
-                type="text"
-                defaultValue={table?.label ?? ''}
-                placeholder="Table 1"
-                className="mt-3 h-14 w-full border border-neutral-200 bg-[#FAF8F3] px-4 text-sm outline-none transition focus:border-brand-gold"
-              />
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                {t('tableSlug')}
-              </label>
-
-              <input
-                name="slug"
-                type="text"
-                defaultValue={table?.slug ?? ''}
-                placeholder="table-1"
-                className="mt-3 h-14 w-full border border-neutral-200 bg-[#FAF8F3] px-4 text-sm outline-none transition focus:border-brand-gold"
-              />
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                {t('capacity')}
-              </label>
-
-              <input
-                name="capacity"
-                type="number"
-                defaultValue={table?.capacity ?? ''}
-                placeholder="4"
-                className="mt-3 h-14 w-full border border-neutral-200 bg-[#FAF8F3] px-4 text-sm outline-none transition focus:border-brand-gold"
-              />
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
-                {t('status')}
-              </label>
-
-              <select
-                name="status"
-                defaultValue={table?.status ?? 'available'}
-                className="mt-3 h-14 w-full border border-neutral-200 bg-[#FAF8F3] px-4 text-sm outline-none transition focus:border-brand-gold"
-              >
-                <option value="available">
-                  {t('statuses.available')}
-                </option>
-
-                <option value="occupied">
-                  {t('statuses.occupied')}
-                </option>
-
-                <option value="maintenance">
-                  {t('statuses.maintenance')}
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-8">
-          <div className="admin-card p-6">
-            <h2 className="text-lg font-semibold text-dark-bg">
-              {t('qrPreview')}
-            </h2>
-
-            <div className="mt-6 flex items-center justify-center border border-neutral-200 bg-[#FAF8F3] p-10">
-              <div className="flex h-52 w-52 items-center justify-center border border-neutral-300 bg-white shadow-sm">
-                <QrCode className="h-32 w-32 text-dark-bg" />
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-lg border border-neutral-200 bg-[#FAF8F3] p-4">
-              <p className="text-xs uppercase tracking-[0.14em] text-neutral-500">
-                {t('qrUrl')}
-              </p>
-
-              <p className="mt-2 truncate text-sm font-medium text-dark-bg">
-                /{locale}/qr/{table?.slug ?? 'table-id'}
-              </p>
-            </div>
-          </div>
-
-          <div className="admin-card p-6">
-            <h2 className="text-lg font-semibold text-dark-bg">
-              {t('visibility')}
-            </h2>
-
-            <div className="mt-5 space-y-4">
-              <label className="flex items-center justify-between border border-neutral-200 bg-[#FAF8F3] px-4 py-4">
-                <span className="text-sm font-medium text-dark-bg">
-                  {t('qrActive')}
-                </span>
-
-                <input
-                  name="qr_active"
-                  type="checkbox"
-                  defaultChecked={table?.qrActive ?? true}
-                  className="h-4 w-4 accent-brand-gold"
-                />
-              </label>
-
-              <label className="flex items-center justify-between border border-neutral-200 bg-[#FAF8F3] px-4 py-4">
-                <span className="text-sm font-medium text-dark-bg">
-                  {t('tableActive')}
-                </span>
-
-                <input
-                  name="is_active"
-                  type="checkbox"
-                  defaultChecked={table?.isActive ?? true}
-                  className="h-4 w-4 accent-brand-gold"
-                />
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="mt-6 flex h-14 w-full items-center justify-center bg-brand-gold text-sm font-bold uppercase tracking-[0.14em] text-white shadow-gold transition hover:bg-brand-goldLight"
-            >
-              {isEdit ? t('updateTable') : t('createTable')}
-            </button>
-          </div>
-        </div>
-      </form>
-    </main>
+        <button
+          disabled={isPending}
+          type="submit"
+          className="h-11 rounded-xl bg-brand-red px-5 text-sm font-bold text-white disabled:opacity-60"
+        >
+          {isPending ? "Oluşturuluyor..." : "Masa Oluştur"}
+        </button>
+      </div>
+    </form>
   );
 }

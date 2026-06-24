@@ -3,8 +3,10 @@
 import type { CategoryRow } from "./AdminCategoriesClient";
 import { CategoryCard } from "./CategoryCard";
 
+type LocaleCode = "tr" | "en" | "ru" | "ar";
 type CategoryListProps = {
   categories: CategoryRow[];
+  enabledLocales?: LocaleCode[];
   onOptimisticUpdate: (categoryId: string, category: CategoryRow) => void;
   onOptimisticDelete: (categoryId: string) => void;
 };
@@ -12,6 +14,7 @@ type CategoryListProps = {
 export function CategoryList({
   categories,
   onOptimisticUpdate,
+  enabledLocales,
   onOptimisticDelete,
 }: CategoryListProps) {
   if (!categories.length) {
@@ -28,6 +31,7 @@ export function CategoryList({
         <CategoryCard
           key={category.id}
           category={category}
+          enabledLocales={enabledLocales}
           onOptimisticUpdate={onOptimisticUpdate}
           onOptimisticDelete={onOptimisticDelete}
         />
