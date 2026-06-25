@@ -8,50 +8,173 @@
   },
   "home": {
     "hero": {
-      "tagline": "Lezzet, Kalite, Memnuniyet",
-      "title": "Mira Bistro'ya Hoş Geldiniz",
-      "description": "QR menü deneyimi ve modern restoran yönetim sistemi.",
-      "ctaMenu": "Menüyü İncele",
-      "ctaReservation": "Rezervasyon Yap"
+      "eyebrow": "1995'ten beri",
+      "title": "Doğudan Batıya Uzanan Lezzet köprüsü",
+      "description": "Geleneksel lezzet anlayışımız, ustalığımız ve aile sıcaklığımızla 30 yılı aşkın süredir sizlerle birlikteyiz.",
+      "menuButton": "Menüyü Gör",
+      "orderButton": "Rezervasyon Yap",
+      "imageAlt": "Erzenler Et Sofrası kebap görseli"
     },
-    "about": {
-      "label": "Hakkımızda",
-      "title": "Lezzet Dolu Bir Hikaye",
-      "description": "Mira Bistro olarak, misafirlerimize en taze malzemelerle hazırlanan lezzetleri, sıcak ve samimi bir ortamda sunuyoruz. Her detayda kaliteyi, her tabakta tutkuyu hissettiriyoruz.",
-      "featureIngredients": "Taze Malzeme",
-      "featureIngredientsDesc": "Günlük ve yerel ürünler kullanıyoruz.",
-      "featureChefs": "Usta Şefler",
-      "featureChefsDesc": "Deneyimli şeflerimizle eşsiz tatlar sunuyoruz.",
-      "featureGuests": "Misafir Odaklı",
-      "featureGuestsDesc": "Siz değerli misafirlerimizin memnuniyeti önceliğimiz."
+    "story": {
+      "eyebrow": "Lezzet Yolculuğumuz",
+      "title": "1995'ten Bugüne...",
+      "description": "Yılların getirdiği deneyim ve değişmeyen lezzet tutkumuzla, kalite ve geleneksel lezzet anlayışımızdan ödün vermeden aile sıcaklığında bir ortam sunuyoruz.",
+      "platformsTitle": "Bizi online yemek platformlarında da bulabilirsiniz",
+      "timeline": {
+        "1995": {
+          "title": "Şişli",
+          "description": "Kurtuluş'ta lezzet yolculuğumuza başladık."
+        },
+        "2003": {
+          "title": "Avcılar",
+          "description": "Şubemizle lezzet ağımızı genişlettik."
+        },
+        "2013": {
+          "title": "Esenyurt",
+          "description": "İstanbul Esenyurt'taki merkezimize taşındık."
+        },
+        "today": {
+          "title": "Yıl",
+          "description": "30 yılı aşkın tecrübe ve değişmeyen lezzet."
+        }
+      }
     },
-    "featuredMenu": {
-      "label": "Menüden Öne Çıkanlar",
-      "title": "Lezzetlerimize Göz Atın",
-      "cta": "Tüm Menüyü Gör"
+    "flavors": {
+      "eyebrow": "Lezzetlerimiz",
+      "title": "Sofranın en özel tatları",
+      "description": "Ustalıkla hazırlanan kebaplarımız, taş fırın lezzetlerimiz, ızgara çeşitlerimiz ve tatlılarımızla Erzenler geleneğini sofranıza taşıyoruz.",
+      "viewAll": "Tüm Menüyü Gör",
+      "discover": "Keşfet",
+      "items": {
+        "kebabs": {
+          "title": "Kebaplar",
+          "description": "Ateşin, etin ve ustalığın buluştuğu geleneksel kebap lezzetleri."
+        },
+        "pides": {
+          "title": "Pideler",
+          "description": "Taş fırından çıkan, bol malzemeli ve çıtır kenarlı pide çeşitleri."
+        },
+        "grills": {
+          "title": "Izgaralar",
+          "description": "Özenle seçilen etlerle hazırlanan doyurucu ızgara lezzetleri."
+        },
+        "desserts": {
+          "title": "Tatlılar",
+          "description": "Yemeğin finalini güzelleştiren klasik ve özel tatlı seçenekleri."
+        }
+      }
     },
-    "qr": {
-      "label": "QR Menü Sistemi",
-      "title": "Menümüze Ulaşmak Çok Kolay!",
-      "description": "Masanızdaki QR kodu okutarak menümüze anında ulaşabilir, tüm lezzetlerimizi telefonunuzdan inceleyebilirsiniz.",
-      "step1Title": "QR Kodu Okut",
-      "step1Desc": "Telefon kameranızla QR kodu tarayın.",
-      "step2Title": "Menüyü Keşfedin",
-      "step2Desc": "Tüm yemek ve içecekleri inceleyin.",
-      "step3Title": "Keyfini Çıkarın",
-      "step3Desc": "Beğendiğiniz lezzetlerin tadını çıkarın."
+    "gallery": {
+      "eyebrow": "Galeri",
+      "title": "Soframızdan ve mutfağımızdan kareler",
+      "description": "Erzenler Et Sofrası’nın sıcak atmosferini, ustalıkla hazırlanan lezzetlerini ve aile sofralarına yakışan detaylarını keşfedin.",
+      "button": "Galeriyi Gör",
+      "items": {
+        "first": "Izgara Lezzetleri",
+        "second": "Aile Sofrası",
+        "third": "Taş Fırın",
+        "fourth": "Geleneksel Sunum"
+      }
     },
-    "testimonials": {
-      "label": "Misafirlerimiz Ne Diyor?",
-      "title": "Yorumlar"
+    "orderPlatforms": {
+      "eyebrow": "Online Sipariş",
+      "title": "Lezzet kapınıza gelsin",
+      "description": "Dilerseniz restoranımızda ağırlayalım, dilerseniz Erzenler'in sevilen lezzetlerini online yemek platformları üzerinden kapınıza ulaştıralım.",
+      "or": "veya",
+      "siteOrderButton": "Kendi Sitemizden Sipariş Ver",
+      "items": {
+        "uberEats": {
+          "name": "Uber Eats",
+          "description": "Erzenler lezzetlerine Uber Eats üzerinden ulaşın."
+        },
+        "getir": {
+          "name": "Getir Yemek",
+          "description": "Sevdiğiniz kebap ve pide çeşitlerini Getir Yemek üzerinden sipariş edin."
+        },
+        "migros": {
+          "name": "Migros Yemek",
+          "description": "Erzenler’in sevilen lezzetlerini Migros Yemek üzerinden keşfedin."
+        }
+      }
+    },
+    "orderCta": {
+      "eyebrow": "QR Menü & Online Sipariş",
+      "title": "Masada QR Menü, Evde Online Sipariş",
+      "description": "Dilediğiniz an, dilediğiniz yerden Erzenler lezzetlerine kolayca ulaşın.",
+      "button": "Sipariş Ver"
+    },
+    "reviews": {
+      "eyebrow": "Misafirlerimizden",
+      "title": "Lezzetimizi misafirlerimiz anlatıyor",
+      "description": "Yıllardır aynı kaliteyi, aynı sıcaklığı ve aynı lezzet anlayışını korumaya çalışıyoruz. Bizim için en değerli referans, soframızdan memnun ayrılan misafirlerimiz.",
+      "rating": "4.8",
+      "ratingText": "Google'da yüksek misafir memnuniyeti",
+      "google": "Google Reviews",
+      "items": {
+        "first": {
+          "name": "Ahmet K.",
+          "source": "Google yorumu",
+          "comment": "Kebaplar çok lezzetli, servis hızlı ve ortam aileyle gelmek için oldukça uygun."
+        },
+        "second": {
+          "name": "Merve A.",
+          "source": "Google yorumu",
+          "comment": "Pideleri ve ızgaraları gerçekten başarılı. Esenyurt'ta gönül rahatlığıyla tercih edilecek bir yer."
+        },
+        "third": {
+          "name": "Serkan T.",
+          "source": "Google yorumu",
+          "comment": "Yıllardır aynı kaliteyi koruyan nadir restoranlardan. Özellikle et ürünleri çok iyi."
+        }
+      }
     },
     "contact": {
-      "label": "İletişim",
-      "title": "Bizimle İletişime Geçin",
-      "addressLabel": "Adres",
-      "phoneLabel": "Telefon",
-      "emailLabel": "E-posta",
-      "hoursLabel": "Çalışma Saatleri"
+      "eyebrow": "Bizi Ziyaret Edin",
+      "title": "İletişim & Konum",
+      "addressTitle": "Adres",
+      "address": "İncirtepe Mah. Doğan Araslı Cad. No: 28, Esenyurt / İstanbul",
+      "phoneTitle": "Telefon",
+      "phone": "0212 596 41 55",
+      "phoneRaw": "+902125964155",
+      "whatsappTitle": "WhatsApp",
+      "whatsapp": "0544 518 23 42",
+      "whatsappRaw": "905445182342",
+      "hoursTitle": "Çalışma Saatleri",
+      "directionButton": "Yol Tarifi Al",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Erzenler+Et+Sofrasi+Esenyurt",
+      "mapAlt": "Erzenler Et Sofrası konum haritası",
+      "mapRestaurantName": "Erzenler Et Sofrası",
+      "mapHint": "Google Maps’te aç",
+      "hours": "7 gün 24 saat hizmet vermektedir.",
+      "paymentTitle": "Ödeme Seçenekleri",
+      "paymentOptions": "Nakit, Kredi / Banka Kartı, Sodexo, Multinet, Edenred, Setcard, Pluxee",
+      "trust": {
+        "experience": {
+          "title": "30+ Yıllık Deneyim",
+          "description": "1995 yılından beri aynı kalite."
+        },
+        "open": {
+          "title": "7/24 Hizmet",
+          "description": "Haftanın her günü hizmetinizdeyiz."
+        },
+        "delivery": {
+          "title": "Online Sipariş",
+          "description": "Tüm platformlardan kolay sipariş."
+        },
+        "payment": {
+          "title": "Güvenli Ödeme",
+          "description": "Birçok ödeme yöntemini destekliyoruz."
+        }
+      },
+      "payments": {
+        "cash": "Nakit",
+        "card": "Kredi / Banka Kartı",
+        "sodexo": "Sodexo",
+        "multinet": "Multinet",
+        "edenred": "Edenred",
+        "setcard": "Setcard",
+        "pluxee": "Pluxee"
+      }
     }
   },
   "menu": {
@@ -131,14 +254,6 @@
     },
     "submit": "Siparişi Onayla",
     "submitting": "Gönderiliyor..."
-  },
-
-  "common": {
-    "save": "Kaydet",
-    "cancel": "İptal",
-    "edit": "Düzenle",
-    "delete": "Sil",
-    "loading": "Yükleniyor..."
   },
   "footer": {
     "tagline": "Modern gastronomi anlayışını sıcak atmosfer ve özel sunumlarla buluşturuyoruz.",

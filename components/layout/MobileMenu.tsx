@@ -1,11 +1,13 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
-import { LanguageSwitcher } from '@/components/language/LanguageSwitcher';
-import { type Locale } from '@/i18n';
+import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
+import { type Locale } from "@/i18n";
+import Image from "next/image";
+import React from "react";
 
 type NavItem = {
   label: string;
@@ -17,6 +19,7 @@ type MobileMenuProps = {
   onClose: () => void;
   navItems: NavItem[];
   locale: Locale;
+  children?: React.ReactNode;
 };
 
 export function MobileMenu({
@@ -24,23 +27,25 @@ export function MobileMenu({
   onClose,
   navItems,
   locale,
+  children,
 }: MobileMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
           className="fixed inset-0 z-[100] overflow-hidden bg-dark-bg text-white lg:hidden"
+          style={{ WebkitOverflowScrolling: "touch" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
         >
           <motion.div
             className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,151,63,0.20),transparent_35%),linear-gradient(135deg,rgba(15,13,9,0.98),rgba(31,26,19,0.98))]"
             initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
             exit={{ scale: 1.03 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
 
           <motion.div
@@ -48,18 +53,17 @@ export function MobileMenu({
             initial={{ y: 28 }}
             animate={{ y: 0 }}
             exit={{ y: 18 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           >
             <div className="flex h-24 items-center justify-between px-6">
-              <Link href={`/${locale}`} onClick={onClose}>
-                <div className="text-center leading-none">
-                  <div className="font-display text-3xl tracking-[0.18em]">
-                    MIRA
-                  </div>
-                  <div className="mt-1 text-[10px] tracking-[0.35em] text-white/70">
-                    BISTRO
-                  </div>
-                </div>
+              <Link href={`/${locale}`} className="relative h-24 w-[140px]">
+                <Image
+                  src="/images/erzenler-logo.png"
+                  alt="Erzenler Et Sofrası"
+                  fill
+                  priority
+                  className="object-contain"
+                />
               </Link>
 
               <motion.button
@@ -84,7 +88,7 @@ export function MobileMenu({
                   transition={{
                     duration: 0.35,
                     delay: index * 0.06,
-                    ease: 'easeOut',
+                    ease: "easeOut",
                   }}
                 >
                   <Link
@@ -106,7 +110,7 @@ export function MobileMenu({
               transition={{ delay: 0.35, duration: 0.35 }}
             >
               <div className="mb-6 h-px w-full bg-white/10" />
-              <LanguageSwitcher currentLocale={locale} />
+              {children || <LanguageSwitcher currentLocale={locale} />}
             </motion.div>
           </motion.div>
         </motion.div>

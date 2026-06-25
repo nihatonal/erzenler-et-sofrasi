@@ -43,10 +43,7 @@ export function Header({ locale }: HeaderProps) {
   }, []);
 
   function isActive(href: string) {
-    if (href === `/${locale}`) {
-      return pathname === href;
-    }
-
+    if (href === `/${locale}`) return pathname === href;
     return pathname.startsWith(href);
   }
 
@@ -54,7 +51,7 @@ export function Header({ locale }: HeaderProps) {
     <>
       <header
         className={cn(
-          "fixed left-0 top-0 z-50 w-full border-b transition duration-300",
+          "fixed left-0 top-0 z-50 hidden w-full border-b transition duration-300 lg:block",
           isHomePage
             ? isScrolled
               ? "border-white/10 bg-dark-bg/90 shadow-lg backdrop-blur-xl"
@@ -74,7 +71,7 @@ export function Header({ locale }: HeaderProps) {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="flex items-center gap-9">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -91,23 +88,12 @@ export function Header({ locale }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-4 lg:flex">
+          <div className="flex items-center gap-4">
             <LanguageSwitcher currentLocale={locale} />
             <Button href={`/${locale}/reservations`} variant="dark" size="sm">
               {t("reservation")}
             </Button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(true)}
-            className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white backdrop-blur transition hover:border-brand-gold lg:hidden"
-            aria-label="Open menu"
-          >
-            <span className="absolute h-[1.5px] w-5 -translate-y-2 bg-current transition duration-300 group-hover:w-6 group-hover:text-brand-gold" />
-            <span className="absolute h-[1.5px] w-4 bg-current transition duration-300 group-hover:w-6 group-hover:text-brand-gold" />
-            <span className="absolute h-[1.5px] w-5 translate-y-2 bg-current transition duration-300 group-hover:w-6 group-hover:text-brand-gold" />
-          </button>
         </Container>
       </header>
 

@@ -8,50 +8,173 @@
   },
   "home": {
     "hero": {
-      "tagline": "Lezzet, Kalite, Memnuniyet",
-      "title": "Mira Bistro'ya Hoş Geldiniz",
-      "description": "QR menü deneyimi ve modern restoran yönetim sistemi.",
-      "ctaMenu": "Menüyü İncele",
-      "ctaReservation": "Rezervasyon Yap"
+      "eyebrow": "منذ عام 1995",
+      "title": "جسر من النكهات يمتد من الشرق إلى الغرب",
+      "description": "منذ أكثر من 30 عاماً نقدم النكهات التقليدية بجودة عالية وأجواء عائلية دافئة.",
+      "menuButton": "عرض القائمة",
+      "orderButton": "احجز طاولة",
+      "imageAlt": "كباب Erzenler Et Sofrası"
     },
-    "about": {
-      "label": "Hakkımızda",
-      "title": "Lezzet Dolu Bir Hikaye",
-      "description": "Mira Bistro olarak, misafirlerimize en taze malzemelerle hazırlanan lezzetleri, sıcak ve samimi bir ortamda sunuyoruz. Her detayda kaliteyi, her tabakta tutkuyu hissettiriyoruz.",
-      "featureIngredients": "Taze Malzeme",
-      "featureIngredientsDesc": "Günlük ve yerel ürünler kullanıyoruz.",
-      "featureChefs": "Usta Şefler",
-      "featureChefsDesc": "Deneyimli şeflerimizle eşsiz tatlar sunuyoruz.",
-      "featureGuests": "Misafir Odaklı",
-      "featureGuestsDesc": "Siz değerli misafirlerimizin memnuniyeti önceliğimiz."
+    "story": {
+      "eyebrow": "رحلتنا",
+      "title": "منذ عام 1995...",
+      "description": "بخبرة تزيد عن ثلاثين عاماً وشغف لا يتغير بالنكهات الأصيلة، نواصل استقبال ضيوفنا بنفس الجودة والوصفات التقليدية والأجواء العائلية الدافئة.",
+      "platformsTitle": "يمكنكم أيضاً طلب وجباتنا عبر منصات توصيل الطعام",
+      "timeline": {
+        "1995": {
+          "title": "شيشلي",
+          "description": "بدأت رحلتنا في منطقة كورتولوش، شيشلي."
+        },
+        "2003": {
+          "title": "أفجلار",
+          "description": "وسعنا شبكة مطاعمنا بافتتاح فرع أفجلار."
+        },
+        "2013": {
+          "title": "إسنيورت",
+          "description": "انتقلنا إلى فرعنا الرئيسي الحالي في إسنيورت، إسطنبول."
+        },
+        "today": {
+          "title": "عاماً",
+          "description": "أكثر من 30 عاماً من الخبرة والطعم الأصيل."
+        }
+      }
     },
-    "featuredMenu": {
-      "label": "Menüden Öne Çıkanlar",
-      "title": "Lezzetlerimize Göz Atın",
-      "cta": "Tüm Menüyü Gör"
+    "flavors": {
+      "eyebrow": "نكهاتنا",
+      "title": "أشهى الأطباق على المائدة",
+      "description": "من الكباب المحضّر بإتقان إلى الفطائر المخبوزة في الفرن الحجري والمشاوي والحلويات، نقدم لكم تقاليد Erzenler في كل طبق.",
+      "viewAll": "عرض القائمة كاملة",
+      "discover": "اكتشف",
+      "items": {
+        "kebabs": {
+          "title": "الكباب",
+          "description": "نكهات كباب تقليدية تجمع بين النار واللحم والحرفية."
+        },
+        "pides": {
+          "title": "الفطائر التركية",
+          "description": "فطائر مخبوزة في الفرن الحجري بحشوات غنية وحواف مقرمشة."
+        },
+        "grills": {
+          "title": "المشاوي",
+          "description": "أطباق مشوية مشبعة محضّرة من لحوم مختارة بعناية."
+        },
+        "desserts": {
+          "title": "الحلويات",
+          "description": "حلويات كلاسيكية وخاصة تمنح وجبتكم ختاماً رائعاً."
+        }
+      }
     },
-    "qr": {
-      "label": "QR Menü Sistemi",
-      "title": "Menümüze Ulaşmak Çok Kolay!",
-      "description": "Masanızdaki QR kodu okutarak menümüze anında ulaşabilir, tüm lezzetlerimizi telefonunuzdan inceleyebilirsiniz.",
-      "step1Title": "QR Kodu Okut",
-      "step1Desc": "Telefon kameranızla QR kodu tarayın.",
-      "step2Title": "Menüyü Keşfedin",
-      "step2Desc": "Tüm yemek ve içecekleri inceleyin.",
-      "step3Title": "Keyfini Çıkarın",
-      "step3Desc": "Beğendiğiniz lezzetlerin tadını çıkarın."
+    "orderPlatforms": {
+      "eyebrow": "الطلب عبر الإنترنت",
+      "title": "نكهاتنا تصلكم إلى باب المنزل",
+      "description": "يمكنكم زيارتنا في المطعم أو طلب أطباق Erzenler المفضلة عبر منصات توصيل الطعام.",
+      "or": "أو",
+      "siteOrderButton": "اطلب من موقعنا",
+      "items": {
+        "uberEats": {
+          "name": "Uber Eats",
+          "description": "اطلب نكهات Erzenler عبر Uber Eats."
+        },
+        "getir": {
+          "name": "Getir Yemek",
+          "description": "اطلب الكباب والفطائر التركية المفضلة عبر Getir Yemek."
+        },
+        "migros": {
+          "name": "Migros Yemek",
+          "description": "اكتشف نكهات Erzenler المميزة عبر Migros Yemek."
+        }
+      }
     },
-    "testimonials": {
-      "label": "Misafirlerimiz Ne Diyor?",
-      "title": "Yorumlar"
+    "gallery": {
+      "eyebrow": "المعرض",
+      "title": "لقطات من مائدتنا ومطبخنا",
+      "description": "اكتشفوا الأجواء الدافئة في Erzenler Et Sofrası وأطباقنا المحضّرة بعناية والتفاصيل التي تليق بالمائدة العائلية.",
+      "button": "عرض المعرض",
+      "items": {
+        "first": "أطباق المشاوي",
+        "second": "مائدة عائلية",
+        "third": "الفرن الحجري",
+        "fourth": "تقديم تقليدي"
+      }
+    },
+    "orderCta": {
+      "eyebrow": "قائمة QR والطلب عبر الإنترنت",
+      "title": "قائمة QR على الطاولة وطلب أونلاين إلى المنزل",
+      "description": "استمتعوا بنكهات Erzenler بسهولة في أي وقت ومن أي مكان.",
+      "button": "اطلب الآن"
+    },
+    "reviews": {
+      "eyebrow": "آراء ضيوفنا",
+      "title": "ضيوفنا يروون قصة نكهاتنا",
+      "description": "على مرّ السنين نحرص على الحفاظ على نفس الجودة والدفء والنكهة الأصيلة. رضا ضيوفنا هو أهم مرجع لنا.",
+      "rating": "4.8",
+      "ratingText": "رضا عالٍ من الضيوف على Google",
+      "google": "Google Reviews",
+      "items": {
+        "first": {
+          "name": "Ahmet K.",
+          "source": "تقييم Google",
+          "comment": "الكباب لذيذ جداً، الخدمة سريعة والأجواء مناسبة جداً للعائلات."
+        },
+        "second": {
+          "name": "Merve A.",
+          "source": "تقييم Google",
+          "comment": "الفطائر التركية والمشاوي ممتازة فعلاً. خيار موثوق في إسنيورت."
+        },
+        "third": {
+          "name": "Serkan T.",
+          "source": "تقييم Google",
+          "comment": "من المطاعم النادرة التي حافظت على الجودة لسنوات. أطباق اللحم ممتازة خاصة."
+        }
+      }
     },
     "contact": {
-      "label": "İletişim",
-      "title": "Bizimle İletişime Geçin",
-      "addressLabel": "Adres",
-      "phoneLabel": "Telefon",
-      "emailLabel": "E-posta",
-      "hoursLabel": "Çalışma Saatleri"
+      "eyebrow": "زورونا",
+      "title": "التواصل والموقع",
+      "addressTitle": "العنوان",
+      "address": "İncirtepe Mah. Doğan Araslı Cad. No: 28, Esenyurt / Istanbul",
+      "phoneTitle": "الهاتف",
+      "phone": "0212 596 41 55",
+      "phoneRaw": "+902125964155",
+      "whatsappTitle": "واتساب",
+      "whatsapp": "0544 518 23 42",
+      "whatsappRaw": "905445182342",
+      "hoursTitle": "ساعات العمل",
+      "hours": "نقدم الخدمة 24 ساعة طوال أيام الأسبوع.",
+      "paymentTitle": "خيارات الدفع",
+      "paymentOptions": "نقداً، بطاقة ائتمان / بطاقة بنكية، Sodexo، Multinet، Edenred، Setcard، Pluxee",
+      "directionButton": "الحصول على الاتجاهات",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Erzenler+Et+Sofrasi+Esenyurt",
+      "mapAlt": "خريطة موقع Erzenler Et Sofrası",
+      "mapRestaurantName": "Erzenler Et Sofrası",
+      "mapHint": "فتح في Google Maps",
+      "trust": {
+        "experience": {
+          "title": "أكثر من 30 عامًا من الخبرة",
+          "description": "جودة منذ عام 1995."
+        },
+        "open": {
+          "title": "نعمل 24/7",
+          "description": "في خدمتكم طوال أيام الأسبوع."
+        },
+        "delivery": {
+          "title": "الطلب عبر الإنترنت",
+          "description": "اطلب بسهولة عبر جميع المنصات."
+        },
+        "payment": {
+          "title": "دفع آمن",
+          "description": "نوفر العديد من وسائل الدفع."
+        }
+      },
+      "payments": {
+        "cash": "نقدًا",
+        "card": "بطاقة ائتمان / بطاقة مصرفية",
+        "sodexo": "Sodexo",
+        "multinet": "Multinet",
+        "edenred": "Edenred",
+        "setcard": "Setcard",
+        "pluxee": "Pluxee"
+      }
     }
   },
   "menu": {

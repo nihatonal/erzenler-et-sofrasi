@@ -260,9 +260,19 @@ export function EditProductClient({
       setCategories((categoriesResult.data || []) as CategoryRow[]);
       setOptions((optionsResult.data || []) as ProductOption[]);
       setRemovables((removablesResult.data || []) as ProductRemovable[]);
-      setRecommendations(
-        (recommendationsResult.data || []) as ProductRecommendation[],
-      );
+      const normalizedRecommendations: ProductRecommendation[] = (
+        recommendationsResult.data || []
+      ).map((item) => ({
+        id: item.id,
+        recommended_product_id: item.recommended_product_id,
+        sort_order: item.sort_order,
+        is_active: item.is_active,
+        products: Array.isArray(item.products)
+          ? item.products[0] || null
+          : item.products,
+      }));
+
+      setRecommendations(normalizedRecommendations);
       setEnabledLocales(
         (
           (settingsResult.data?.enabled_locales || [

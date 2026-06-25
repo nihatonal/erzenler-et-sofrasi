@@ -8,50 +8,173 @@
   },
   "home": {
     "hero": {
-      "tagline": "Taste, Quality, Satisfaction",
-      "title": "Welcome to Mira Bistro",
-      "description": "QR menu experience and modern restaurant management system.",
-      "ctaMenu": "View Menu",
-      "ctaReservation": "Make a Reservation"
+      "eyebrow": "Since 1995",
+      "title": "A Culinary Bridge from East to West",
+      "description": "For over 30 years, we have served traditional flavors with craftsmanship, quality and a warm family atmosphere.",
+      "menuButton": "View Menu",
+      "orderButton": "Reserve a Table",
+      "imageAlt": "Erzenler Et Sofrası grilled kebab"
     },
-    "about": {
-      "label": "About",
-      "title": "A Story Full of Flavor",
-      "description": "At Mira Bistro, we serve our guests dishes prepared with the freshest ingredients in a warm and welcoming atmosphere. We bring quality to every detail and passion to every plate.",
-      "featureIngredients": "Fresh Ingredients",
-      "featureIngredientsDesc": "We use fresh and local products every day.",
-      "featureChefs": "Expert Chefs",
-      "featureChefsDesc": "Our experienced chefs create unique flavors.",
-      "featureGuests": "Guest Focused",
-      "featureGuestsDesc": "Your satisfaction is always our priority."
+    "story": {
+      "eyebrow": "Our Culinary Journey",
+      "title": "Since 1995...",
+      "description": "With decades of experience and an unwavering passion for authentic flavors, we continue to welcome our guests with the same quality, traditional recipes and warm family atmosphere.",
+      "platformsTitle": "You can also find us on online food delivery platforms",
+      "timeline": {
+        "1995": {
+          "title": "Şişli",
+          "description": "Our journey began in Kurtuluş, Şişli."
+        },
+        "2003": {
+          "title": "Avcılar",
+          "description": "We expanded our flavor network with our Avcılar branch."
+        },
+        "2013": {
+          "title": "Esenyurt",
+          "description": "We moved to our current flagship restaurant in Esenyurt, Istanbul."
+        },
+        "today": {
+          "title": "Years",
+          "description": "More than 30 years of experience and timeless flavor."
+        }
+      }
     },
-    "featuredMenu": {
-      "label": "Featured from the Menu",
-      "title": "Explore Our Flavors",
-      "cta": "View Full Menu"
+    "flavors": {
+      "eyebrow": "Our Flavors",
+      "title": "Signature tastes of the table",
+      "description": "From expertly prepared kebabs to stone-oven pides, grilled specialties and desserts, we bring the Erzenler tradition to your table.",
+      "viewAll": "View Full Menu",
+      "discover": "Discover",
+      "items": {
+        "kebabs": {
+          "title": "Kebabs",
+          "description": "Traditional kebab flavors where fire, meat and craftsmanship come together."
+        },
+        "pides": {
+          "title": "Pides",
+          "description": "Stone-oven pides with rich toppings, crisp edges and authentic flavor."
+        },
+        "grills": {
+          "title": "Grills",
+          "description": "Satisfying grilled specialties prepared with carefully selected meats."
+        },
+        "desserts": {
+          "title": "Desserts",
+          "description": "Classic and special desserts that complete the meal beautifully."
+        }
+      }
     },
-    "qr": {
-      "label": "QR Menu System",
-      "title": "Accessing Our Menu Is So Easy!",
-      "description": "Scan the QR code on your table to instantly access our menu and explore all our flavors from your phone.",
-      "step1Title": "Scan the QR Code",
-      "step1Desc": "Scan the QR code with your phone camera.",
-      "step2Title": "Explore the Menu",
-      "step2Desc": "Browse all food and drink options.",
-      "step3Title": "Enjoy",
-      "step3Desc": "Enjoy the flavors you love."
+    "gallery": {
+      "eyebrow": "Gallery",
+      "title": "Moments from our table and kitchen",
+      "description": "Discover the warm atmosphere of Erzenler Et Sofrası, our carefully prepared dishes and the details that belong to a true family table.",
+      "button": "View Gallery",
+      "items": {
+        "first": "Grilled Specialties",
+        "second": "Family Table",
+        "third": "Stone Oven",
+        "fourth": "Traditional Presentation"
+      }
     },
-    "testimonials": {
-      "label": "What Do Our Guests Say?",
-      "title": "Reviews"
+    "orderCta": {
+      "eyebrow": "QR Menu & Online Order",
+      "title": "QR menu at the table, online order at home",
+      "description": "Reach Erzenler flavors easily whenever and wherever you want.",
+      "button": "Order Now"
+    },
+    "orderPlatforms": {
+      "eyebrow": "Online Order",
+      "title": "Our flavors delivered to your door",
+      "description": "Enjoy Erzenler at our restaurant or order your favorite dishes through online food delivery platforms.",
+      "or": "or",
+      "siteOrderButton": "Order from Our Website",
+      "items": {
+        "uberEats": {
+          "name": "Uber Eats",
+          "description": "Order Erzenler flavors through Uber Eats."
+        },
+        "getir": {
+          "name": "Getir Food",
+          "description": "Order your favorite kebabs and pides through Getir Food."
+        },
+        "migros": {
+          "name": "Migros Food",
+          "description": "Discover Erzenler’s popular flavors through Migros Food."
+        }
+      }
+    },
+    "reviews": {
+      "eyebrow": "From Our Guests",
+      "title": "Our guests tell the story of our flavor",
+      "description": "For years, we have worked to preserve the same quality, warmth and authentic taste. Our most valuable reference is the satisfaction of our guests.",
+      "rating": "4.8",
+      "ratingText": "High guest satisfaction on Google",
+      "google": "Google Reviews",
+      "items": {
+        "first": {
+          "name": "Ahmet K.",
+          "source": "Google review",
+          "comment": "The kebabs are delicious, the service is fast and the atmosphere is very suitable for families."
+        },
+        "second": {
+          "name": "Merve A.",
+          "source": "Google review",
+          "comment": "Their pides and grilled dishes are truly successful. A reliable choice in Esenyurt."
+        },
+        "third": {
+          "name": "Serkan T.",
+          "source": "Google review",
+          "comment": "One of the rare restaurants that has kept the same quality for years. Especially the meat dishes are excellent."
+        }
+      }
     },
     "contact": {
-      "label": "Contact",
-      "title": "Get in Touch with Us",
-      "addressLabel": "Address",
-      "phoneLabel": "Phone",
-      "emailLabel": "Email",
-      "hoursLabel": "Opening Hours"
+      "eyebrow": "Visit Us",
+      "title": "Contact & Location",
+      "addressTitle": "Address",
+      "address": "İncirtepe Mah. Doğan Araslı Cad. No: 28, Esenyurt / Istanbul",
+      "phoneTitle": "Phone",
+      "phone": "0212 596 41 55",
+      "phoneRaw": "+902125964155",
+      "whatsappTitle": "WhatsApp",
+      "whatsapp": "0544 518 23 42",
+      "whatsappRaw": "905445182342",
+      "hoursTitle": "Opening Hours",
+      "hours": "Open 24 hours, 7 days a week.",
+      "paymentTitle": "Payment Options",
+      "paymentOptions": "Cash, Credit / Debit Card, Sodexo, Multinet, Edenred, Setcard, Pluxee",
+      "directionButton": "Get Directions",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Erzenler+Et+Sofrasi+Esenyurt",
+      "mapAlt": "Erzenler Et Sofrası location map",
+      "mapRestaurantName": "Erzenler Et Sofrası",
+      "mapHint": "Open in Google Maps",
+      "trust": {
+        "experience": {
+          "title": "30+ Years Experience",
+          "description": "Serving quality since 1995."
+        },
+        "open": {
+          "title": "Open 24/7",
+          "description": "Ready to serve every day."
+        },
+        "delivery": {
+          "title": "Online Ordering",
+          "description": "Order easily from all platforms."
+        },
+        "payment": {
+          "title": "Secure Payment",
+          "description": "Multiple payment options available."
+        }
+      },
+      "payments": {
+        "cash": "Cash",
+        "card": "Credit / Debit Card",
+        "sodexo": "Sodexo",
+        "multinet": "Multinet",
+        "edenred": "Edenred",
+        "setcard": "Setcard",
+        "pluxee": "Pluxee"
+      }
     }
   },
   "menu": {

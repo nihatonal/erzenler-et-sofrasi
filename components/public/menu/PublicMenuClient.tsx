@@ -6,7 +6,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Minus, Plus, RefreshCw, Search, ShoppingBag, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { formatCurrency } from "@/lib/utils";
 import { useCartStore } from "@/lib/cart/card-store";
@@ -199,7 +198,9 @@ export function PublicMenuClient({
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
-  const [selectedRemovableIds, setSelectedRemovableIds] = useState<string[]>([]);
+  const [selectedRemovableIds, setSelectedRemovableIds] = useState<string[]>(
+    [],
+  );
   const [quantity, setQuantity] = useState(1);
   const [note, setNote] = useState("");
 
@@ -364,7 +365,9 @@ export function PublicMenuClient({
         setTable((tableResult.data || null) as RestaurantTable);
 
         setOptions(
-          optionsResult.error ? [] : ((optionsResult.data || []) as ProductOption[]),
+          optionsResult.error
+            ? []
+            : ((optionsResult.data || []) as ProductOption[]),
         );
 
         setRemovables(
@@ -483,7 +486,9 @@ export function PublicMenuClient({
         ? {
             id: selectedOption.id,
             name: getLocalizedName(selectedOption, activeLocale),
-            priceDifferenceTry: Number(selectedOption.price_difference_try || 0),
+            priceDifferenceTry: Number(
+              selectedOption.price_difference_try || 0,
+            ),
           }
         : null,
       removables: selectedRemovableItems.map((item) => ({
@@ -544,54 +549,6 @@ export function PublicMenuClient({
 
   return (
     <main className="min-h-screen bg-brand-cream pb-24">
-      <section className="bg-brand-green px-4 py-5 text-white md:px-6 md:py-7">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center gap-3">
-            {settings?.logo_url && (
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-white md:h-20 md:w-20">
-                <Image
-                  src={settings.logo_url}
-                  alt={settings.restaurant_name || "Logo"}
-                  fill
-                  unoptimized
-                  className="object-contain p-1.5"
-                />
-              </div>
-            )}
-
-            <div className="min-w-0">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/60">
-                {t("eyebrow")}
-              </p>
-
-              <h1 className="mt-1 truncate text-2xl font-bold md:text-3xl">
-                {settings?.restaurant_name}
-              </h1>
-
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                {table?.label && (
-                  <span className="inline-flex rounded-full bg-white/10 px-2.5 py-1 text-xs font-semibold">
-                    {table.label}
-                  </span>
-                )}
-
-                <span className="inline-flex rounded-full bg-brand-red px-2.5 py-1 text-xs font-semibold text-white">
-                  {orderMode === "table" && t("orderMode.table")}
-                  {orderMode === "delivery" && t("orderMode.delivery")}
-                  {orderMode === "menu_only" && t("orderMode.menuOnly")}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {settings?.restaurant_description && (
-            <p className="mt-4 line-clamp-2 max-w-2xl text-xs leading-6 text-white/70 md:text-sm">
-              {settings.restaurant_description}
-            </p>
-          )}
-        </div>
-      </section>
-
       <section className="sticky top-0 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur md:px-6">
         <div className="mx-auto grid max-w-6xl gap-2.5">
           <div className="relative">
@@ -604,7 +561,7 @@ export function PublicMenuClient({
             />
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="flex gap-2 overflow-x-auto pb-2 ">
             <button
               type="button"
               onClick={() => setActiveCategory("all")}
@@ -711,7 +668,7 @@ export function PublicMenuClient({
                       )}
                     </div>
 
-                    <div className="mt-3 flex items-end justify-between gap-2">
+                    <div className=" flex items-end justify-between gap-2">
                       <div>
                         {product.old_price_try && (
                           <p className="text-xs font-semibold text-neutral-400 line-through">
@@ -734,7 +691,9 @@ export function PublicMenuClient({
                             event.stopPropagation();
                             openProduct(product);
                           }}
-                          className="flex h-9 shrink-0 items-center gap-1.5 rounded-xl bg-brand-green px-3 text-xs font-bold text-white transition hover:bg-brand-greenLight md:h-10 md:px-4"
+                          className="flex h-7 shrink-0 items-center gap-1.5 rounded-full 
+                          bg-brand-green px-5 text-xs font-bold text-white transition 
+                          hover:bg-brand-greenLight md:h-10 md:px-4"
                         >
                           <ShoppingBag className="h-3.5 w-3.5" />
                           {t("add")}
@@ -771,8 +730,8 @@ export function PublicMenuClient({
       )}
 
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-end bg-black/50 p-0 md:items-center md:justify-center md:p-6">
-          <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl bg-white shadow-2xl md:max-w-3xl md:rounded-3xl">
+        <div className="fixed pb-0 inset-0 z-[99] flex items-end bg-black/50 p-0 md:items-center md:justify-center md:p-6">
+          <div className="max-h-[100vh] w-full overflow-y-auto rounded-t-3xl bg-white shadow-2xl md:max-w-3xl md:rounded-3xl">
             <div className="sticky top-0 z-10 flex items-center justify-between border-b border-brand-sand bg-white px-5 py-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
@@ -1001,6 +960,7 @@ export function PublicMenuClient({
                               }
                               alt={getLocalizedName(recommended, activeLocale)}
                               fill
+                              loading="eager"
                               unoptimized
                               className="object-cover"
                             />
