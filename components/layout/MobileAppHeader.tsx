@@ -48,7 +48,8 @@ export function MobileAppHeader({ locale }: MobileAppHeaderProps) {
             <Image
               src="/images/erzenler-logo.png"
               alt="Erzenler Et Sofrası"
-              fill
+              sizes="(max-width: 768px) 100vw, 144px"
+              fill  
               priority
               className="object-contain"
             />

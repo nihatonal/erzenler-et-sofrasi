@@ -13,17 +13,17 @@ const platforms = [
   {
     key: "uberEats",
     logo: "/images/platforms/uber-eats2.svg",
-    bg: "#06c167",
+    bg: "bg-[#06c167]",
   },
   {
     key: "migros",
     logo: "/images/platforms/migros-yemek.svg",
-    bg: "#fff",
+    bg: "bg-white",
   },
   {
     key: "getir",
     logo: "/images/platforms/getir-yemek.svg",
-    bg: "#603dba",
+    bg: "bg-[#603dba]",
   },
 ];
 
@@ -77,22 +77,14 @@ export async function HomeOrderPlatforms({ locale }: HomeOrderPlatformsProps) {
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`flex h-16 w-28 items-center justify-center rounded-2xl px-4 shadow-sm md:h-20 md:w-36
-                      ${
-                        platform.key === "getir"
-                          ? "bg-[#603dba]"
-                          : platform.key === "uberEats"
-                            ? "bg-[#06c167]"
-                            : "#fff"
-                      }
-                      `}
+                    className={`flex h-20 w-36 items-center justify-center rounded-2xl px-4 shadow-sm ${platform.bg}`}
                   >
                     <Image
                       src={platform.logo}
                       alt={t(`items.${platform.key}.name`)}
-                      width={150}
-                      height={48}
-                      className="max-h-10 w-auto object-contain"
+                      width={220}
+                      height={70}
+                     className="max-h-24 w-auto object-contain"
                     />
                   </div>
 
