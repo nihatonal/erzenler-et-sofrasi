@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-
-import { Container } from "@/components/layout/Container";
+import Image from "next/image";
+import { Phone, MessageCircle, MapPin } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n";
 
@@ -9,96 +9,123 @@ type FooterProps = {
   locale: Locale;
 };
 
-export function Footer({ locale }: FooterProps) {
-  const t = useTranslations("footer");
+export async function Footer({ locale }: FooterProps) {
+  const t = await getTranslations({
+    locale,
+    namespace: "footer",
+  });
 
   return (
-    <footer className="bg-dark-bg py-16 text-white">
-      <Container>
-        <div className="grid gap-12 md:grid-cols-4">
-          <div>
-            <Link href={`/${locale}`} className="inline-block">
-              <div className="text-center leading-none">
-                <div className="text-4xl font-display tracking-[0.18em]">
-                  MIRA
-                </div>
+    <footer className="bg-brand-green text-white">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4 md:px-8">
+        {/* BRAND */}
+        <div>
+          <div className="text-2xl font-bold tracking-[0.2em]">ERZENLER</div>
 
-                <div className="mt-1 text-xs tracking-[0.35em] text-white/70">
-                  BISTRO
-                </div>
-              </div>
+          <p className="mt-3 text-sm text-white/70 leading-6">
+            {t("description")}
+          </p>
+
+          <div className="mt-5 flex gap-3">
+            <a href="#" className="hover:text-brand-gold">
+              {/* <Instagram className="h-5 w-5" /> */}
+            </a>
+
+            <a href="tel:+902125964155" className="hover:text-brand-gold">
+              <Phone className="h-5 w-5" />
+            </a>
+
+            <a
+              href="https://wa.me/905445182342"
+              className="hover:text-brand-gold"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+
+        {/* LINKS */}
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-[0.2em]">
+            {t("links")}
+          </h3>
+
+          <div className="mt-4 flex flex-col gap-2 text-sm text-white/70">
+            <Link href={`/${locale}/#home-hero`} className="hover:text-white">
+              {t("home")}
             </Link>
+            <Link href={`/${locale}/menu`} className="hover:text-white">
+              {t("menu")}
+            </Link>
+            <Link href={`/${locale}/#home-story`} className="hover:text-white">
+              {t("about")}
+            </Link>
+            <Link
+              href={`/${locale}/#home-contact`}
+              className="hover:text-white"
+            >
+              {t("contact")}
+            </Link>
+          </div>
+        </div>
 
-            <p className="mt-6 max-w-xs text-sm leading-7 text-white/60">
-              {t("tagline")}
+        {/* CONTACT */}
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-[0.2em]">
+            {t("contact")}
+          </h3>
+
+          <div className="mt-4 space-y-3 text-sm text-white/70">
+            <p className="flex items-center gap-2">
+              <Phone className="h-4 w-4" />
+              0212 596 41 55
+            </p>
+
+            <p className="flex items-center gap-2">
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </p>
+
+            <p className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              Esenyurt / İstanbul
             </p>
           </div>
-
-          {/* LINKS */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
-              {t("quick_links")}
-            </h3>
-
-            <ul className="mt-5 space-y-3 text-sm text-white/60">
-              <li>
-                <Link href={`/${locale}`}>{t("links.home")}</Link>
-              </li>
-
-              <li>
-                <Link href={`/${locale}/menu`}>
-                  {t("links.menu")}
-                </Link>
-              </li>
-
-              <li>
-                <Link href={`/${locale}/gallery`}>
-                  {t("links.gallery")}
-                </Link>
-              </li>
-
-              <li>
-                <Link href={`/${locale}/contact`}>
-                  {t("links.contact")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* MENU */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
-              {t("menu_label")}
-            </h3>
-
-            <ul className="mt-5 space-y-3 text-sm text-white/60">
-              <li>{t("menu.starters")}</li>
-              <li>{t("menu.salads")}</li>
-              <li>{t("menu.mains")}</li>
-              <li>{t("menu.desserts")}</li>
-              <li>{t("menu.drinks")}</li>
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
-              {t("contact_label")}
-            </h3>
-
-            <ul className="mt-5 space-y-3 text-sm text-white/60">
-              <li>{t("contact.street")}</li>
-              <li>{t("contact.city")}</li>
-              <li>{t("contact.phone")}</li>
-              <li>{t("contact.email")}</li>
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-8 text-center text-xs text-white/40">
-          {t("copyright")}
+        {/* PLATFORM + PAYMENT */}
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-[0.2em]">
+            {t("order")}
+          </h3>
+
+          <div className="mt-4 space-y-3 text-sm text-white/70">
+            <p>Uber Eats</p>
+            <p>Getir Yemek</p>
+            <p>Migros Yemek</p>
+          </div>
+
+          <h3 className="mt-6 text-sm font-bold uppercase tracking-[0.2em]">
+            {t("payment")}
+          </h3>
+
+          <div className="mt-3 flex flex-wrap gap-2">
+            {["Cash", "Card", "Sodexo", "Multinet"].map((item) => (
+              <span
+                key={item}
+                className="rounded-full bg-white/10 px-3 py-1 text-xs"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
-      </Container>
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div className="border-t border-white/10 py-4 text-center text-xs text-white/50">
+        © {new Date().getFullYear()} Erzenler Et Sofrası. All rights reserved.
+      </div>
     </footer>
   );
 }

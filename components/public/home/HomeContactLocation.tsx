@@ -57,7 +57,7 @@ export async function HomeContactLocation({
   });
 
   return (
-    <section className="px-5 py-16 md:px-8 md:py-24">
+    <section id="home-contact" className="px-5 py-16 md:px-8 md:py-24 scroll-mt-16">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">

@@ -269,7 +269,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
               {!isTableOrder && (
                 <>
-                  <div className="grid gap-4 md:grid-cols-2">
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="admin-label">{t("fields.city")}</label>
                       <input
@@ -278,7 +278,6 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2"
                       />
                     </div>
-
                     <div>
                       <label className="admin-label">
                         {t("fields.district")}
@@ -311,7 +310,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                     />
                   </div>
 
-                  <div className="grid gap-4 md:grid-cols-3">
+                  <div className="grid grid-cols-3 gap-3">
                     <div>
                       <label className="admin-label">
                         {t("fields.buildingNo")}
@@ -322,7 +321,6 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2"
                       />
                     </div>
-
                     <div>
                       <label className="admin-label">{t("fields.floor")}</label>
                       <input
@@ -330,7 +328,6 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2"
                       />
                     </div>
-
                     <div>
                       <label className="admin-label">
                         {t("fields.apartmentNo")}
@@ -348,7 +345,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                     </label>
                     <textarea
                       name="address_note"
-                      rows={3}
+                      rows={2}
                       className="admin-input mt-2 py-3"
                     />
                   </div>

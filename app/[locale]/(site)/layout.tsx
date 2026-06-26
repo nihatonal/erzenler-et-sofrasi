@@ -1,9 +1,10 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileAppHeader } from "@/components/layout/MobileAppHeader";
-import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+//import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 import { type Locale } from "@/i18n";
+import { AppProviders } from "@/components/providers/AppProviders";
 
 type SiteLayoutProps = {
   children: React.ReactNode;
@@ -18,20 +19,23 @@ export const metadata = {
   ),
 };
 
-export default async function SiteLayout({ children, params }: SiteLayoutProps) {
+export default async function SiteLayout({
+  children,
+  params,
+}: SiteLayoutProps) {
   const { locale } = await params;
   const currentLocale = locale as Locale;
 
   return (
     <>
-      <Header locale={currentLocale} />
-      <MobileAppHeader locale={currentLocale} />
+      <AppProviders locale={locale} whatsappNumber="905445182342">
+        <Header locale={currentLocale} />
+        <MobileAppHeader locale={currentLocale} />
 
-      <div className="lg:pt-24">{children}</div>
+        <div className="lg:pt-24">{children}</div>
 
-      <div className="hidden lg:block">
         <Footer locale={currentLocale} />
-      </div>
+      </AppProviders>
 
       {/* <MobileBottomNav locale={currentLocale} /> */}
     </>

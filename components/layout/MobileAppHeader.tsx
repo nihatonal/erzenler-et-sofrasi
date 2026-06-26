@@ -21,8 +21,8 @@ export function MobileAppHeader({ locale }: MobileAppHeaderProps) {
   const navItems = [
     { label: "Anasayfa", href: `/${locale}` },
     { label: "Menü", href: `/${locale}/menu` },
-    { label: "Siparişlerim", href: `/${locale}/orders` },
-    { label: "İletişim", href: `/${locale}/contact` },
+    { label: "Siparişlerim", href: `/${locale}/checkout` },
+    { label: "İletişim", href: `/${locale}/#home-contact` },
   ];
 
   return (

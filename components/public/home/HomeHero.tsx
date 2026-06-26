@@ -16,7 +16,7 @@ export async function HomeHero({ locale }: HomeHeroProps) {
   });
 
   return (
-    <section className="relative min-h-[calc(100svh-76px)] overflow-hidden bg-black lg:min-h-[calc(100vh-96px)]">
+    <section id="home-hero" className="relative min-h-[calc(100svh-76px)] overflow-hidden bg-black lg:min-h-[calc(100vh-96px)]">
       <Image
         src="/images/home/erzenler-hero-kebap.webp"
         alt={t("imageAlt")}

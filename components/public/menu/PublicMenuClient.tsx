@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { formatCurrency } from "@/lib/utils";
 import { useCartStore } from "@/lib/cart/card-store";
+import { useToastStore } from "@/lib/toast/toast-store";
 
 type LocaleCode = "tr" | "en" | "ru" | "ar";
 type OrderMode = "table" | "delivery" | "menu_only";
@@ -511,6 +512,7 @@ export function PublicMenuClient({
     setQuantity(1);
     setNote("");
   }
+  const showToast = useToastStore((state) => state.showToast);
 
   function handleAddToCart() {
     if (!selectedProduct || orderMode === "menu_only") return;
@@ -541,7 +543,10 @@ export function PublicMenuClient({
       locale: activeLocale,
       quantity,
     });
-
+    showToast(
+      "Sepete eklendi",
+      getLocalizedName(selectedProduct, activeLocale),
+    );
     closeProduct();
   }
 
@@ -588,9 +593,9 @@ export function PublicMenuClient({
 
   return (
     <main className="min-h-screen bg-brand-cream pb-24">
-      <section className="sticky top-16 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur md:px-6">
+      <section className="fixed w-full top-18 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur md:px-6">
         <div className="mx-auto grid max-w-6xl gap-2.5">
-          <div className="relative">
+          <div className="relative md:w-72">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-muted" />
             <input
               value={searchQuery}
@@ -661,6 +666,7 @@ export function PublicMenuClient({
                       src={product.image_url || "/images/menu/fettuccine.webp"}
                       alt={productName}
                       fill
+                      unoptimized
                       priority={index === 0}
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -729,11 +735,47 @@ export function PublicMenuClient({
                           type="button"
                           onClick={(event) => {
                             event.stopPropagation();
-                            openProduct(product);
+
+                            const productOptions = options.filter(
+                              (o) => o.product_id === product.id,
+                            );
+                            const productRemovables = removables.filter(
+                              (r) => r.product_id === product.id,
+                            );
+                            const hasCustomization =
+                              productOptions.length > 0 ||
+                              productRemovables.length > 0;
+
+                            if (hasCustomization) {
+                              openProduct(product);
+                            } else {
+                              addItem({
+                                productId: product.id,
+                                productSlug: product.slug,
+                                productName: getLocalizedName(
+                                  product,
+                                  activeLocale,
+                                ),
+                                productImageUrl: product.image_url,
+                                basePriceTry: Number(product.price_try),
+                                selectedOption: null,
+                                removables: [],
+                                note: null,
+                                orderMode,
+                                tableId: table?.id || null,
+                                tableLabel: table?.label || null,
+                                locale: activeLocale,
+                                quantity: 1,
+                              });
+                              showToast(
+                                "Sepete eklendi",
+                                getLocalizedName(product, activeLocale),
+                              );
+                            }
                           }}
                           className="flex h-7 shrink-0 items-center gap-1.5 rounded-full 
-                          bg-brand-green px-5 text-xs font-bold text-white transition 
-                          hover:bg-brand-greenLight md:h-10 md:px-4"
+  bg-brand-green px-5 text-xs font-bold text-white transition 
+  hover:bg-brand-greenLight md:h-10 md:px-4"
                         >
                           <ShoppingBag className="h-3.5 w-3.5" />
                           {t("add")}

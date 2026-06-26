@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { type Locale } from "@/i18n";
@@ -58,13 +56,13 @@ export async function HomeGalleryPreview({
             </p>
           </div>
 
-          <Link
+          {/* <Link
             href={`/${locale}/gallery`}
             className="inline-flex h-12 items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-5 text-sm font-bold uppercase tracking-[0.12em] text-white backdrop-blur transition hover:bg-white hover:text-brand-green"
           >
             {t("button")}
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </Link> */}
         </div>
 
         <div className="mt-10 grid auto-rows-[220px] gap-4 md:grid-cols-4 md:auto-rows-[210px]">

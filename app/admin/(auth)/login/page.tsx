@@ -14,10 +14,10 @@ export default function AdminLoginPage() {
             <Link href="/tr" className="inline-block">
               <div className="leading-none">
                 <div className="font-display text-5xl tracking-[0.18em]">
-                  MIRA
+                  ERZENLER
                 </div>
                 <div className="mt-2 text-xs tracking-[0.38em] text-white/70">
-                  BISTRO
+                  ET SOFRASI
                 </div>
               </div>
             </Link>

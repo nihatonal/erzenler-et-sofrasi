@@ -27,8 +27,8 @@ export function Header({ locale }: HeaderProps) {
   const navItems = [
     { label: t("home"), href: `/${locale}` },
     { label: t("menu"), href: `/${locale}/menu` },
-    { label: t("gallery"), href: `/${locale}/gallery` },
-    { label: t("contact"), href: `/${locale}/contact` },
+    { label: t("gallery"), href: `/${locale}/#home-story` },
+    { label: t("contact"), href: `/${locale}/#home-contact` },
   ];
 
   useEffect(() => {

@@ -36,7 +36,7 @@ export async function HomeStory({ locale }: HomeStoryProps) {
   ];
 
   return (
-    <section className="px-5 py-14 md:px-8 md:py-20">
+    <section id="home-story" className="px-5 py-14 md:px-8 md:py-20 scroll-mt-16">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">
@@ -61,11 +61,11 @@ export async function HomeStory({ locale }: HomeStoryProps) {
                 {item.year}
               </div>
 
-              <h3 className="mt-4 text-sm font-bold text-brand-red md:text-base">
+              <h3 className="mt-4 text-md font-bold text-brand-red md:text-base">
                 {item.title}
               </h3>
 
-              <p className="mt-2 text-xs leading-5 text-brand-muted md:text-sm md:leading-6">
+              <p className="mt-2 text-sm leading-5 text-brand-muted md:text-sm md:leading-6">
                 {item.description}
               </p>
               {i !== timeline.length - 1 && (

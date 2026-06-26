@@ -256,35 +256,14 @@
     "submitting": "Gönderiliyor..."
   },
   "footer": {
-    "tagline": "Modern gastronomi anlayışını sıcak atmosfer ve özel sunumlarla buluşturuyoruz.",
-    "quick_links": "Hızlı Linkler",
-    "menu_label": "Menü",
-    "contact_label": "İletişim",
-
-    "links": {
-      "home": "Ana Sayfa",
-      "about": "Hakkımızda",
-      "menu": "Menü",
-      "gallery": "Galeri",
-      "contact": "İletişim"
-    },
-
-    "menu": {
-      "starters": "Başlangıçlar",
-      "salads": "Salatalar",
-      "mains": "Ana Yemekler",
-      "desserts": "Tatlılar",
-      "drinks": "İçecekler"
-    },
-
-    "contact": {
-      "street": "Cumhuriyet Cad. No: 12",
-      "city": "Kadıköy / İstanbul",
-      "phone": "+90 555 123 45 67",
-      "email": "info@mirabistro.com"
-    },
-
-    "copyright": "© 2026 Mira Bistro. Tüm hakları saklıdır."
+    "description": "1995’ten beri geleneksel Türk mutfağının en özel lezzetleri.",
+    "links": "Hızlı Linkler",
+    "home": "Ana Sayfa",
+    "menu": "Menü",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "order": "Sipariş Platformları",
+    "payment": "Ödeme Yöntemleri"
   },
   "contactPage": {
     "hero": {

@@ -263,36 +263,15 @@
     "loading": "Loading..."
   },
   "footer": {
-    "tagline": "We combine modern gastronomy with warm atmosphere and refined presentation.",
-    "quick_links": "Quick Links",
-    "menu_label": "Menu",
-    "contact_label": "Contact",
-
-    "links": {
-      "home": "Home",
-      "about": "About",
-      "menu": "Menu",
-      "gallery": "Gallery",
-      "contact": "Contact"
-    },
-
-    "menu": {
-      "starters": "Starters",
-      "salads": "Salads",
-      "mains": "Main Courses",
-      "desserts": "Desserts",
-      "drinks": "Drinks"
-    },
-
-    "contact": {
-      "street": "Cumhuriyet Ave. No: 12",
-      "city": "Kadikoy / Istanbul",
-      "phone": "+90 555 123 45 67",
-      "email": "info@mirabistro.com"
-    },
-
-    "copyright": "© 2026 Mira Bistro. All rights reserved."
-  },
+  "description": "The finest flavors of traditional Turkish cuisine since 1995.",
+  "links": "Quick Links",
+  "home": "Home",
+  "menu": "Menu",
+  "about": "About Us",
+  "contact": "Contact",
+  "order": "Order Platforms",
+  "payment": "Payment Methods"
+},
   "contactPage": {
     "hero": {
       "label": "Contact",
