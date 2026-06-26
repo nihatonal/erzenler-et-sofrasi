@@ -57,24 +57,36 @@ type ProductFormProps = {
   action: (formData: FormData) => void;
 };
 
-function SubmitButton({ mode }: { mode: "create" | "edit" }) {
+
+type SubmitButtonProps = {
+  mode: "create" | "edit";
+  isUploading: boolean;
+};
+
+export function SubmitButton({ mode, isUploading }: SubmitButtonProps) {
   const { pending } = useFormStatus();
+
+  const disabled = pending || isUploading;
+
+  let text = "";
+
+  if (isUploading) {
+    text = "Görsel Yükleniyor...";
+  } else if (pending) {
+    text = mode === "edit" ? "Ürün Güncelleniyor..." : "Ürün Oluşturuluyor...";
+  } else {
+    text = mode === "edit" ? "Ürünü Güncelle" : "Ürünü Oluştur";
+  }
 
   return (
     <button
       type="submit"
-      disabled={pending}
+      disabled={disabled}
       className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight disabled:cursor-not-allowed disabled:opacity-60"
     >
-      {pending && <Loader2 className="h-5 w-5 animate-spin" />}
+      {disabled && <Loader2 className="h-5 w-5 animate-spin" />}
 
-      {pending
-        ? mode === "edit"
-          ? "Güncelleniyor..."
-          : "Oluşturuluyor..."
-        : mode === "edit"
-          ? "Ürünü Güncelle"
-          : "Ürünü Oluştur"}
+      {text}
     </button>
   );
 }
@@ -437,7 +449,7 @@ export function ProductForm({
           </div>
         </div>
 
-        <SubmitButton mode={mode} />
+        <SubmitButton mode={mode} isUploading={isUploading} />
       </div>
     </form>
   );
