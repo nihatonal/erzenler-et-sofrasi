@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { ArrowLeft, ImagePlus } from "lucide-react";
+import { ArrowLeft, ImagePlus, Loader2 } from "lucide-react";
+import { useFormStatus } from "react-dom";
 
 import { uploadProductImage } from "@/lib/supabase/upload-product-image";
 
@@ -55,6 +56,28 @@ type ProductFormProps = {
   enabledLocales?: LocaleCode[];
   action: (formData: FormData) => void;
 };
+
+function SubmitButton({ mode }: { mode: "create" | "edit" }) {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight disabled:cursor-not-allowed disabled:opacity-60"
+    >
+      {pending && <Loader2 className="h-5 w-5 animate-spin" />}
+
+      {pending
+        ? mode === "edit"
+          ? "Güncelleniyor..."
+          : "Oluşturuluyor..."
+        : mode === "edit"
+          ? "Ürünü Güncelle"
+          : "Ürünü Oluştur"}
+    </button>
+  );
+}
 
 export function ProductForm({
   mode,
@@ -414,13 +437,7 @@ export function ProductForm({
           </div>
         </div>
 
-        <button
-          type="submit"
-          disabled={isUploading}
-          className="flex h-14 w-full items-center justify-center rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight disabled:opacity-60"
-        >
-          {mode === "edit" ? "Ürünü Güncelle" : "Ürünü Oluştur"}
-        </button>
+        <SubmitButton mode={mode} />
       </div>
     </form>
   );

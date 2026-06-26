@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image, { type ImageProps } from 'next/image';
-import { useState } from 'react';
+import Image, { type ImageProps } from "next/image";
+import { useState } from "react";
 
 type SafeImageProps = ImageProps & {
   fallbackSrc?: string;
@@ -9,7 +9,9 @@ type SafeImageProps = ImageProps & {
 
 export function SafeImage({
   src,
-  fallbackSrc = '/images/menu/fettuccine.webp',
+  fallbackSrc = "/images/menu/fettuccine.webp",
+  onError,
+  alt,
   ...props
 }: SafeImageProps) {
   const [imageSrc, setImageSrc] = useState(src);
@@ -18,12 +20,11 @@ export function SafeImage({
     <Image
       {...props}
       src={imageSrc}
-      alt="sadeImage"
-      onError={() => setImageSrc(fallbackSrc)}
-      loading="eager"
-      // unoptimized={
-      //   typeof imageSrc === 'string' && imageSrc.startsWith('https://')
-      // }
+      alt={alt}
+      onError={(e) => {
+        setImageSrc(fallbackSrc);
+        onError?.(e);
+      }}
     />
   );
 }

@@ -643,7 +643,7 @@ export function PublicMenuClient({
           </div>
         ) : (
           <div className="grid gap-3 lg:grid-cols-2">
-            {filteredProducts.map((product) => {
+            {filteredProducts.map((product, index) => {
               const productName = getLocalizedName(product, activeLocale);
               const productDescription = getProductDescription(
                 product,
@@ -661,8 +661,9 @@ export function PublicMenuClient({
                       src={product.image_url || "/images/menu/fettuccine.webp"}
                       alt={productName}
                       fill
-                      loading="eager"
+                      priority={index === 0}
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
 
                     <div className="absolute left-2 top-2 flex flex-col gap-1">
@@ -800,6 +801,7 @@ export function PublicMenuClient({
                   fill
                   unoptimized
                   className="object-cover"
+                  sizes="(max-width: 768px) calc(100vw - 40px), 280px"
                 />
               </div>
 
@@ -999,9 +1001,9 @@ export function PublicMenuClient({
                               }
                               alt={getLocalizedName(recommended, activeLocale)}
                               fill
-                              loading="eager"
                               unoptimized
                               className="object-cover"
+                              sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 768px) 50vw, 220px"
                             />
                           </div>
 
