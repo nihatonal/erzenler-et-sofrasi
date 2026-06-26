@@ -662,7 +662,6 @@ export function PublicMenuClient({
                       alt={productName}
                       fill
                       loading="eager"
-                      unoptimized
                       className="object-cover"
                     />
 

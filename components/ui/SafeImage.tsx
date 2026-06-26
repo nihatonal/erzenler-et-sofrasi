@@ -21,9 +21,9 @@ export function SafeImage({
       alt="sadeImage"
       onError={() => setImageSrc(fallbackSrc)}
       loading="eager"
-      unoptimized={
-        typeof imageSrc === 'string' && imageSrc.startsWith('https://')
-      }
+      // unoptimized={
+      //   typeof imageSrc === 'string' && imageSrc.startsWith('https://')
+      // }
     />
   );
 }
