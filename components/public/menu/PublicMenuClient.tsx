@@ -35,6 +35,7 @@ type Category = {
   name_en: string | null;
   name_ru: string | null;
   name_ar: string | null;
+  sort_order: number | null;
 };
 
 type Product = {
@@ -53,6 +54,7 @@ type Product = {
   price_try: number;
   old_price_try: number | null;
   discount_percent: number | null;
+  sort_order: number | null;
   is_popular: boolean;
   is_recommended: boolean;
   is_new: boolean;
@@ -120,6 +122,15 @@ type PublicMenuClientProps = {
   restaurantId: string;
   tableSlug: string | null;
 };
+
+function getProductTagPriority(product: Product) {
+  if (product.is_popular) return 1;
+  if (product.is_recommended) return 2;
+  if (product.is_discounted) return 3;
+  if (product.is_new) return 4;
+
+  return 9;
+}
 
 function normalizeLocale(locale: string): LocaleCode {
   if (locale === "en" || locale === "ru" || locale === "ar") return locale;
@@ -256,6 +267,7 @@ export function PublicMenuClient({
               id,
               slug,
               category_id,
+              sort_order,
               name_tr,
               name_en,
               name_ru,
@@ -280,7 +292,8 @@ export function PublicMenuClient({
             )
             .eq("restaurant_id", restaurantId)
             .eq("is_active", true)
-            .order("created_at", { ascending: false }),
+            .order("sort_order", { ascending: true })
+            .order("created_at", { ascending: true }),
 
           tableSlug
             ? supabase
@@ -436,11 +449,37 @@ export function PublicMenuClient({
         Number(selectedOption?.price_difference_try || 0)) *
       quantity
     : 0;
+  const sortedProducts = useMemo(() => {
+    const categoryOrderMap = new Map(
+      categories.map((category) => [
+        category.id,
+        Number(category.sort_order ?? 999),
+      ]),
+    );
 
+    return [...products].sort((a, b) => {
+      const categoryA = categoryOrderMap.get(a.category_id || "") ?? 999;
+      const categoryB = categoryOrderMap.get(b.category_id || "") ?? 999;
+
+      if (categoryA !== categoryB) return categoryA - categoryB;
+
+      const tagA = getProductTagPriority(a);
+      const tagB = getProductTagPriority(b);
+
+      if (tagA !== tagB) return tagA - tagB;
+
+      const sortA = Number(a.sort_order ?? 0);
+      const sortB = Number(b.sort_order ?? 0);
+
+      if (sortA !== sortB) return sortA - sortB;
+
+      return a.name_tr.localeCompare(b.name_tr, "tr");
+    });
+  }, [products, categories]);
   const filteredProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
-    return products.filter((product) => {
+    return sortedProducts.filter((product) => {
       const matchesCategory =
         activeCategory === "all" || product.category_id === activeCategory;
 
@@ -455,7 +494,7 @@ export function PublicMenuClient({
           productDescription.includes(query))
       );
     });
-  }, [products, activeCategory, searchQuery, activeLocale]);
+  }, [sortedProducts, activeCategory, searchQuery, activeLocale]);
 
   function openProduct(product: Product) {
     setSelectedProduct(product);
@@ -549,7 +588,7 @@ export function PublicMenuClient({
 
   return (
     <main className="min-h-screen bg-brand-cream pb-24">
-      <section className="sticky top-0 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur md:px-6">
+      <section className="sticky top-16 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur md:px-6">
         <div className="mx-auto grid max-w-6xl gap-2.5">
           <div className="relative">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-muted" />
@@ -622,6 +661,7 @@ export function PublicMenuClient({
                       src={product.image_url || "/images/menu/fettuccine.webp"}
                       alt={productName}
                       fill
+                      loading="eager"
                       unoptimized
                       className="object-cover"
                     />

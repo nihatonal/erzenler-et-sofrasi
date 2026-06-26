@@ -18,7 +18,7 @@ type Product = {
   id: string;
   slug: string;
   category_id: string | null;
-
+  sort_order: number | null;
   name_tr: string;
   name_en: string | null;
   name_ru: string | null;
@@ -272,7 +272,7 @@ export function ProductForm({
             </div>
           )}
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-4">
             <div>
               <label className="admin-label">Fiyat ₺ *</label>
               <input
@@ -302,6 +302,16 @@ export function ProductForm({
                 name="discount_percent"
                 type="number"
                 defaultValue={product?.discount_percent ?? ""}
+                className="admin-input mt-3"
+              />
+            </div>
+
+            <div>
+              <label className="admin-label">Sıralama</label>
+              <input
+                name="sort_order"
+                type="number"
+                defaultValue={product?.sort_order ?? 0}
                 className="admin-input mt-3"
               />
             </div>

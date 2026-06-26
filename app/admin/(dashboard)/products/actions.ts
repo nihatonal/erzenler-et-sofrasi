@@ -90,7 +90,7 @@ function getProductPayload(formData: FormData) {
     is_recommended: getBoolean(formData, "is_recommended"),
     is_new: getBoolean(formData, "is_new"),
     is_discounted: getBoolean(formData, "is_discounted"),
-
+    sort_order: Number(formData.get("sort_order") || 0),
     is_vegetarian: getBoolean(formData, "is_vegetarian"),
     is_vegan: getBoolean(formData, "is_vegan"),
     is_gluten_free: getBoolean(formData, "is_gluten_free"),

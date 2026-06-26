@@ -194,9 +194,6 @@ export function ProductRecommendationsPanel({
                     src={item.products?.image_url || "/images/menu/fettuccine.webp"}
                     alt={item.products?.name_tr || "Ürün"}
                     fill
-                    unoptimized={
-                      item.products?.image_url?.startsWith("https://") ?? false
-                    }
                     className="object-cover"
                     sizes="80px"
                   />

@@ -24,6 +24,7 @@ type ProductRow = {
   price_try: number;
   old_price_try: number | null;
   discount_percent: number | null;
+  sort_order: number | null;
   is_active: boolean;
   is_popular: boolean;
   is_recommended: boolean;
@@ -76,6 +77,7 @@ export function AdminProductsClient({
             price_try,
             old_price_try,
             discount_percent,
+            sort_order,
             is_active,
             is_popular,
             is_recommended,
@@ -369,6 +371,13 @@ export function AdminProductsClient({
                         Kategori:{" "}
                         <span className="font-semibold text-brand-green">
                           {category?.name_tr || "-"}
+                        </span>
+                      </span>
+
+                      <span>
+                        Sıra:{" "}
+                        <span className="font-semibold text-brand-green">
+                          {item.sort_order ?? 0}
                         </span>
                       </span>
 

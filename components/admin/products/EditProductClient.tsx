@@ -45,7 +45,7 @@ type ProductRow = {
   price_try: number;
   old_price_try: number | null;
   discount_percent: number | null;
-
+  sort_order: number | null;
   is_popular: boolean;
   is_recommended: boolean;
   is_new: boolean;
@@ -160,6 +160,7 @@ export function EditProductClient({
               price_try,
               old_price_try,
               discount_percent,
+              sort_order,
               is_popular,
               is_recommended,
               is_new,
