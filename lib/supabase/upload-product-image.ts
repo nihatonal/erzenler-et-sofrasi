@@ -10,11 +10,11 @@ export async function uploadProductImage({
   slug,
 }: UploadProductImageArgs) {
   const supabase = createSupabaseBrowserClient();
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  // const {
+  //   data: { session },
+  // } = await supabase.auth.getSession();
 
-  console.log("UPLOAD SESSION", session);
+  // console.log("UPLOAD SESSION", session);
 
   const fileExt = file.name.split(".").pop()?.toLowerCase() || "webp";
 
