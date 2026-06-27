@@ -10,7 +10,7 @@ const labels: Record<Locale, string> = {
   tr: 'TR',
   en: 'EN',
   ru: 'RU',
-  ar: 'AR',
+  ar: 'ع',   // AR → ع
 };
 
 type LanguageSwitcherProps = {

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ClipboardList, Home, MenuSquare, Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
-
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { type Locale } from "@/i18n";
 
@@ -13,26 +13,28 @@ type MobileBottomNavProps = {
 
 export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   const pathname = usePathname();
+ const t = useTranslations("nav");
+  
 
   const items = [
     {
-      label: "Anasayfa",
+      label: t("home"),
       href: `/${locale}`,
       icon: Home,
     },
     {
-      label: "Menü",
+      label: t("menu"),
       href: `/${locale}/menu`,
       icon: MenuSquare,
     },
     {
-      label: "Siparişlerim",
-      href: `/${locale}/orders`,
+      label: t("orders"),
+      href: `/${locale}/checkout`,
       icon: ClipboardList,
     },
     {
-      label: "İletişim",
-      href: `/${locale}/contact`,
+      label: t("contact"),
+      href: `/${locale}/#contact`,
       icon: Phone,
     },
   ];

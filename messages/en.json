@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "menu": "Menu",
-    "gallery": "Gallery",
+    "about": "About Us",
+    "orders": "My Orders",
     "contact": "Contact",
     "reservation": "Reservation"
   },
@@ -263,15 +264,15 @@
     "loading": "Loading..."
   },
   "footer": {
-  "description": "The finest flavors of traditional Turkish cuisine since 1995.",
-  "links": "Quick Links",
-  "home": "Home",
-  "menu": "Menu",
-  "about": "About Us",
-  "contact": "Contact",
-  "order": "Order Platforms",
-  "payment": "Payment Methods"
-},
+    "description": "The finest flavors of traditional Turkish cuisine since 1995.",
+    "links": "Quick Links",
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About Us",
+    "contact": "Contact",
+    "order": "Order Platforms",
+    "payment": "Payment Methods"
+  },
   "contactPage": {
     "hero": {
       "label": "Contact",

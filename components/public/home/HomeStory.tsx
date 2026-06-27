@@ -36,7 +36,7 @@ export async function HomeStory({ locale }: HomeStoryProps) {
   ];
 
   return (
-    <section id="home-story" className="px-5 py-14 md:px-8 md:py-20 scroll-mt-16">
+    <section id="story" className="px-5 py-14 md:px-8 md:py-20 scroll-mt-16">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">

@@ -2,7 +2,8 @@
   "nav": {
     "home": "Ana Sayfa",
     "menu": "Menü",
-    "gallery": "Galeri",
+    "about": "Hakkımızda",
+    "orders": "Siparişlerim",
     "contact": "İletişim",
     "reservation": "Rezervasyon"
   },

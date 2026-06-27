@@ -2,9 +2,9 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import type { CartOrderMode } from "@/components/public/menu/types";
 
-export type CartOrderMode = "table" | "delivery";
-
+export type OrderMode = "table" | "delivery" | "menu_only";
 export type CartOption = {
   id: string;
   name: string;
@@ -76,7 +76,9 @@ function createCartItemId(item: AddCartItemInput) {
 }
 
 function getItemUnitPrice(item: CartItem) {
-  return item.basePriceTry + Number(item.selectedOption?.priceDifferenceTry || 0);
+  return (
+    item.basePriceTry + Number(item.selectedOption?.priceDifferenceTry || 0)
+  );
 }
 
 export const useCartStore = create<CartState>()(

@@ -57,11 +57,11 @@ export async function Footer({ locale }: FooterProps) {
             <Link href={`/${locale}/menu`} className="hover:text-white">
               {t("menu")}
             </Link>
-            <Link href={`/${locale}/#home-story`} className="hover:text-white">
+            <Link href={`/${locale}/#story`} className="hover:text-white">
               {t("about")}
             </Link>
             <Link
-              href={`/${locale}/#home-contact`}
+              href={`/${locale}/#contact`}
               className="hover:text-white"
             >
               {t("contact")}

@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileAppHeader } from "@/components/layout/MobileAppHeader";
-//import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 import { type Locale } from "@/i18n";
 import { AppProviders } from "@/components/providers/AppProviders";
@@ -37,7 +37,7 @@ export default async function SiteLayout({
         <Footer locale={currentLocale} />
       </AppProviders>
 
-      {/* <MobileBottomNav locale={currentLocale} /> */}
+      <MobileBottomNav locale={currentLocale} />
     </>
   );
 }

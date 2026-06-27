@@ -1,10 +1,11 @@
 {
   "nav": {
-    "home": "Ana Sayfa",
-    "menu": "Menü",
-    "gallery": "Galeri",
-    "contact": "İletişim",
-    "reservation": "Rezervasyon"
+    "home": "الرئيسية",
+    "menu": "القائمة",
+    "about": "من نحن",
+    "orders": "طلباتي",
+    "contact": "اتصل بنا",
+    "reservation": "حجز"
   },
   "home": {
     "hero": {
@@ -263,15 +264,15 @@
     "loading": "Yükleniyor..."
   },
   "footer": {
-  "description": "أرقى نكهات المطبخ التركي التقليدي منذ عام 1995.",
-  "links": "روابط سريعة",
-  "home": "الرئيسية",
-  "menu": "القائمة",
-  "about": "من نحن",
-  "contact": "اتصل بنا",
-  "order": "منصات الطلب",
-  "payment": "طرق الدفع"
-},
+    "description": "أرقى نكهات المطبخ التركي التقليدي منذ عام 1995.",
+    "links": "روابط سريعة",
+    "home": "الرئيسية",
+    "menu": "القائمة",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "order": "منصات الطلب",
+    "payment": "طرق الدفع"
+  },
   "contactPage": {
     "hero": {
       "label": "İletişim",
