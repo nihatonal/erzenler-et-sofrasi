@@ -235,7 +235,7 @@ export function PublicMenuClient({
       locale: activeLocale,
       quantity: 1,
     });
-    showToast( t("addedToCart"), getLocalizedName(product, activeLocale));
+    showToast(t("addedToCart"), getLocalizedName(product, activeLocale));
   }
 
   const sectionRef = useRef<HTMLElement>(null); // ← buraya
@@ -246,7 +246,9 @@ export function PublicMenuClient({
     setTimeout(() => {
       const el = sectionRef.current;
       if (!el) return;
-      const top = el.getBoundingClientRect().top + window.scrollY - 180;
+      const isMobile = window.innerWidth < 1024; // lg breakpoint
+      const offset = isMobile ? 180 : 240;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }, 50);
   }

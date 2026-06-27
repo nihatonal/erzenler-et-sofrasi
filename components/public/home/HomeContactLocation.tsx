@@ -99,12 +99,26 @@ export async function HomeContactLocation({
                     <h3 className="font-bold text-brand-green">
                       {t("phoneTitle")}
                     </h3>
-                    <Link
-                      href={`tel:${t("phoneRaw")}`}
-                      className="mt-1 block text-sm font-semibold text-brand-muted transition hover:text-brand-red"
-                    >
-                      {t("phone")}
-                    </Link>
+                    <div className="mt-1 flex flex-col gap-1">
+                      <Link
+                        href="tel:+905445182342"
+                        className="text-sm font-semibold text-brand-muted transition hover:text-brand-red"
+                      >
+                        0544 518 23 42
+                      </Link>
+                      <Link
+                        href="tel:+902125964155"
+                        className="text-sm font-semibold text-brand-muted transition hover:text-brand-red"
+                      >
+                        0212 596 41 55
+                      </Link>
+                      <Link
+                        href="tel:+902125964142"
+                        className="text-sm font-semibold text-brand-muted transition hover:text-brand-red"
+                      >
+                        0212 596 41 42
+                      </Link>
+                    </div>
                   </div>
                 </div>
 
@@ -118,11 +132,11 @@ export async function HomeContactLocation({
                       {t("whatsappTitle")}
                     </h3>
                     <Link
-                      href={`https://wa.me/${t("whatsappRaw")}`}
+                      href="https://wa.me/905445182342"
                       target="_blank"
                       className="mt-1 block text-sm font-semibold text-brand-muted transition hover:text-brand-red"
                     >
-                      {t("whatsapp")}
+                      0544 518 23 42
                     </Link>
                   </div>
                 </div>
@@ -130,7 +144,7 @@ export async function HomeContactLocation({
                 <div className="flex gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
                     <Clock className="h-5 w-5" />
-                    </div>
+                  </div>
 
                   <div>
                     <h3 className="font-bold text-brand-green">
@@ -193,7 +207,7 @@ export async function HomeContactLocation({
             </Link>
           </div>
 
-          <div className="border-t border-brand-sand p-5">
+          <div className="border-t border-brand-sand p-5 md:hidden">
             <Link
               href={t("mapsUrl")}
               target="_blank"

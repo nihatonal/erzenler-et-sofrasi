@@ -80,6 +80,7 @@ export async function HomeStory({ locale }: HomeStoryProps) {
     from-transparent
     via-brand-greenLight/80
     to-transparent
+    md:hidden
   "
                 />
               )}

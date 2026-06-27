@@ -59,7 +59,7 @@ export function ProductCard({
           alt={productName}
           fill
           unoptimized
-          priority={index === 0}
+          priority={index < 3}
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
         />

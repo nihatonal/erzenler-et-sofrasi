@@ -44,7 +44,7 @@ export function MenuHeader({
 
   return (
     <section
-      className="fixed left-0 right-0 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur transition-[top] duration-300 md:px-6"
+      className="fixed md:static md:pt-28 left-0 right-0 z-20 border-b border-brand-sand bg-brand-cream/95 px-4 py-3 backdrop-blur transition-[top] duration-300 md:px-6"
       style={{ top: appHeaderHidden ? 0 : MOBILE_HEADER_HEIGHT }}
     >
       <div className="mx-auto grid max-w-6xl gap-2.5">

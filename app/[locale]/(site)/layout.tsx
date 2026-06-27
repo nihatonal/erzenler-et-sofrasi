@@ -32,7 +32,7 @@ export default async function SiteLayout({
         <Header locale={currentLocale} />
         <MobileAppHeader locale={currentLocale} />
 
-        <div className="lg:pt-24">{children}</div>
+        <div>{children}</div>
 
         <Footer locale={currentLocale} />
       </AppProviders>
