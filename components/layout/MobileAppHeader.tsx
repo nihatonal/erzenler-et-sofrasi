@@ -14,8 +14,13 @@ type MobileAppHeaderProps = {
 
 export function MobileAppHeader({ locale }: MobileAppHeaderProps) {
   const cartQuantity = useCartStore((state) => state.getTotalQuantity());
+  const [mounted, setMounted] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastY, setLastY] = useState(0);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     function onScroll() {
@@ -59,7 +64,7 @@ export function MobileAppHeader({ locale }: MobileAppHeaderProps) {
           >
             <ShoppingBag className="h-5 w-5" />
 
-            {cartQuantity > 0 && (
+            {mounted && cartQuantity > 0 && (
               <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-red px-1 text-[10px] font-bold text-white">
                 {cartQuantity}
               </span>

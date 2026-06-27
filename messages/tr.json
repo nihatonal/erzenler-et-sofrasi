@@ -185,6 +185,7 @@
     "add": "Ekle",
     "menuOnly": "Menü",
     "free": "Ücretsiz",
+    "addedToCart":"Sepete Eklendi",
     "orderMode": {
       "table": "Masa Siparişi",
       "delivery": "Online Sipariş",

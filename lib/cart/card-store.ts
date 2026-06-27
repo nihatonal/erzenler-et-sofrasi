@@ -7,13 +7,19 @@ import type { CartOrderMode } from "@/components/public/menu/types";
 export type OrderMode = "table" | "delivery" | "menu_only";
 export type CartOption = {
   id: string;
-  name: string;
+  name: string; // tr fallback
+  name_en: string | null;
+  name_ru: string | null;
+  name_ar: string | null;
   priceDifferenceTry: number;
 };
 
 export type CartRemovable = {
   id: string;
-  name: string;
+  name: string; // tr fallback
+  name_en: string | null;
+  name_ru: string | null;
+  name_ar: string | null;
 };
 
 export type CartItem = {
@@ -21,7 +27,12 @@ export type CartItem = {
 
   productId: string;
   productSlug: string;
-  productName: string;
+  // string yerine tüm diller
+  productName: string; // fallback (tr)
+  productName_en: string | null;
+  productName_ru: string | null;
+  productName_ar: string | null;
+
   productImageUrl: string | null;
 
   quantity: number;

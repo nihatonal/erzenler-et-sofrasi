@@ -105,14 +105,14 @@ export function ProductModal({
             </h3>
 
             {getProductDescription(product, activeLocale) && (
-              <p className="mt-3 text-sm leading-7 text-brand-muted">
+              <p className="text-sm leading-7 text-brand-muted">
                 {getProductDescription(product, activeLocale)}
               </p>
             )}
 
             {/* Options */}
             {selectedOptions.length > 0 && (
-              <div className="mt-6">
+              <div className="mt-2">
                 <h4 className="font-bold text-brand-green">
                   {t("detail.options")}
                 </h4>
@@ -149,7 +149,7 @@ export function ProductModal({
 
             {/* Removables */}
             {selectedRemovables.length > 0 && (
-              <div className="mt-6">
+              <div className="mt-2">
                 <h4 className="font-bold text-brand-green">
                   {t("detail.removables")}
                 </h4>
@@ -181,7 +181,7 @@ export function ProductModal({
             {/* Note & Quantity */}
             {canAddToCart && (
               <>
-                <div className="mt-6">
+                <div className="mt-2">
                   <label className="font-bold text-brand-green">
                     {t("detail.note")}
                   </label>
@@ -195,7 +195,7 @@ export function ProductModal({
                   />
                 </div>
 
-                <div className="mt-6 flex items-center gap-3">
+                <div className="mt-2 flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => onQuantityChange(Math.max(1, quantity - 1))}
@@ -218,7 +218,7 @@ export function ProductModal({
             )}
 
             {/* Price & CTA */}
-            <div className="mt-6 flex items-end justify-between gap-4">
+            <div className="mt-2 flex items-end justify-between gap-4">
               <div>
                 {product.old_price_try && (
                   <p className="text-sm font-semibold text-neutral-400 line-through">
@@ -235,7 +235,7 @@ export function ProductModal({
                 <button
                   type="button"
                   onClick={onAddToCart}
-                  className="flex h-12 items-center gap-2 rounded-xl bg-brand-green px-5 text-sm font-bold text-white transition hover:bg-brand-greenLight"
+                  className="flex h-11 items-center gap-2 rounded-xl bg-brand-green px-5 text-sm font-bold text-white transition hover:bg-brand-greenLight"
                 >
                   <ShoppingBag className="h-4 w-4" />
                   {t("detail.addToCart")}

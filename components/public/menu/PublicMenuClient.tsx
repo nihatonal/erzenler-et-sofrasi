@@ -175,13 +175,19 @@ export function PublicMenuClient({
     addItem({
       productId: selectedProduct.id,
       productSlug: selectedProduct.slug,
-      productName: getLocalizedName(selectedProduct, activeLocale),
+      productName: selectedProduct.name_tr, // her zaman tr
+      productName_en: selectedProduct.name_en,
+      productName_ru: selectedProduct.name_ru,
+      productName_ar: selectedProduct.name_ar,
       productImageUrl: selectedProduct.image_url,
       basePriceTry: Number(selectedProduct.price_try),
       selectedOption: selectedOption
         ? {
             id: selectedOption.id,
-            name: getLocalizedName(selectedOption, activeLocale),
+            name: selectedOption.name_tr,
+            name_en: selectedOption.name_en,
+            name_ru: selectedOption.name_ru,
+            name_ar: selectedOption.name_ar,
             priceDifferenceTry: Number(
               selectedOption.price_difference_try || 0,
             ),
@@ -189,7 +195,10 @@ export function PublicMenuClient({
         : null,
       removables: selectedRemovableItems.map((item) => ({
         id: item.id,
-        name: getLocalizedName(item, activeLocale),
+        name: item.name_tr,
+        name_en: item.name_en,
+        name_ru: item.name_ru,
+        name_ar: item.name_ar,
       })),
       note: note.trim() || null,
       orderMode,
@@ -200,7 +209,7 @@ export function PublicMenuClient({
     });
 
     showToast(
-      "Sepete eklendi",
+      t("addedToCart"),
       getLocalizedName(selectedProduct, activeLocale),
     );
     closeProduct();
@@ -211,7 +220,10 @@ export function PublicMenuClient({
     addItem({
       productId: product.id,
       productSlug: product.slug,
-      productName: getLocalizedName(product, activeLocale),
+      productName: product.name_tr,
+      productName_en: product.name_en,
+      productName_ru: product.name_ru,
+      productName_ar: product.name_ar,
       productImageUrl: product.image_url,
       basePriceTry: Number(product.price_try),
       selectedOption: null,
@@ -223,7 +235,7 @@ export function PublicMenuClient({
       locale: activeLocale,
       quantity: 1,
     });
-    showToast("Sepete eklendi", getLocalizedName(product, activeLocale));
+    showToast( t("addedToCart"), getLocalizedName(product, activeLocale));
   }
 
   const sectionRef = useRef<HTMLElement>(null); // ← buraya

@@ -179,6 +179,7 @@
     }
   },
   "menu": {
+    "addedToCart": "Added to Cart",
     "eyebrow": "Digital Menu",
     "searchPlaceholder": "Search products...",
     "allCategories": "All",
@@ -207,6 +208,7 @@
       "note": "Order Note",
       "notePlaceholder": "E.g.: Medium rare please",
       "addToCart": "Add to Cart",
+
       "recommendations": "Goes well with this"
     },
     "cart": {

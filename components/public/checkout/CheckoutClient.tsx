@@ -3,17 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
-import { ArrowLeft, Minus, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, Minus, Plus, Trash2, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-
 import { formatCurrency } from "@/lib/utils";
 import { createCheckoutOrderAction } from "@/app/[locale]/(site)/checkout/actions";
-import { useCartStore } from "@/lib/cart/card-store";
+import { CartItem, useCartStore } from "@/lib/cart/card-store";
 
 type CheckoutClientProps = {
   locale: string;
   restaurantId: string;
 };
+
+function getCartItemName(item: CartItem, locale: string): string {
+  if (locale === "en") return item.productName_en || item.productName;
+  if (locale === "ru") return item.productName_ru || item.productName;
+  if (locale === "ar") return item.productName_ar || item.productName;
+  return item.productName;
+}
+
+function getLocalizedCartName(
+  names: {
+    name: string;
+    name_en?: string | null;
+    name_ru?: string | null;
+    name_ar?: string | null;
+  },
+  locale: string,
+): string {
+  if (locale === "en") return names.name_en || names.name;
+  if (locale === "ru") return names.name_ru || names.name;
+  if (locale === "ar") return names.name_ar || names.name;
+  return names.name;
+}
 
 export function CheckoutClient({ locale }: CheckoutClientProps) {
   const t = useTranslations("checkout");
@@ -52,17 +73,19 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
       if (!result.success) {
         setErrorText(result.message);
+        window.scrollTo({ top: 0, behavior: "smooth" }); // ← hata durumunda da en üste git
         return;
       }
 
       clearCart();
       setSuccessOrderNumber(result.orderNumber);
+      window.scrollTo({ top: 0, behavior: "smooth" }); // ← başarı durumunda
     });
   }
 
   if (successOrderNumber) {
     return (
-      <main className="min-h-screen bg-brand-cream px-4 py-10">
+      <main className="min-h-screen bg-brand-cream px-4 pt-20">
         <div className="mx-auto max-w-xl rounded-2xl border border-brand-sand bg-white p-8 text-center">
           <h1 className="text-2xl font-bold text-brand-green">
             {t("success.title")}
@@ -89,7 +112,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
   if (!items.length) {
     return (
-      <main className="min-h-screen bg-brand-cream px-4 py-10">
+      <main className="min-h-screen bg-brand-cream px-4 pt-20">
         <div className="mx-auto max-w-xl rounded-2xl border border-brand-sand bg-white p-8 text-center">
           <h1 className="text-2xl font-bold text-brand-green">
             {t("empty.title")}
@@ -111,7 +134,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
   }
 
   return (
-    <main className="min-h-screen bg-brand-cream px-4 py-6 md:px-6">
+    <main className="min-h-screen bg-brand-cream px-4 pt-20 md:px-6">
       <div className="mx-auto max-w-6xl">
         <Link
           href={`/${locale}/menu`}
@@ -121,7 +144,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
           {t("back")}
         </Link>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_420px]">
+        <div className="mt-2 grid gap-6 lg:grid-cols-[1fr_420px]">
           <section className="rounded-2xl border border-brand-sand bg-white p-5">
             <h1 className="text-2xl font-bold text-brand-green">
               {t("title")}
@@ -143,7 +166,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         src={
                           item.productImageUrl || "/images/menu/fettuccine.webp"
                         }
-                        alt={item.productName}
+                        alt={getCartItemName(item, locale)}
                         fill
                         unoptimized
                         className="object-cover"
@@ -154,12 +177,15 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <h2 className="line-clamp-1 font-bold text-brand-green">
-                            {item.productName}
+                            {getCartItemName(item, locale)}
                           </h2>
 
                           {item.selectedOption && (
                             <p className="mt-1 text-xs text-brand-muted">
-                              {item.selectedOption.name}
+                              {getLocalizedCartName(
+                                item.selectedOption,
+                                locale,
+                              )}
                             </p>
                           )}
 
@@ -167,7 +193,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                             <p className="mt-1 text-xs text-brand-muted">
                               {t("without")}:{" "}
                               {item.removables
-                                .map((removable) => removable.name)
+                                .map((r) => getLocalizedCartName(r, locale))
                                 .join(", ")}
                             </p>
                           )}
@@ -219,6 +245,12 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                   </div>
                 );
               })}
+            </div>
+            <div className="flex mt-6 px-2 justify-between text-sm">
+              <span className="text-brand-muted">{t("summary.subtotal")}:</span>
+              <span className="font-bold text-brand-green">
+                {formatCurrency(subtotal, "TRY")}
+              </span>
             </div>
           </section>
 
@@ -395,7 +427,14 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
               disabled={isPending}
               className="mt-6 flex h-13 w-full items-center justify-center rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.12em] text-white disabled:opacity-60"
             >
-              {isPending ? t("submitting") : t("submit")}
+              {isPending ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  {t("submitting")}
+                </>
+              ) : (
+                t("submit")
+              )}
             </button>
           </form>
         </div>

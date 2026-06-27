@@ -1,8 +1,9 @@
 "use client";
 
+import { useTransition } from "react";
 import { createCategoryAction } from "@/app/admin/(dashboard)/categories/actions";
 import type { CategoryRow } from "./AdminCategoriesClient";
-
+import { Loader2 } from "lucide-react";
 type LocaleCode = "tr" | "en" | "ru" | "ar";
 
 type CategoryFormProps = {
@@ -28,6 +29,7 @@ export function CategoryForm({
   enabledLocales,
   onOptimisticCreate,
 }: CategoryFormProps) {
+  const [isPending, startTransition] = useTransition();
   const activeLocales = enabledLocales || ["tr", "en", "ru", "ar"];
   const showEn = activeLocales.includes("en");
   const showRu = activeLocales.includes("ru");
@@ -56,12 +58,15 @@ export function CategoryForm({
     onOptimisticCreate(tempCategory);
     form.reset();
 
-    try {
-      await createCategoryAction(formData);
-    } catch (error) {
-      console.error(error);
-      alert("Kategori eklenemedi. Sayfayı yenileyin.");
-    }
+    startTransition(async () => {
+      // ← wrap et
+      try {
+        await createCategoryAction(formData);
+      } catch (error) {
+        console.error(error);
+        alert("Kategori eklenemedi. Sayfayı yenileyin.");
+      }
+    });
   }
 
   return (
@@ -132,7 +137,13 @@ export function CategoryForm({
           type="submit"
           className="h-12 rounded-xl bg-brand-red px-5 text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight"
         >
-          Kategori Ekle
+          {isPending ? (
+            <>
+              <Loader2 className="h-5 w-5 animate-spin mx-auto" />
+            </>
+          ) : (
+            "Kategori Ekle"
+          )}
         </button>
       </form>
     </section>
