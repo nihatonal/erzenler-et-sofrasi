@@ -332,7 +332,7 @@
       "success": "Rezervasyon talebiniz alındı."
     }
   },
-   "metadata": {
+  "metadata": {
     "home": {
       "title": "مطعم إرزنلر | مطعم كباب ومشاوي تركية في إسطنبول",
       "description": "استمتع بأشهى أطباق الكباب والمشاوي والفطائر التركية والنكهات التقليدية في مطعم إرزنلر، الذي يقدم خدماته في إسطنبول منذ عام 1995.",
@@ -358,6 +358,118 @@
         "مطعم تركي",
         "حلويات",
         "فطائر تركية"
+      ]
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "description": "Erzenler Et Sofrası olarak kişisel verilerinizin gizliliğine önem veriyoruz.",
+      "sections": [
+        {
+          "heading": "1. Genel Bilgilendirme",
+          "body": "Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde, online sipariş verdiğinizde veya bizimle iletişime geçtiğinizde işlenen kişisel veriler hakkında bilgi vermek amacıyla hazırlanmıştır."
+        },
+        {
+          "heading": "2. İşlenen Veriler",
+          "body": "Ad soyad, telefon numarası, e-posta adresi, teslimat adresi, sipariş içeriği, işlem tarihi ve iletişim notları gibi bilgiler işlenebilir."
+        },
+        {
+          "heading": "3. Kullanım Amaçları",
+          "body": "Kişisel verileriniz siparişlerin alınması, hazırlanması, teslim edilmesi, müşteri iletişimi, hizmet kalitesinin artırılması ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılır."
+        },
+        {
+          "heading": "4. Saklama Süresi",
+          "body": "Kişisel veriler, ilgili mevzuatta öngörülen süreler boyunca veya işleme amacı devam ettiği sürece saklanır."
+        },
+        {
+          "heading": "5. İletişim",
+          "body": "Gizlilik politikası ile ilgili sorularınız için restoran iletişim kanallarından bize ulaşabilirsiniz."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "description": "Bu sayfa, web sitemizde kullanılan çerezler hakkında bilgi verir.",
+      "sections": [
+        {
+          "heading": "1. Çerez Nedir?",
+          "body": "Çerezler, web sitesinin çalışmasını sağlamak ve kullanıcı deneyimini iyileştirmek amacıyla tarayıcınıza kaydedilen küçük metin dosyalarıdır."
+        },
+        {
+          "heading": "2. Kullanılan Çerezler",
+          "body": "Sitemizde temel işlevlerin çalışması için zorunlu çerezler ve kullanıcı deneyimini iyileştirmeye yardımcı çerezler kullanılabilir."
+        },
+        {
+          "heading": "3. Çerez Yönetimi",
+          "body": "Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Ancak bazı temel özellikler bu durumda doğru çalışmayabilir."
+        },
+        {
+          "heading": "4. Üçüncü Taraf Çerezler",
+          "body": "Analitik veya reklam amaçlı üçüncü taraf çerezler kullanılması halinde bu konuda ayrıca bilgilendirme yapılır."
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "KVKK Aydınlatma Metni",
+      "description": "Kişisel verilerinizin işlenmesine ilişkin aydınlatma metni.",
+      "sections": [
+        {
+          "heading": "1. Veri Sorumlusu",
+          "body": "Kişisel verileriniz Erzenler Et Sofrası tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir."
+        },
+        {
+          "heading": "2. İşlenen Kişisel Veriler",
+          "body": "Ad soyad, telefon, e-posta, adres, sipariş bilgileri ve talep/şikayet içerikleri işlenebilir."
+        },
+        {
+          "heading": "3. İşleme Amaçları",
+          "body": "Verileriniz sipariş süreçlerinin yürütülmesi, teslimat, müşteri iletişimi, rezervasyon ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir."
+        },
+        {
+          "heading": "4. Haklarınız",
+          "body": "KVKK kapsamında kişisel verilerinizle ilgili bilgi talep etme, düzeltme, silme veya işlenmesine itiraz etme haklarına sahipsiniz."
+        }
+      ]
+    },
+    "delivery-return": {
+      "title": "Teslimat ve İade",
+      "description": "Online siparişlerde teslimat ve iade süreçleri hakkında bilgilendirme.",
+      "sections": [
+        {
+          "heading": "1. Teslimat",
+          "body": "Online siparişler, restoranın hizmet verdiği bölgeler içinde belirtilen adrese teslim edilir. Teslimat süresi yoğunluğa ve adrese göre değişebilir."
+        },
+        {
+          "heading": "2. Sipariş Kontrolü",
+          "body": "Siparişinizi teslim alırken ürünleri kontrol etmeniz önerilir. Eksik veya hatalı ürün durumunda restoranla iletişime geçebilirsiniz."
+        },
+        {
+          "heading": "3. İade",
+          "body": "Gıda ürünlerinde hijyen ve sağlık koşulları nedeniyle teslim sonrası iade kabulü sınırlıdır. Hatalı veya eksik ürünlerde restoran değerlendirme yapar."
+        }
+      ]
+    },
+    "distance-sales": {
+      "title": "Mesafeli Satış Sözleşmesi",
+      "description": "Online siparişlere ilişkin mesafeli satış bilgilendirmesi.",
+      "sections": [
+        {
+          "heading": "1. Taraflar",
+          "body": "Bu sözleşme, online sipariş veren müşteri ile Erzenler Et Sofrası arasında elektronik ortamda kurulur."
+        },
+        {
+          "heading": "2. Ürün ve Hizmet",
+          "body": "Sözleşmenin konusu, müşterinin web sitesi üzerinden verdiği yemek siparişinin hazırlanması ve teslim edilmesidir."
+        },
+        {
+          "heading": "3. Ödeme ve Teslimat",
+          "body": "Sipariş tutarı, teslimat ücreti ve toplam bedel checkout ekranında müşteriye gösterilir. Teslimat, belirtilen adrese yapılır."
+        },
+        {
+          "heading": "4. Cayma Hakkı",
+          "body": "Çabuk bozulabilen veya son kullanma tarihi geçebilecek gıda ürünlerinde cayma hakkı mevzuat gereği sınırlı olabilir."
+        }
       ]
     }
   }

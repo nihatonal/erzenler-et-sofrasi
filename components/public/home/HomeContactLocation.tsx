@@ -84,9 +84,14 @@ export async function HomeContactLocation({
                     <h3 className="font-bold text-brand-green">
                       {t("addressTitle")}
                     </h3>
-                    <p className="mt-1 text-sm leading-7 text-brand-muted">
+                    <Link
+                      href={t("mapsUrl")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 text-sm leading-7 text-brand-muted"
+                    >
                       {t("address")}
-                    </p>
+                    </Link>
                   </div>
                 </div>
 

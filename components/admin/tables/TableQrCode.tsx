@@ -8,10 +8,10 @@ type TableQrCodeProps = {
 
 export function TableQrCode({ url }: TableQrCodeProps) {
   return (
-    <div className="rounded-xl bg-white p-4">
+    <div className="rounded-xl bg-white p-3">
       <QRCode
         value={url}
-        size={180}
+        size={160}
         style={{
           width: "100%",
           height: "auto",

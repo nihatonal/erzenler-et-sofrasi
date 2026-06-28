@@ -2,9 +2,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileAppHeader } from "@/components/layout/MobileAppHeader";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { CookieBanner } from "@/components/public/CookieBanner";
 
 import { type Locale } from "@/i18n";
 import { AppProviders } from "@/components/providers/AppProviders";
+import { SmartFloatingCTA } from "@/components/layout/SmartFloatingCTA";
 
 type SiteLayoutProps = {
   children: React.ReactNode;
@@ -33,8 +35,14 @@ export default async function SiteLayout({
         <MobileAppHeader locale={currentLocale} />
 
         <div>{children}</div>
+        <SmartFloatingCTA
+          whatsappNumber="905445182342"
+          locale={currentLocale}
+        />
 
         <Footer locale={currentLocale} />
+        
+        <CookieBanner locale={currentLocale} />
       </AppProviders>
 
       <MobileBottomNav locale={currentLocale} />

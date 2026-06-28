@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { createTableAction } from "@/app/admin/(dashboard)/tables/actions";
 
+import { createTableAction } from "@/app/admin/(dashboard)/tables/actions";
 
 type TableFormProps = {
   mode: "create";
@@ -19,6 +19,7 @@ export function TableForm({ onCreated, onCancel }: TableFormProps) {
     event.preventDefault();
 
     const formData = new FormData();
+
     formData.append("label", label);
     formData.append("capacity", String(capacity));
     formData.append("status", "available");
@@ -28,6 +29,7 @@ export function TableForm({ onCreated, onCancel }: TableFormProps) {
     startTransition(async () => {
       try {
         await createTableAction(formData);
+
         setLabel("");
         setCapacity(4);
         onCreated();
@@ -71,7 +73,7 @@ export function TableForm({ onCreated, onCancel }: TableFormProps) {
         <button
           type="button"
           onClick={onCancel}
-          className="h-11 rounded-xl border border-brand-sand px-5 text-sm font-semibold"
+          className="h-11 rounded-xl border border-brand-sand px-5 text-sm font-semibold text-brand-green"
         >
           Vazgeç
         </button>

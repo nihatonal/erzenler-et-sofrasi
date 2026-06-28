@@ -112,7 +112,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
   if (!items.length) {
     return (
-      <main className="min-h-screen bg-brand-cream px-4 pt-20">
+      <main className="min-h-screen bg-brand-cream px-4 pt-20 md:pt-28">
         <div className="mx-auto max-w-xl rounded-2xl border border-brand-sand bg-white p-8 text-center">
           <h1 className="text-2xl font-bold text-brand-green">
             {t("empty.title")}

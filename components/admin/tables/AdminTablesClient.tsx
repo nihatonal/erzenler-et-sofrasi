@@ -6,7 +6,6 @@ import { Plus, RefreshCw, Search } from "lucide-react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { TableForm } from "./TableForm";
 import { TableCard } from "./TableCard";
-import { TableDesignPreview } from "./TableDesignPreview";
 
 export type RestaurantTableRow = {
   id: string;
@@ -25,8 +24,6 @@ type AdminTablesClientProps = {
 
 export function AdminTablesClient({ restaurantId }: AdminTablesClientProps) {
   const [tables, setTables] = useState<RestaurantTableRow[]>([]);
-  const [selectedTable, setSelectedTable] =
-    useState<RestaurantTableRow | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorText, setErrorText] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -49,17 +46,7 @@ export function AdminTablesClient({ restaurantId }: AdminTablesClientProps) {
 
       if (error) throw error;
 
-      const rows = (data || []) as RestaurantTableRow[];
-
-      setTables(rows);
-
-      setSelectedTable((current) => {
-        if (!rows.length) return null;
-        if (current && rows.some((row) => row.id === current.id)) {
-          return rows.find((row) => row.id === current.id) || rows[0];
-        }
-        return rows[0];
-      });
+      setTables((data || []) as RestaurantTableRow[]);
     } catch (error) {
       console.error(error);
       setErrorText("Masalar yüklenemedi.");
@@ -88,13 +75,6 @@ export function AdminTablesClient({ restaurantId }: AdminTablesClientProps) {
 
   function handleOptimisticDelete(tableId: string) {
     setTables((current) => current.filter((item) => item.id !== tableId));
-
-    setSelectedTable((current) => {
-      if (current?.id !== tableId) return current;
-
-      const nextTable = tables.find((table) => table.id !== tableId);
-      return nextTable || null;
-    });
   }
 
   return (
@@ -145,17 +125,13 @@ export function AdminTablesClient({ restaurantId }: AdminTablesClientProps) {
       )}
 
       {isLoading ? (
-        <div className="grid gap-6 xl:grid-cols-[420px_1fr]">
-          <div className="space-y-4">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="h-28 animate-pulse rounded-2xl bg-brand-cream"
-              />
-            ))}
-          </div>
-
-          <div className="h-[720px] animate-pulse rounded-2xl bg-brand-cream" />
+        <div className="grid gap-4">
+          {[1, 2, 3].map((item) => (
+            <div
+              key={item}
+              className="h-72 animate-pulse rounded-2xl bg-brand-cream"
+            />
+          ))}
         </div>
       ) : errorText ? (
         <div className="rounded-2xl border border-brand-sand bg-white p-8 text-center">
@@ -166,24 +142,18 @@ export function AdminTablesClient({ restaurantId }: AdminTablesClientProps) {
         <div className="rounded-2xl border border-dashed border-brand-sand bg-brand-cream p-8 text-center">
           <h2 className="font-semibold text-brand-green">Masa bulunamadı</h2>
           <p className="mt-2 text-sm text-brand-muted">
-            Yeni masa oluşturarak QR menü kodu hazırlayabilirsiniz.
+            Yeni masa oluşturarak dört dilde QR menü kodu hazırlayabilirsiniz.
           </p>
         </div>
       ) : (
-        <div className="grid gap-6 xl:grid-cols-[420px_1fr]">
-          <div className="space-y-4">
-            {filteredTables.map((table) => (
-              <TableCard
-                key={table.id}
-                table={table}
-                isSelected={selectedTable?.id === table.id}
-                onSelect={setSelectedTable}
-                onDeleted={handleOptimisticDelete}
-              />
-            ))}
-          </div>
-
-          <TableDesignPreview table={selectedTable} />
+        <div className="grid gap-5">
+          {filteredTables.map((table) => (
+            <TableCard
+              key={table.id}
+              table={table}
+              onDeleted={handleOptimisticDelete}
+            />
+          ))}
         </div>
       )}
     </div>

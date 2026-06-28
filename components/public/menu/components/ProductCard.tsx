@@ -3,7 +3,12 @@ import { ShoppingBag } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { formatCurrency } from "@/lib/utils";
-import type { LocaleCode, Product, ProductOption, ProductRemovable } from "../types";
+import type {
+  LocaleCode,
+  Product,
+  ProductOption,
+  ProductRemovable,
+} from "../types";
 import { getLocalizedName, getProductDescription } from "../utils";
 
 type ProductCardProps = {
@@ -119,7 +124,7 @@ export function ProductCard({
             </p>
           </div>
 
-          {canAddToCart ? (
+          {canAddToCart && (
             <button
               type="button"
               onClick={handleAddClick}
@@ -128,10 +133,6 @@ export function ProductCard({
               <ShoppingBag className="h-3.5 w-3.5" />
               {t("add")}
             </button>
-          ) : (
-            <span className="rounded-xl border border-brand-sand px-3 py-2 text-[10px] font-semibold text-brand-muted">
-              {t("menuOnly")}
-            </span>
           )}
         </div>
       </div>
