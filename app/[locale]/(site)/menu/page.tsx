@@ -1,5 +1,6 @@
 import { PublicMenuClient } from "@/components/public/menu/PublicMenuClient";
-
+import { buildSeoMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
@@ -12,6 +13,19 @@ type MenuPageProps = {
     table?: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: MenuPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return buildSeoMetadata({
+    locale,
+    page: "menu",
+    path: "/menu",
+    image: "/images/og/menu-og.jpg",
+  });
+}
 
 export default async function MenuPage({
   params,

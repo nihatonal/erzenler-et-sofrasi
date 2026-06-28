@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { HomeHero } from "@/components/public/home/HomeHero";
 import { HomeStory } from "@/components/public/home/HomeStory";
 import { HomeFlavors } from "@/components/public/home/HomeFlavors";
@@ -7,24 +9,41 @@ import { HomeOrderPlatforms } from "@/components/public/home/HomeOrderPlatforms"
 import { HomeGalleryPreview } from "@/components/public/home/HomeGalleryPreview";
 import { HomeContactLocation } from "@/components/public/home/HomeContactLocation";
 import { type Locale } from "@/i18n";
+import { buildSeoMetadata } from "@/lib/seo";
 
 type HomePageProps = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{
+    locale: string;
+  }>;
 };
+
+export async function generateMetadata({
+  params,
+}: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return buildSeoMetadata({
+    locale,
+    page: "home",
+    path: "",
+    image: "/images/og/home-og.jpg",
+  });
+}
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
+  const currentLocale = locale as Locale;
 
   return (
     <main className="bg-brand-cream">
-      <HomeHero locale={locale as Locale} />
-      <HomeStory locale={locale as Locale} />
-      <HomeFlavors locale={locale as Locale} />
-      <HomeOrderPlatforms locale={locale as Locale} />
-      {/* <HomeReviews locale={locale as Locale} /> */}
-      <HomeGalleryPreview locale={locale as Locale} />
-      <HomeOrderCta locale={locale as Locale} />
-      <HomeContactLocation locale={locale as Locale} />
+      <HomeHero locale={currentLocale} />
+      <HomeStory locale={currentLocale} />
+      <HomeFlavors locale={currentLocale} />
+      <HomeOrderCta locale={currentLocale} />
+      <HomeOrderPlatforms locale={currentLocale} />
+      {/* <HomeReviews locale={currentLocale} /> */}
+      <HomeGalleryPreview locale={currentLocale} />
+      <HomeContactLocation locale={currentLocale} />
     </main>
   );
 }

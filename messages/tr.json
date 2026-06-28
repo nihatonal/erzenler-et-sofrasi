@@ -185,7 +185,7 @@
     "add": "Ekle",
     "menuOnly": "Menü",
     "free": "Ücretsiz",
-    "addedToCart":"Sepete Eklendi",
+    "addedToCart": "Sepete Eklendi",
     "orderMode": {
       "table": "Masa Siparişi",
       "delivery": "Online Sipariş",
@@ -327,33 +327,33 @@
   },
   "metadata": {
     "home": {
-      "title": "Mira Bistro | Fine Dining Restaurant",
-      "description": "Modern gastronomi ve premium restoran deneyimi."
+      "title": "Erzenler Et Sofrası | 1995’ten Bugüne Kebap ve Et Restoranı",
+      "description": "İstanbul Esenyurt’ta 1995’ten beri hizmet veren Erzenler Et Sofrası’nda kebap, pide, ızgara ve geleneksel Türk mutfağının seçkin lezzetlerini keşfedin.",
+      "keywords": [
+        "Erzenler Et Sofrası",
+        "Esenyurt kebap",
+        "İstanbul kebap restoranı",
+        "Esenyurt restoran",
+        "kebap",
+        "pide",
+        "ızgara",
+        "Türk mutfağı",
+        "online yemek siparişi",
+        "QR menü"
+      ]
     },
-
-    "about": {
-      "title": "Hakkımızda | Mira Bistro",
-      "description": "Mira Bistro hikayesi ve mutfak anlayışı."
-    },
-
     "menu": {
-      "title": "Menü | Mira Bistro",
-      "description": "Şef imzalı özel lezzetleri keşfedin."
-    },
-
-    "gallery": {
-      "title": "Galeri | Mira Bistro",
-      "description": "Mira Bistro atmosferini keşfedin."
-    },
-
-    "contact": {
-      "title": "İletişim | Mira Bistro",
-      "description": "Rezervasyon ve iletişim bilgileri."
-    },
-
-    "reservations": {
-      "title": "Rezervasyon | Mira Bistro",
-      "description": "Masanızı hemen ayırtın."
+      "title": "Menü | Kebap, Pide, Izgara ve Tatlılar | Erzenler Et Sofrası",
+      "description": "Erzenler Et Sofrası’nın zengin menüsünü keşfedin. Kebap çeşitleri, pideler, ızgaralar, tatlılar ve içecekler sizi bekliyor.",
+      "keywords": [
+        "Erzenler menü",
+        "kebap menü",
+        "pide menü",
+        "ızgara menü",
+        "tatlılar",
+        "online menü",
+        "QR menü"
+      ]
     }
   }
 }

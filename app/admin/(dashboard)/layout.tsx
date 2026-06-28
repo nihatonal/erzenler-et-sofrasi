@@ -6,7 +6,7 @@ export default async function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await getAdminRestaurant();
+  const { restaurantId } = await getAdminRestaurant();
 
-  return <AdminShell>{children}</AdminShell>;
+  return <AdminShell restaurantId={restaurantId}>{children}</AdminShell>;
 }

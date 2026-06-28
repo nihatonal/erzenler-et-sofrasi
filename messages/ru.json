@@ -332,35 +332,33 @@
       "success": "Ваш запрос на бронирование получен."
     }
   },
-  "metadata": {
+    "metadata": {
     "home": {
-      "title": "Mira Bistro | Fine Dining Restaurant",
-      "description": "Modern gastronomy and a premium restaurant experience."
+      "title": "Erzenler Et Sofrası | Турецкий ресторан кебаба в Стамбуле",
+      "description": "Настоящие турецкие кебабы, блюда на гриле, пиде и традиционная кухня. Erzenler Et Sofrası принимает гостей в Стамбуле с 1995 года.",
+      "keywords": [
+        "Erzenler Et Sofrası",
+        "турецкий ресторан",
+        "кебаб Стамбул",
+        "турецкая кухня",
+        "гриль",
+        "пиде",
+        "доставка еды",
+        "QR меню"
+      ]
     },
-
-    "about": {
-      "title": "About Us | Mira Bistro",
-      "description": "Discover the story and culinary philosophy of Mira Bistro."
-    },
-
     "menu": {
-      "title": "Menu | Mira Bistro",
-      "description": "Explore our chef-crafted signature dishes."
-    },
-
-    "gallery": {
-      "title": "Gallery | Mira Bistro",
-      "description": "Discover the atmosphere of Mira Bistro."
-    },
-
-    "contact": {
-      "title": "Contact | Mira Bistro",
-      "description": "Reservation and contact information."
-    },
-
-    "reservations": {
-      "title": "Reservations | Mira Bistro",
-      "description": "Reserve your table now."
+      "title": "Меню | Турецкие кебабы, гриль, пиде и десерты | Erzenler",
+      "description": "Откройте меню Erzenler: кебабы, блюда на гриле, пиде, десерты и напитки.",
+      "keywords": [
+        "меню Erzenler",
+        "кебаб меню",
+        "гриль",
+        "турецкая кухня",
+        "пиде",
+        "десерты",
+        "доставка"
+      ]
     }
   }
 }

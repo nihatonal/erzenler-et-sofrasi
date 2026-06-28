@@ -335,33 +335,31 @@
   },
   "metadata": {
     "home": {
-      "title": "Mira Bistro | Fine Dining Restaurant",
-      "description": "Modern gastronomy and a premium restaurant experience."
+      "title": "Erzenler Steak House | Traditional Turkish Restaurant in Istanbul",
+      "description": "Enjoy authentic Turkish kebabs, grilled meats, pide and traditional flavors at Erzenler Steak House, serving guests in Istanbul since 1995.",
+      "keywords": [
+        "Erzenler Steak House",
+        "Turkish restaurant Istanbul",
+        "kebab Istanbul",
+        "grill restaurant",
+        "pide",
+        "Turkish cuisine",
+        "food delivery",
+        "QR menu"
+      ]
     },
-
-    "about": {
-      "title": "About Us | Mira Bistro",
-      "description": "Discover the story and culinary philosophy of Mira Bistro."
-    },
-
     "menu": {
-      "title": "Menu | Mira Bistro",
-      "description": "Explore our chef-crafted signature dishes."
-    },
-
-    "gallery": {
-      "title": "Gallery | Mira Bistro",
-      "description": "Discover the atmosphere of Mira Bistro."
-    },
-
-    "contact": {
-      "title": "Contact | Mira Bistro",
-      "description": "Reservation and contact information."
-    },
-
-    "reservations": {
-      "title": "Reservations | Mira Bistro",
-      "description": "Reserve your table now."
+      "title": "Menu | Turkish Kebabs, Grills, Pide and Desserts | Erzenler",
+      "description": "Explore the Erzenler menu featuring authentic Turkish kebabs, grilled specialties, pide, desserts and beverages.",
+      "keywords": [
+        "Erzenler menu",
+        "Turkish menu",
+        "kebab menu",
+        "grill menu",
+        "pide",
+        "desserts",
+        "restaurant menu"
+      ]
     }
   }
 }

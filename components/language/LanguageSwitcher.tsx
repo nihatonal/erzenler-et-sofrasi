@@ -58,10 +58,10 @@ export function LanguageSwitcher({
           className={cn(
             'rounded-full px-3 py-1 text-xs font-semibold transition',
             locale === activeLocale
-              ? 'bg-brand-red text-white'
+              ? 'bg-brand-greenLight text-white'
               : variant === 'dark'
-                ? 'text-white/70 hover:text-brand-red'
-                : 'text-neutral-600 hover:text-brand-red'
+                ? 'text-white/70 hover:text-brand-ivory'
+                : 'text-neutral-600 hover:text-brand-ivory'
           )}
         >
           {labels[locale]}

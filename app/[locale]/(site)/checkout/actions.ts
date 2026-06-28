@@ -1,6 +1,7 @@
 "use server";
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { emitOrderCreated } from "@/lib/events/order-events";
 
 type CartOrderMode = "table" | "delivery";
 
@@ -49,6 +50,10 @@ function createOrderNumber() {
 
 function getString(formData: FormData, key: string) {
   return String(formData.get(key) || "").trim();
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 export async function createCheckoutOrderAction(
@@ -164,6 +169,12 @@ export async function createCheckoutOrderAction(
       message: "Müşteri bilgileri eksik.",
     };
   }
+  if (!isValidEmail(customerEmail)) {
+  return {
+    success: false,
+    message: "Geçerli bir email adresi girin.",
+  };
+}
 
   const addressCity = getString(formData, "address_city");
   const addressDistrict = getString(formData, "address_district");
@@ -334,6 +345,8 @@ export async function createCheckoutOrderAction(
       }
     }
   }
+
+  await emitOrderCreated(order.id);
 
   return {
     success: true,

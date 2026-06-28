@@ -68,7 +68,7 @@ export function AdminMobileHeader() {
     <>
       <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-brand-sand bg-brand-ivory/95 px-4 backdrop-blur lg:hidden">
         <Link href="/admin/dashboard" className="leading-none text-brand-green">
-          <div className="font-display text-2xl tracking-[0.16em]">MIRA</div>
+          <div className="font-display text-2xl tracking-[0.16em]">ERZENLER ET SOFRASI</div>
           <div className="mt-1 text-[9px] tracking-[0.28em] text-brand-muted">
             ADMIN
           </div>

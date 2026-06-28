@@ -332,35 +332,33 @@
       "success": "Rezervasyon talebiniz alındı."
     }
   },
-  "metadata": {
+   "metadata": {
     "home": {
-      "title": "Mira Bistro | Fine Dining Restaurant",
-      "description": "Modern gastronomi ve premium restoran deneyimi."
+      "title": "مطعم إرزنلر | مطعم كباب ومشاوي تركية في إسطنبول",
+      "description": "استمتع بأشهى أطباق الكباب والمشاوي والفطائر التركية والنكهات التقليدية في مطعم إرزنلر، الذي يقدم خدماته في إسطنبول منذ عام 1995.",
+      "keywords": [
+        "Erzenler Et Sofrası",
+        "مطعم تركي",
+        "كباب إسطنبول",
+        "مشاوي",
+        "مطبخ تركي",
+        "فطائر تركية",
+        "توصيل طعام",
+        "قائمة QR"
+      ]
     },
-
-    "about": {
-      "title": "Hakkımızda | Mira Bistro",
-      "description": "Mira Bistro hikayesi ve mutfak anlayışı."
-    },
-
     "menu": {
-      "title": "Menü | Mira Bistro",
-      "description": "Şef imzalı özel lezzetleri keşfedin."
-    },
-
-    "gallery": {
-      "title": "Galeri | Mira Bistro",
-      "description": "Mira Bistro atmosferini keşfedin."
-    },
-
-    "contact": {
-      "title": "İletişim | Mira Bistro",
-      "description": "Rezervasyon ve iletişim bilgileri."
-    },
-
-    "reservations": {
-      "title": "Rezervasyon | Mira Bistro",
-      "description": "Masanızı hemen ayırtın."
+      "title": "قائمة الطعام | الكباب والمشاوي والفطائر التركية | إرزنلر",
+      "description": "اكتشف قائمة إرزنلر التي تضم الكباب والمشاوي والفطائر التركية والحلويات والمشروبات.",
+      "keywords": [
+        "قائمة إرزنلر",
+        "قائمة الطعام",
+        "كباب",
+        "مشاوي",
+        "مطعم تركي",
+        "حلويات",
+        "فطائر تركية"
+      ]
     }
   }
 }
