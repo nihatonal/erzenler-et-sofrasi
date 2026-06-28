@@ -1,6 +1,9 @@
+"use client";
+import { useState } from "react";
 import { AdminMobileHeader } from "./AdminMobileHeader";
 import { AdminRealtimeProvider } from "./AdminRealtimeProvider";
 import { AdminSidebar } from "./AdminSidebar";
+import { SoundPermissionModal } from "./SoundPermissionModal";
 
 type AdminShellProps = {
   children: React.ReactNode;
@@ -8,9 +11,14 @@ type AdminShellProps = {
 };
 
 export function AdminShell({ children, restaurantId }: AdminShellProps) {
+  const [soundEnabled, setSoundEnabled] = useState(false);
+
   return (
     <div className="min-h-screen bg-brand-cream text-brand-green">
       <AdminRealtimeProvider restaurantId={restaurantId} />
+      {!soundEnabled && (
+        <SoundPermissionModal onEnable={() => setSoundEnabled(true)} />
+      )}
 
       <AdminMobileHeader />
 
