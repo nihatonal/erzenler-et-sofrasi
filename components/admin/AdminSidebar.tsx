@@ -9,7 +9,7 @@ import {
   LogOut,
   QrCode,
   Settings,
-  ShoppingBag,
+  // ShoppingBag,
   Utensils,
 } from "lucide-react";
 
@@ -36,11 +36,11 @@ const navItems = [
     href: "/admin/categories",
     icon: Grid3X3,
   },
-  {
-    label: "Rezervasyonlar",
-    href: "/admin/reservations",
-    icon: ShoppingBag,
-  },
+  // {
+  //   label: "Rezervasyonlar",
+  //   href: "/admin/reservations",
+  //   icon: ShoppingBag,
+  // },
   {
     label: "Masalar / QR",
     href: "/admin/tables",

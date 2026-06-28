@@ -89,7 +89,7 @@ export function Header({ locale }: HeaderProps) {
                 className={cn(
                   "text-xs font-bold uppercase tracking-[0.18em] transition",
                   isActive(item.href)
-                    ? "text-brand-redLight"
+                    ? "text-brand-greenExtraLight"
                     : "text-brand-creamDark hover:text-brand-gold",
                 )}
               >

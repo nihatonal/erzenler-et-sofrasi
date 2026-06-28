@@ -19,6 +19,7 @@ const config: Config = {
 
           green: "#173B28",
           greenLight: "#2F5D42",
+          greenExtraLight: "#269945",
           greenDark: "#0E2418",
 
           cream: "#FBF7EF",
