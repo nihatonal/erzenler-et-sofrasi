@@ -306,6 +306,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                       <label className="admin-label">{t("fields.city")}</label>
                       <input
                         name="address_city"
+                        value={"Istanbul"}
                         defaultValue={"Istanbul"}
                         disabled
                         required
