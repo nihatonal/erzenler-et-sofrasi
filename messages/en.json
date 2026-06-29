@@ -421,6 +421,19 @@
         "desserts",
         "restaurant menu"
       ]
+    },
+    "checkout": {
+      "title": "Checkout | Erzenler Et Sofrası",
+      "description": "Review your cart and complete your order securely.",
+      "keywords": [
+        "Erzenler menu",
+        "Turkish menu",
+        "kebab menu",
+        "grill menu",
+        "pide",
+        "desserts",
+        "restaurant menu"
+      ]
     }
   },
 
@@ -431,11 +444,11 @@
       "sections": [
         {
           "heading": "1. General Information",
-          "body": "{{restaurantName}} values the privacy of its customers' and website visitors' personal data. This policy has been prepared to inform you about the personal data processed when you visit our website, use the QR menu, place an online order, make a reservation, or contact us."
+          "body": "{restaurantName} values the privacy of its customers' and website visitors' personal data. This policy has been prepared to inform you about the personal data processed when you visit our website, use the QR menu, place an online order, make a reservation, or contact us."
         },
         {
           "heading": "2. Data Controller",
-          "body": "Personal data collected through this website is processed by {{restaurantName}} as the data controller within the scope of applicable legislation."
+          "body": "Personal data collected through this website is processed by {restaurantName} as the data controller within the scope of applicable legislation."
         },
         {
           "heading": "3. Personal Data Collected",
@@ -479,7 +492,7 @@
         },
         {
           "heading": "13. Data Security",
-          "body": "{{restaurantName}} applies up-to-date technical and administrative measures to ensure the security of personal data. Necessary security measures are taken against unauthorized access, loss, misuse, and alteration."
+          "body": "{restaurantName} applies up-to-date technical and administrative measures to ensure the security of personal data. Necessary security measures are taken against unauthorized access, loss, misuse, and alteration."
         },
         {
           "heading": "14. User Rights",
@@ -487,7 +500,7 @@
         },
         {
           "heading": "15. Policy Updates",
-          "body": "{{restaurantName}} may update this Privacy Policy when deemed necessary. The current version is always published on the website."
+          "body": "{restaurantName} may update this Privacy Policy when deemed necessary. The current version is always published on the website."
         },
         {
           "heading": "16. Contact",
@@ -505,7 +518,7 @@
         },
         {
           "heading": "2. Why Do We Use Cookies?",
-          "body": "The {{restaurantName}} website uses cookies to enhance the user experience, streamline the ordering process, ensure system security, and improve website performance."
+          "body": "The {restaurantName} website uses cookies to enhance the user experience, streamline the ordering process, ensure system security, and improve website performance."
         },
         {
           "heading": "3. Types of Cookies Used",
@@ -549,7 +562,7 @@
         },
         {
           "heading": "13. Policy Updates",
-          "body": "{{restaurantName}} may update this Cookie Policy in line with technical or legal requirements. The current version is always published on the website."
+          "body": "{restaurantName} may update this Cookie Policy in line with technical or legal requirements. The current version is always published on the website."
         },
         {
           "heading": "14. Contact",
@@ -557,13 +570,13 @@
         }
       ]
     },
-    "deliveryReturn": {
+    "delivery-return": {
       "title": "Delivery and Return Policy",
       "description": "Information about the preparation, delivery, and return processes for online orders.",
       "sections": [
         {
           "heading": "1. General Information",
-          "body": "{{restaurantName}} aims to provide high-quality and reliable service to its customers. This policy has been prepared to provide information about the preparation and delivery of online orders and potential return processes."
+          "body": "{restaurantName} aims to provide high-quality and reliable service to its customers. This policy has been prepared to provide information about the preparation and delivery of online orders and potential return processes."
         },
         {
           "heading": "2. Service Areas",
@@ -615,17 +628,17 @@
         },
         {
           "heading": "14. Contact",
-          "body": "For any questions or requests regarding delivery or return processes, you can contact {{restaurantName}} using the information provided on the contact page."
+          "body": "For any questions or requests regarding delivery or return processes, you can contact {restaurantName} using the information provided on the contact page."
         }
       ]
     },
-    "distanceSales": {
+    "distance-sales": {
       "title": "Distance Sales Agreement",
       "description": "Distance sales agreement regarding online ordering services.",
       "sections": [
         {
           "heading": "1. Parties",
-          "body": "This Distance Sales Agreement is entered into electronically between {{restaurantName}} and the customer placing an order through the website."
+          "body": "This Distance Sales Agreement is entered into electronically between {restaurantName} and the customer placing an order through the website."
         },
         {
           "heading": "2. Subject",
@@ -665,7 +678,7 @@
         },
         {
           "heading": "11. Restaurant's Rights",
-          "body": "{{restaurantName}} reserves the right to cancel an order or contact the customer to offer an alternative solution in the event of technical failure, insufficient product stock, force majeure, or extraordinary circumstances that prevent the provision of service."
+          "body": "{restaurantName} reserves the right to cancel an order or contact the customer to offer an alternative solution in the event of technical failure, insufficient product stock, force majeure, or extraordinary circumstances that prevent the provision of service."
         },
         {
           "heading": "12. Force Majeure",
@@ -691,7 +704,7 @@
       "sections": [
         {
           "heading": "1. Data Controller",
-          "body": "Within the scope of Law No. 6698 on the Protection of Personal Data ('KVKK'), {{restaurantName}} processes your personal data as the data controller to the extent described below."
+          "body": "Within the scope of Law No. 6698 on the Protection of Personal Data ('KVKK'), {restaurantName} processes your personal data as the data controller to the extent described below."
         },
         {
           "heading": "2. Personal Data Processed",
@@ -719,7 +732,7 @@
         },
         {
           "heading": "8. Data Security",
-          "body": "{{restaurantName}} applies up-to-date technical and administrative security measures to protect the confidentiality of personal data. Necessary precautions are taken to prevent unauthorized access, data loss, and misuse."
+          "body": "{restaurantName} applies up-to-date technical and administrative security measures to protect the confidentiality of personal data. Necessary precautions are taken to prevent unauthorized access, data loss, and misuse."
         },
         {
           "heading": "9. Rights of the Data Subject",
@@ -727,9 +740,12 @@
         },
         {
           "heading": "10. Application Method",
-          "body": "You may submit your requests under the KVKK by contacting {{restaurantName}} in accordance with current legislation. Applications will be concluded as soon as possible and within the statutory timeframes."
+          "body": "You may submit your requests under the KVKK by contacting {restaurantName} in accordance with current legislation. Applications will be concluded as soon as possible and within the statutory timeframes."
         }
       ]
     }
+  },
+  "smartCTA": {
+    "cart": "Cart"
   }
 }

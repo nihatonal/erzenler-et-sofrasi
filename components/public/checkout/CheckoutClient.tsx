@@ -306,8 +306,10 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                       <label className="admin-label">{t("fields.city")}</label>
                       <input
                         name="address_city"
+                        defaultValue={"Istanbul"}
+                        disabled
                         required
-                        className="admin-input mt-2"
+                        className="admin-input mt-2 text-brand-muted"
                       />
                     </div>
                     <div>

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { MessageCircle, ShoppingBag, Utensils } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCartStore } from "@/lib/cart/card-store";
-
+import { useTranslations } from "next-intl";
 type Props = {
   locale: string;
   whatsappNumber: string;
@@ -15,6 +15,7 @@ export function SmartFloatingCTA({ locale, whatsappNumber }: Props) {
   const pathname = usePathname();
   const cartQuantity = useCartStore((s) => s.getTotalQuantity());
   const [isMounted, setIsMounted] = useState(false);
+  const t = useTranslations("smartCTA");
 
   useEffect(() => {
     setIsMounted(true);
@@ -85,7 +86,7 @@ export function SmartFloatingCTA({ locale, whatsappNumber }: Props) {
         }`}
       >
         <ShoppingBag className="h-4 w-4" />
-        Sepet
+        {t("cart")}
         {isMounted && cartQuantity > 0 && (
           <span className="absolute -right-2 -top-2 flex h-5 w-5 animate-bounce items-center justify-center rounded-full bg-white text-[10px] font-bold text-brand-red">
             {cartQuantity}

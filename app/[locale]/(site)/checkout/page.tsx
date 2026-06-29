@@ -1,4 +1,6 @@
 import { CheckoutClient } from "@/components/public/checkout/CheckoutClient";
+import { buildSeoMetadata } from "@/lib/seo";
+import { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -9,6 +11,19 @@ type CheckoutPageProps = {
     locale: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: CheckoutPageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return buildSeoMetadata({
+    locale,
+    page: "checkout",
+    path: "/checkout",
+    image: "/images/og/menu-og.jpg",
+  });
+}
 
 export default async function CheckoutPage({ params }: CheckoutPageProps) {
   const { locale } = await params;

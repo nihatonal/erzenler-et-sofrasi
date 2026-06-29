@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 type LegalPageKey =
   | "privacy"
@@ -81,11 +82,21 @@ export default async function LegalPage({ params }: LegalPageProps) {
     body: string;
   }[];
 
+  const supabase = await createSupabaseServerClient();
+
+  const { data: settings } = await supabase
+    .from("restaurant_settings")
+    .select("restaurant_name")
+    .eq("restaurant_id", process.env.NEXT_PUBLIC_RESTAURANT_ID!)
+    .single();
+
+  const restaurantName = settings?.restaurant_name || "Restaurant";
+
   return (
     <main className="min-h-screen bg-brand-cream px-5 pt-28 pb-20">
       <section className="mx-auto max-w-4xl rounded-3xl border border-brand-sand bg-brand-ivory p-6 shadow-sm md:p-10">
         <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">
-          Erzenler Et Sofrası
+          {restaurantName}
         </p>
 
         <h1 className="mt-4 text-3xl font-bold text-brand-green md:text-5xl">
@@ -97,14 +108,16 @@ export default async function LegalPage({ params }: LegalPageProps) {
         </p>
 
         <div className="mt-10 space-y-8">
-          {sections.map((section, index) => (
+          {sections.map((_, index) => (
             <section key={index}>
               <h2 className="text-xl font-bold text-brand-green">
-                {section.heading}
+                {t(`${pageKey}.sections.${index}.heading`)}
               </h2>
 
               <p className="mt-3 whitespace-pre-line text-sm leading-7 text-brand-muted">
-                {section.body}
+                {t(`${pageKey}.sections.${index}.body`, {
+                  restaurantName,
+                })}
               </p>
             </section>
           ))}

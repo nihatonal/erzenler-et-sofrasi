@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { locales, type Locale } from "@/i18n";
 
-type SeoPage = "home" | "menu";
+type SeoPage = "home" | "menu" | "checkout";
 
 type BuildSeoMetadataArgs = {
   locale: string;
