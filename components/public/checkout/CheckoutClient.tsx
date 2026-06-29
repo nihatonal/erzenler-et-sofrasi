@@ -308,7 +308,6 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         name="address_city"
                         value={"Istanbul"}
                         defaultValue={"Istanbul"}
-                        disabled
                         required
                         className="admin-input mt-2 text-brand-muted"
                       />
