@@ -14,16 +14,19 @@ const platforms = [
     key: "uberEats",
     logo: "/images/platforms/uber-eats2.svg",
     bg: "bg-[#06c167]",
+    link:""
   },
   {
     key: "migros",
     logo: "/images/platforms/migros-yemek.svg",
     bg: "bg-white",
+    link:"https://www.migros.com.tr/yemek/erzenler-et-sofrasi-esenyurt-incirtepe-mah-st-1a0b7"
   },
   {
     key: "getir",
     logo: "/images/platforms/getir-yemek.svg",
     bg: "bg-[#603dba]",
+    link:""
   },
 ];
 

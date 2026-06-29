@@ -6,10 +6,13 @@ import { HomeFlavors } from "@/components/public/home/HomeFlavors";
 import { HomeOrderCta } from "@/components/public/home/HomeOrderCta";
 import { HomeOrderPlatforms } from "@/components/public/home/HomeOrderPlatforms";
 // import { HomeReviews } from "@/components/public/home/HomeReviews";
-import { HomeGalleryPreview } from "@/components/public/home/HomeGalleryPreview";
+//    import { HomeGalleryPreview } from "@/components/public/home/HomeGalleryPreview";
 import { HomeContactLocation } from "@/components/public/home/HomeContactLocation";
 import { type Locale } from "@/i18n";
 import { buildSeoMetadata } from "@/lib/seo";
+import { HomeWhyErzenler } from "@/components/public/home/HomeWhyErzenler";
+import { HomeRestaurant } from "@/components/public/home/HomeRestaurant";
+import { HomeDiningRoom } from "@/components/public/home/HomeDiningRoom";
 
 type HomePageProps = {
   params: Promise<{
@@ -39,10 +42,13 @@ export default async function HomePage({ params }: HomePageProps) {
       <HomeHero locale={currentLocale} />
       <HomeStory locale={currentLocale} />
       <HomeFlavors locale={currentLocale} />
+      <HomeWhyErzenler locale={currentLocale} />
       <HomeOrderCta locale={currentLocale} />
+      <HomeRestaurant locale={currentLocale} />
+      <HomeDiningRoom locale={currentLocale} />
       <HomeOrderPlatforms locale={currentLocale} />
       {/* <HomeReviews locale={currentLocale} /> */}
-      <HomeGalleryPreview locale={currentLocale} />
+      {/* <HomeGalleryPreview locale={currentLocale} /> */}
       <HomeContactLocation locale={currentLocale} />
     </main>
   );

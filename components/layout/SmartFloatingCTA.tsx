@@ -24,6 +24,7 @@ export function SmartFloatingCTA({ locale, whatsappNumber }: Props) {
   const lastScroll = useRef(0);
 
   const isCheckout = pathname.includes("/checkout");
+  const isMenu = pathname.includes("/menu");
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,13 +65,15 @@ export function SmartFloatingCTA({ locale, whatsappNumber }: Props) {
       </a>
 
       {/* MENU */}
-      <Link
-        href={`/${locale}/menu`}
-        className="flex items-center gap-2 rounded-2xl bg-brand-green px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-green/20 transition hover:opacity-90"
-      >
-        <Utensils className="h-4 w-4" />
-        Menü
-      </Link>
+      {!isMenu && (
+        <Link
+          href={`/${locale}/menu`}
+          className="flex items-center gap-2 rounded-2xl bg-brand-green px-4 py-3 text-sm font-bold text-white shadow-lg shadow-brand-green/20 transition hover:opacity-90"
+        >
+          <Utensils className="h-4 w-4" />
+          Menü
+        </Link>
+      )}
 
       {/* CART */}
       <Link

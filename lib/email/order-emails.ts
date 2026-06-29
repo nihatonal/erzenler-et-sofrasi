@@ -17,7 +17,6 @@ export async function sendOrderCreatedEmail(order: OrderEmailPayload) {
     console.warn("CUSTOMER_EMAIL_EMPTY");
     return;
   }
-
   const result = await resend.emails.send({
     from: resendFromEmail,
     to: order.customer_email,
@@ -33,7 +32,6 @@ export async function sendOrderToAdminEmail(order: OrderEmailPayload) {
     order.restaurant_settings?.order_email ||
     order.restaurant_settings?.email ||
     process.env.RESTAURANT_ORDER_EMAIL;
-
   if (!adminEmail) {
     console.warn("ADMIN_EMAIL_EMPTY");
     return;

@@ -176,6 +176,67 @@
         "setcard": "Setcard",
         "pluxee": "Pluxee"
       }
+    },
+    "whyErzenler": {
+      "eyebrow": "Why Erzenler?",
+      "title": "Craftsmanship, trust and family warmth",
+      "description": "Since 1995, we have brought freshly prepared flavors to your table with the same quality approach, a professional team and a clean kitchen.",
+      "imageAlt": "Erzenler Et Sofrası kitchen and service team",
+      "imageBadge": "Professional Service",
+      "imageText": "The same care on every plate, the same hospitality in every service.",
+      "items": {
+        "experience": {
+          "title": "30+ Years of Experience",
+          "description": "We have preserved our traditional taste since 1995."
+        },
+        "fresh": {
+          "title": "Daily Preparation",
+          "description": "We prepare our flavors fresh and carefully every day."
+        },
+        "team": {
+          "title": "Experienced Team",
+          "description": "A professional team from kitchen to service."
+        },
+        "hygiene": {
+          "title": "Clean Kitchen",
+          "description": "We value a clean, organized and reliable kitchen process."
+        }
+      }
+    },
+    "restaurant": {
+      "eyebrow": "Our Restaurant",
+      "title": "The Same Taste Since 1995",
+      "description": "Our journey started in Şişli and continues today in Esenyurt with the same passion for quality and hospitality.",
+      "experience": "Years Experience",
+      "service": "Service",
+      "button": "View Gallery",
+      "imageAlt": "Exterior of Erzenler Et Sofrası"
+    },
+    "diningRoom": {
+      "eyebrow": "Atmosphere",
+      "title": "The Atmosphere Waiting for You",
+      "description": "With its elegant interior, spacious dining area and warm family atmosphere, Erzenler offers much more than delicious food.",
+      "imageAlt": "Interior of Erzenler Restaurant",
+      "bottomTitle": "Great food deserves a great atmosphere.",
+      "bottomDescription": "Whether you're dining with family, friends or colleagues, you'll enjoy a comfortable and welcoming experience.",
+      "items": {
+        "family": {
+          "title": "Family Friendly",
+          "description": "Comfortable seating areas designed for guests of all ages."
+        },
+        "comfortable": {
+          "title": "Modern Comfort",
+          "description": "A spacious, clean and relaxing dining experience."
+        },
+        "fresh": {
+          "title": "Elegant Interior",
+          "description": "Modern decoration combined with warm lighting."
+        },
+        "tea": {
+          "title": "Turkish Hospitality",
+          "description": "Friendly service and genuine hospitality in every visit."
+        }
+      }
     }
   },
   "menu": {
@@ -362,114 +423,311 @@
       ]
     }
   },
+
   "legal": {
     "privacy": {
-      "title": "Gizlilik Politikası",
-      "description": "Erzenler Et Sofrası olarak kişisel verilerinizin gizliliğine önem veriyoruz.",
+      "title": "Privacy Policy",
+      "description": "The protection of your personal data and your privacy is important to us.",
       "sections": [
         {
-          "heading": "1. Genel Bilgilendirme",
-          "body": "Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde, online sipariş verdiğinizde veya bizimle iletişime geçtiğinizde işlenen kişisel veriler hakkında bilgi vermek amacıyla hazırlanmıştır."
+          "heading": "1. General Information",
+          "body": "{{restaurantName}} values the privacy of its customers' and website visitors' personal data. This policy has been prepared to inform you about the personal data processed when you visit our website, use the QR menu, place an online order, make a reservation, or contact us."
         },
         {
-          "heading": "2. İşlenen Veriler",
-          "body": "Ad soyad, telefon numarası, e-posta adresi, teslimat adresi, sipariş içeriği, işlem tarihi ve iletişim notları gibi bilgiler işlenebilir."
+          "heading": "2. Data Controller",
+          "body": "Personal data collected through this website is processed by {{restaurantName}} as the data controller within the scope of applicable legislation."
         },
         {
-          "heading": "3. Kullanım Amaçları",
-          "body": "Kişisel verileriniz siparişlerin alınması, hazırlanması, teslim edilmesi, müşteri iletişimi, hizmet kalitesinin artırılması ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılır."
+          "heading": "3. Personal Data Collected",
+          "body": "Depending on the services provided, the following information may be processed:\n\n• Name and surname\n• Phone number\n• Email address\n• Delivery address\n• Order information\n• Reservation information\n• Table number (for QR orders)\n• Customer notes\n• Technical usage data (IP address, browser information, device type, visit time)"
         },
         {
-          "heading": "4. Saklama Süresi",
-          "body": "Kişisel veriler, ilgili mevzuatta öngörülen süreler boyunca veya işleme amacı devam ettiği sürece saklanır."
+          "heading": "4. Method of Data Collection",
+          "body": "Your personal data is collected electronically through website forms, the online ordering system, QR menu, reservation screens, contact forms, and other digital channels provided by you."
         },
         {
-          "heading": "5. İletişim",
-          "body": "Gizlilik politikası ile ilgili sorularınız için restoran iletişim kanallarından bize ulaşabilirsiniz."
+          "heading": "5. Purposes of Data Processing",
+          "body": "The personal data collected may be used for the following purposes:\n\n• Preparation of orders\n• Order delivery\n• Reservation management\n• Fulfillment of customer requests\n• Order status notifications\n• Providing customer support\n• Improving service quality\n• Maintaining security records\n• Fulfillment of legal obligations"
+        },
+        {
+          "heading": "6. QR Menu Usage",
+          "body": "During QR Menu usage, only technical information necessary for providing the service is processed. In cases where a table order is placed, the table number may be associated with the order."
+        },
+        {
+          "heading": "7. Online Ordering Service",
+          "body": "When you place an online order, your name, contact information, delivery address, and order details are processed for the purposes of preparing and delivering the order and contacting you when necessary."
+        },
+        {
+          "heading": "8. Reservation Service",
+          "body": "If you make a reservation, your name, phone number, reservation date, number of guests, and other required information may be processed for the purpose of managing the reservation."
+        },
+        {
+          "heading": "9. Cookies",
+          "body": "Cookies may be used on our website to enhance the user experience and ensure the secure operation of the system. Detailed information about cookie usage can be found in our Cookie Policy."
+        },
+        {
+          "heading": "10. Analytical Data",
+          "body": "Anonymous usage statistics may be collected to improve the performance of the website. This data is not used to directly identify you."
+        },
+        {
+          "heading": "11. Data Retention Period",
+          "body": "Personal data is retained only for as long as the processing purpose continues or for the period specified in applicable legislation. Upon expiry, it is securely deleted, anonymized, or destroyed."
+        },
+        {
+          "heading": "12. Data Sharing",
+          "body": "Your personal data may be shared with payment institutions, delivery services, technical infrastructure providers, or authorized official authorities only to the extent necessary for the provision of the service. Beyond this, it is not sold to or transferred to third parties for commercial purposes."
+        },
+        {
+          "heading": "13. Data Security",
+          "body": "{{restaurantName}} applies up-to-date technical and administrative measures to ensure the security of personal data. Necessary security measures are taken against unauthorized access, loss, misuse, and alteration."
+        },
+        {
+          "heading": "14. User Rights",
+          "body": "Within the scope of applicable legislation, you have the right to:\n\n• Learn about the data processed about you,\n• Request correction of incomplete or inaccurate data,\n• Request deletion of data,\n• Object to processing,\n• Learn the purpose for which the processed data is used,\n• Exercise your legal rights."
+        },
+        {
+          "heading": "15. Policy Updates",
+          "body": "{{restaurantName}} may update this Privacy Policy when deemed necessary. The current version is always published on the website."
+        },
+        {
+          "heading": "16. Contact",
+          "body": "For questions about this policy or requests regarding your personal data, you can contact us through our contact page."
         }
       ]
     },
     "cookies": {
-      "title": "Çerez Politikası",
-      "description": "Bu sayfa, web sitemizde kullanılan çerezler hakkında bilgi verir.",
+      "title": "Cookie Policy",
+      "description": "Information about the cookies used on this website and their purposes.",
       "sections": [
         {
-          "heading": "1. Çerez Nedir?",
-          "body": "Çerezler, web sitesinin çalışmasını sağlamak ve kullanıcı deneyimini iyileştirmek amacıyla tarayıcınıza kaydedilen küçük metin dosyalarıdır."
+          "heading": "1. What Are Cookies?",
+          "body": "Cookies are small text files saved to your browser by the websites you visit. Through cookies, a website can recognize you on subsequent visits, remember your preferences, and provide a better user experience."
         },
         {
-          "heading": "2. Kullanılan Çerezler",
-          "body": "Sitemizde temel işlevlerin çalışması için zorunlu çerezler ve kullanıcı deneyimini iyileştirmeye yardımcı çerezler kullanılabilir."
+          "heading": "2. Why Do We Use Cookies?",
+          "body": "The {{restaurantName}} website uses cookies to enhance the user experience, streamline the ordering process, ensure system security, and improve website performance."
         },
         {
-          "heading": "3. Çerez Yönetimi",
-          "body": "Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Ancak bazı temel özellikler bu durumda doğru çalışmayabilir."
+          "heading": "3. Types of Cookies Used",
+          "body": "The following types of cookies may be used on our website:\n\n• Strictly Necessary Cookies\n• Performance Cookies\n• Functionality Cookies\n• Analytical Cookies\n\nAdvertising or targeting cookies are not used by default."
         },
         {
-          "heading": "4. Üçüncü Taraf Çerezler",
-          "body": "Analitik veya reklam amaçlı üçüncü taraf çerezler kullanılması halinde bu konuda ayrıca bilgilendirme yapılır."
+          "heading": "4. Strictly Necessary Cookies",
+          "body": "These cookies are required for the basic functions of the website to operate. They enable core features such as secure session management, language preference, the ordering process, and QR Menu functionality."
+        },
+        {
+          "heading": "5. Performance Cookies",
+          "body": "Performance cookies may be used to anonymously analyze which pages of the website are visited most and how users interact with the system."
+        },
+        {
+          "heading": "6. Functionality Cookies",
+          "body": "These cookies remember personalization options such as language preference and user interface settings, providing a better experience on subsequent visits."
+        },
+        {
+          "heading": "7. Analytical Cookies",
+          "body": "Anonymous usage statistics may be collected to improve the website. This information does not directly identify any individual and is used solely to enhance service quality."
+        },
+        {
+          "heading": "8. Cookies Used During the Ordering Process",
+          "body": "Temporary cookies may be used in the online ordering and QR Menu system to preserve cart information, complete order steps securely, and maintain continuity of the user experience."
+        },
+        {
+          "heading": "9. Third-Party Services",
+          "body": "Some technical infrastructure or analytics services used on the website may create their own cookies. These cookies are subject to the privacy policies of the respective service providers."
+        },
+        {
+          "heading": "10. Cookie Retention Period",
+          "body": "Some cookies are stored only for the duration of a session, while others may be kept on your device for a specified period to remember your preferences. The retention period may vary depending on the purpose of the cookie."
+        },
+        {
+          "heading": "11. How Can You Manage Cookies?",
+          "body": "You can delete, block, or restrict cookie usage for specific websites through your browser settings. However, if some cookies are disabled, certain features of the website may not function as expected."
+        },
+        {
+          "heading": "12. Cookie Consent",
+          "body": "You can set your preferences through the cookie notice displayed during your first visit. Cookies other than strictly necessary cookies will only be used if you provide your consent."
+        },
+        {
+          "heading": "13. Policy Updates",
+          "body": "{{restaurantName}} may update this Cookie Policy in line with technical or legal requirements. The current version is always published on the website."
+        },
+        {
+          "heading": "14. Contact",
+          "body": "If you have any questions about our Cookie Policy, you can contact us through our contact page."
+        }
+      ]
+    },
+    "deliveryReturn": {
+      "title": "Delivery and Return Policy",
+      "description": "Information about the preparation, delivery, and return processes for online orders.",
+      "sections": [
+        {
+          "heading": "1. General Information",
+          "body": "{{restaurantName}} aims to provide high-quality and reliable service to its customers. This policy has been prepared to provide information about the preparation and delivery of online orders and potential return processes."
+        },
+        {
+          "heading": "2. Service Areas",
+          "body": "Delivery service is only available within the areas served by the restaurant. Orders may not be accepted for addresses outside the delivery coverage area."
+        },
+        {
+          "heading": "3. Order Preparation Time",
+          "body": "Orders are prepared as quickly as possible depending on the restaurant's level of activity. The average preparation and delivery time may differ from the estimated times indicated on the order screen."
+        },
+        {
+          "heading": "4. Delivery Process",
+          "body": "Orders are delivered by restaurant staff or a contracted courier service. It is the customer's responsibility to ensure that the address information provided at the time of delivery is correct."
+        },
+        {
+          "heading": "5. Delivery Fee",
+          "body": "The delivery fee is clearly displayed to the customer during the ordering process. Free delivery may be available under certain promotional campaigns."
+        },
+        {
+          "heading": "6. Minimum Order Amount",
+          "body": "A minimum order amount may apply in some delivery areas. The current minimum order amount is indicated on the order screen."
+        },
+        {
+          "heading": "7. Checking Your Order",
+          "body": "It is recommended that you check the items before accepting your delivery. If a missing or incorrect item is identified, the restaurant should be contacted as soon as possible."
+        },
+        {
+          "heading": "8. Missing or Incorrect Items",
+          "body": "In the event of an incomplete order, incorrect item being sent, or an error caused by the restaurant, a review will be conducted and, where deemed appropriate, the item may be resent or a refund may be issued."
+        },
+        {
+          "heading": "9. Return Conditions",
+          "body": "Returns are generally not accepted for food items that have been prepared and delivered due to hygiene and food safety reasons. However, cases involving restaurant errors, missing items, or defective service will be assessed within the scope of applicable legislation."
+        },
+        {
+          "heading": "10. Order Cancellation",
+          "body": "You may request cancellation before preparation of the order has begun. Cancellation requests for orders that have already entered the preparation process are subject to the restaurant's discretion."
+        },
+        {
+          "heading": "11. Force Majeure",
+          "body": "In the event of adverse weather conditions, traffic, technical failures, official authority decisions, or extraordinary circumstances beyond the restaurant's control, delivery times may be extended or delivery may not be possible."
+        },
+        {
+          "heading": "12. Refunds",
+          "body": "If a refund decision is made, the refund will be processed according to the procedures of the relevant payment institution, depending on the payment method used."
+        },
+        {
+          "heading": "13. Customer Responsibility",
+          "body": "The customer is responsible for providing correct contact information, phone number, and delivery address when placing an order. The restaurant is not liable for delivery problems arising from incorrect or incomplete information provided by the customer."
+        },
+        {
+          "heading": "14. Contact",
+          "body": "For any questions or requests regarding delivery or return processes, you can contact {{restaurantName}} using the information provided on the contact page."
+        }
+      ]
+    },
+    "distanceSales": {
+      "title": "Distance Sales Agreement",
+      "description": "Distance sales agreement regarding online ordering services.",
+      "sections": [
+        {
+          "heading": "1. Parties",
+          "body": "This Distance Sales Agreement is entered into electronically between {{restaurantName}} and the customer placing an order through the website."
+        },
+        {
+          "heading": "2. Subject",
+          "body": "The subject of this agreement is the determination of the rights and obligations of the parties regarding the order placed by the customer through the website or QR Menu."
+        },
+        {
+          "heading": "3. Order Process",
+          "body": "Before completing their order, the customer is obligated to review the product information, prices, delivery fee, and total order amount. By confirming the order, the customer is deemed to have accepted the terms of the agreement."
+        },
+        {
+          "heading": "4. Product and Service Information",
+          "body": "The name, quantity, unit price, delivery fee, and total payment amount of the products subject to the order are clearly displayed on the order screen."
+        },
+        {
+          "heading": "5. Payment",
+          "body": "Payment is made using one of the payment methods offered during the ordering process. Security processes related to the payment infrastructure used are managed by the relevant payment institution."
+        },
+        {
+          "heading": "6. Delivery",
+          "body": "Orders are delivered to the specified address within the delivery areas served by the restaurant. Delivery time may vary depending on the restaurant's level of activity, traffic conditions, and other operational factors."
+        },
+        {
+          "heading": "7. Order Preparation",
+          "body": "The order is taken into the preparation process after customer confirmation. Requests for changes or cancellations for orders that have already begun preparation are subject to the restaurant's discretion."
+        },
+        {
+          "heading": "8. Right of Withdrawal",
+          "body": "Pursuant to Law No. 6502 on the Protection of Consumers and the relevant Distance Contracts Regulation, the right of withdrawal does not apply to food products that are perishable or may expire quickly."
+        },
+        {
+          "heading": "9. Return Conditions",
+          "body": "Returns are generally not accepted for food and beverage products that have been delivered, due to hygiene and food safety reasons. However, missing items, incorrect orders, or errors caused by the restaurant will be assessed and an appropriate solution will be provided."
+        },
+        {
+          "heading": "10. Customer Obligations",
+          "body": "The customer acknowledges that the information provided at the time of ordering is accurate and up to date. The restaurant is not liable for delays that may arise due to an incorrect address, missing contact information, or an unreachable phone number."
+        },
+        {
+          "heading": "11. Restaurant's Rights",
+          "body": "{{restaurantName}} reserves the right to cancel an order or contact the customer to offer an alternative solution in the event of technical failure, insufficient product stock, force majeure, or extraordinary circumstances that prevent the provision of service."
+        },
+        {
+          "heading": "12. Force Majeure",
+          "body": "In the event of natural disasters, severe weather conditions, war, official authority decisions, technical infrastructure problems, or events beyond the control of the parties, the parties shall not be held liable to the extent they are unable to fulfill their obligations."
+        },
+        {
+          "heading": "13. Protection of Personal Data",
+          "body": "Personal data shared during the ordering process is processed within the scope of the Privacy Policy and KVKK Disclosure Text."
+        },
+        {
+          "heading": "14. Dispute Resolution",
+          "body": "In the event of disputes arising from this agreement, applicable consumer legislation shall apply. Authorized Consumer Arbitration Committees and Consumer Courts shall have jurisdiction."
+        },
+        {
+          "heading": "15. Entry into Force",
+          "body": "By completing their order, the customer declares that they have read, understood, and accepted this Distance Sales Agreement in electronic form."
         }
       ]
     },
     "kvkk": {
-      "title": "KVKK Aydınlatma Metni",
-      "description": "Kişisel verilerinizin işlenmesine ilişkin aydınlatma metni.",
+      "title": "KVKK Disclosure Text",
+      "description": "Information regarding the processing of your personal data within the scope of Law No. 6698 on the Protection of Personal Data.",
       "sections": [
         {
-          "heading": "1. Veri Sorumlusu",
-          "body": "Kişisel verileriniz Erzenler Et Sofrası tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir."
+          "heading": "1. Data Controller",
+          "body": "Within the scope of Law No. 6698 on the Protection of Personal Data ('KVKK'), {{restaurantName}} processes your personal data as the data controller to the extent described below."
         },
         {
-          "heading": "2. İşlenen Kişisel Veriler",
-          "body": "Ad soyad, telefon, e-posta, adres, sipariş bilgileri ve talep/şikayet içerikleri işlenebilir."
+          "heading": "2. Personal Data Processed",
+          "body": "Depending on the service provided, the following personal data may be processed:\n\n• Name and surname\n• Phone number\n• Email address\n• Delivery address\n• Order information\n• Reservation information\n• Table number (for QR orders)\n• Customer notes\n• Payment information (excluding parts processed by the payment infrastructure)\n• IP address, device information, and technical usage records"
         },
         {
-          "heading": "3. İşleme Amaçları",
-          "body": "Verileriniz sipariş süreçlerinin yürütülmesi, teslimat, müşteri iletişimi, rezervasyon ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir."
+          "heading": "3. Method of Personal Data Collection",
+          "body": "Your personal data is collected through automated or partially automated means via the website, QR Menu system, online order screen, reservation forms, contact forms, and electronic communication channels."
         },
         {
-          "heading": "4. Haklarınız",
-          "body": "KVKK kapsamında kişisel verilerinizle ilgili bilgi talep etme, düzeltme, silme veya işlenmesine itiraz etme haklarına sahipsiniz."
-        }
-      ]
-    },
-    "delivery-return": {
-      "title": " EN",
-      "description": "Online siparişlerde teslimat ve iade süreçleri hakkında bilgilendirme.",
-      "sections": [
-        {
-          "heading": "1. Teslimat",
-          "body": "Online siparişler, restoranın hizmet verdiği bölgeler içinde belirtilen adrese teslim edilir. Teslimat süresi yoğunluğa ve adrese göre değişebilir."
+          "heading": "4. Purposes of Personal Data Processing",
+          "body": "The collected data may be processed for the following purposes:\n\n• Creation of orders\n• Order preparation and delivery\n• Reservation management\n• Providing customer support\n• Order status notifications\n• Improving service quality\n• Ensuring security\n• Fulfillment of legal obligations"
         },
         {
-          "heading": "2. Sipariş Kontrolü",
-          "body": "Siparişinizi teslim alırken ürünleri kontrol etmeniz önerilir. Eksik veya hatalı ürün durumunda restoranla iletişime geçebilirsiniz."
+          "heading": "5. Legal Grounds",
+          "body": "Your personal data may be processed based on the legal grounds specified in Articles 5 and 6 of the KVKK, including the establishment and performance of a contract, fulfillment of legal obligations, legitimate interest, and explicit consent."
         },
         {
-          "heading": "3. İade",
-          "body": "Gıda ürünlerinde hijyen ve sağlık koşulları nedeniyle teslim sonrası iade kabulü sınırlıdır. Hatalı veya eksik ürünlerde restoran değerlendirme yapar."
-        }
-      ]
-    },
-    "distance-sales": {
-      "title": "Mesafeli Satış Sözleşmesi",
-      "description": "Online siparişlere ilişkin mesafeli satış bilgilendirmesi.",
-      "sections": [
-        {
-          "heading": "1. Taraflar",
-          "body": "Bu sözleşme, online sipariş veren müşteri ile Erzenler Et Sofrası arasında elektronik ortamda kurulur."
+          "heading": "6. Transfer of Data",
+          "body": "Your personal data may be shared with payment institutions, technical infrastructure providers, delivery services, official authorities, or legally authorized bodies only to the extent necessary for the provision of the service."
         },
         {
-          "heading": "2. Ürün ve Hizmet",
-          "body": "Sözleşmenin konusu, müşterinin web sitesi üzerinden verdiği yemek siparişinin hazırlanması ve teslim edilmesidir."
+          "heading": "7. Retention Period",
+          "body": "Personal data is retained only for as long as the processing purpose continues or for the period specified in applicable legislation. Upon expiry, it is securely deleted, anonymized, or destroyed."
         },
         {
-          "heading": "3. Ödeme ve Teslimat",
-          "body": "Sipariş tutarı, teslimat ücreti ve toplam bedel checkout ekranında müşteriye gösterilir. Teslimat, belirtilen adrese yapılır."
+          "heading": "8. Data Security",
+          "body": "{{restaurantName}} applies up-to-date technical and administrative security measures to protect the confidentiality of personal data. Necessary precautions are taken to prevent unauthorized access, data loss, and misuse."
         },
         {
-          "heading": "4. Cayma Hakkı",
-          "body": "Çabuk bozulabilen veya son kullanma tarihi geçebilecek gıda ürünlerinde cayma hakkı mevzuat gereği sınırlı olabilir."
+          "heading": "9. Rights of the Data Subject",
+          "body": "Within the scope of Article 11 of the KVKK, you have the right to:\n\n• Learn whether your personal data is being processed,\n• Request information if it has been processed,\n• Learn the purpose of processing,\n• Request correction of data,\n• Request deletion or destruction,\n• Request compensation for damages in the event of unlawful processing."
+        },
+        {
+          "heading": "10. Application Method",
+          "body": "You may submit your requests under the KVKK by contacting {{restaurantName}} in accordance with current legislation. Applications will be concluded as soon as possible and within the statutory timeframes."
         }
       ]
     }

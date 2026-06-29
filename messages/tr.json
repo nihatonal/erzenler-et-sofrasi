@@ -176,6 +176,67 @@
         "setcard": "Setcard",
         "pluxee": "Pluxee"
       }
+    },
+    "whyErzenler": {
+      "eyebrow": "Neden Erzenler?",
+      "title": "Ustalık, güven ve aile sıcaklığı",
+      "description": "1995 yılından bu yana aynı kalite anlayışıyla, günlük hazırlanan lezzetlerimizi profesyonel ekibimiz ve hijyenik mutfağımızla sofranıza taşıyoruz.",
+      "imageAlt": "Erzenler Et Sofrası mutfak ve servis ekibi",
+      "imageBadge": "Profesyonel Servis",
+      "imageText": "Her tabakta aynı özen, her serviste aynı misafirperverlik.",
+      "items": {
+        "experience": {
+          "title": "30+ Yıllık Deneyim",
+          "description": "1995’ten beri geleneksel lezzet anlayışımızı koruyoruz."
+        },
+        "fresh": {
+          "title": "Günlük Hazırlık",
+          "description": "Lezzetlerimizi her gün taze ve özenli şekilde hazırlıyoruz."
+        },
+        "team": {
+          "title": "Deneyimli Ekip",
+          "description": "Servisten mutfağa kadar profesyonel bir ekip ile çalışıyoruz."
+        },
+        "hygiene": {
+          "title": "Hijyenik Mutfak",
+          "description": "Temiz, düzenli ve güvenilir üretim anlayışını önemsiyoruz."
+        }
+      }
+    },
+    "restaurant": {
+      "eyebrow": "Restoranımız",
+      "title": "1995'ten Bugüne Aynı Lezzet",
+      "description": "Şişli Kurtuluş'ta başlayan yolculuğumuz bugün Esenyurt'ta aynı kalite anlayışıyla devam ediyor. Ferah salonumuz, aile sıcaklığındaki atmosferimiz ve profesyonel ekibimizle sizleri ağırlamaktan mutluluk duyuyoruz.",
+      "experience": "Yıllık Deneyim",
+      "service": "Hizmet",
+      "button": "Galeriyi İncele",
+      "imageAlt": "Erzenler Et Sofrası dış görünüşü"
+    },
+    "diningRoom": {
+      "eyebrow": "Atmosfer",
+      "title": "Sizi Bekleyen Atmosfer",
+      "description": "Şık tasarımı, ferah salonu ve aile sıcaklığındaki ortamıyla Erzenler Et Sofrası, yalnızca lezzet değil, keyifli bir restoran deneyimi de sunuyor.",
+      "imageAlt": "Erzenler Et Sofrası restoran iç mekanı",
+      "bottomTitle": "Lezzetin yanında huzurlu bir ortam.",
+      "bottomDescription": "Aileniz, dostlarınız veya iş yemekleriniz için konforlu ve samimi bir atmosfer sizi bekliyor.",
+      "items": {
+        "family": {
+          "title": "Aile Dostu",
+          "description": "Geniş oturma alanları ve her yaştan misafir için konforlu masa düzeni."
+        },
+        "comfortable": {
+          "title": "Modern Konfor",
+          "description": "Ferah, temiz ve rahat bir restoran deneyimi."
+        },
+        "fresh": {
+          "title": "Şık Atmosfer",
+          "description": "Modern dekorasyon ve sıcak ışıklandırmayla keyifli bir ortam."
+        },
+        "tea": {
+          "title": "Türk Misafirperverliği",
+          "description": "Güler yüzlü hizmet ve unutulmaz bir misafir deneyimi."
+        }
+      }
     }
   },
   "menu": {
@@ -360,111 +421,307 @@
   "legal": {
     "privacy": {
       "title": "Gizlilik Politikası",
-      "description": "Erzenler Et Sofrası olarak kişisel verilerinizin gizliliğine önem veriyoruz.",
+      "description": "Kişisel verilerinizin korunması ve gizliliğiniz bizim için önemlidir.",
       "sections": [
         {
           "heading": "1. Genel Bilgilendirme",
-          "body": "Bu gizlilik politikası, web sitemizi ziyaret ettiğinizde, online sipariş verdiğinizde veya bizimle iletişime geçtiğinizde işlenen kişisel veriler hakkında bilgi vermek amacıyla hazırlanmıştır."
+          "body": "{{restaurantName}}, müşterilerinin ve web sitesi ziyaretçilerinin kişisel verilerinin gizliliğine önem vermektedir. Bu politika; web sitemizi ziyaret ettiğinizde, QR menüyü kullandığınızda, online sipariş verdiğinizde, rezervasyon oluşturduğunuzda veya bizimle iletişime geçtiğinizde işlenen kişisel veriler hakkında sizi bilgilendirmek amacıyla hazırlanmıştır."
         },
         {
-          "heading": "2. İşlenen Veriler",
-          "body": "Ad soyad, telefon numarası, e-posta adresi, teslimat adresi, sipariş içeriği, işlem tarihi ve iletişim notları gibi bilgiler işlenebilir."
+          "heading": "2. Veri Sorumlusu",
+          "body": "Bu internet sitesi üzerinden toplanan kişisel veriler, ilgili mevzuat kapsamında {{restaurantName}} tarafından veri sorumlusu sıfatıyla işlenmektedir."
         },
         {
-          "heading": "3. Kullanım Amaçları",
-          "body": "Kişisel verileriniz siparişlerin alınması, hazırlanması, teslim edilmesi, müşteri iletişimi, hizmet kalitesinin artırılması ve yasal yükümlülüklerin yerine getirilmesi amacıyla kullanılır."
+          "heading": "3. Toplanan Kişisel Veriler",
+          "body": "Sunulan hizmetlere bağlı olarak aşağıdaki bilgiler işlenebilir:\n\n• Ad ve soyad\n• Telefon numarası\n• E-posta adresi\n• Teslimat adresi\n• Sipariş bilgileri\n• Rezervasyon bilgileri\n• Masa numarası (QR siparişlerinde)\n• Müşteri notları\n• Teknik kullanım verileri (IP adresi, tarayıcı bilgisi, cihaz türü, ziyaret zamanı)"
         },
         {
-          "heading": "4. Saklama Süresi",
-          "body": "Kişisel veriler, ilgili mevzuatta öngörülen süreler boyunca veya işleme amacı devam ettiği sürece saklanır."
+          "heading": "4. Verilerin Toplanma Yöntemi",
+          "body": "Kişisel verileriniz; web sitesi formları, online sipariş sistemi, QR menü, rezervasyon ekranları, iletişim formları ve tarafınızca sağlanan diğer dijital kanallar aracılığıyla elektronik ortamda toplanmaktadır."
         },
         {
-          "heading": "5. İletişim",
-          "body": "Gizlilik politikası ile ilgili sorularınız için restoran iletişim kanallarından bize ulaşabilirsiniz."
+          "heading": "5. Verilerin İşlenme Amaçları",
+          "body": "Toplanan kişisel veriler aşağıdaki amaçlarla kullanılabilir:\n\n• Siparişlerin hazırlanması\n• Sipariş teslimatı\n• Rezervasyon yönetimi\n• Müşteri taleplerinin karşılanması\n• Sipariş durumunun bildirilmesi\n• Müşteri desteği sağlanması\n• Hizmet kalitesinin artırılması\n• Güvenlik kayıtlarının tutulması\n• Yasal yükümlülüklerin yerine getirilmesi"
+        },
+        {
+          "heading": "6. QR Menü Kullanımı",
+          "body": "QR Menü kullanımı sırasında yalnızca hizmetin sunulması için gerekli teknik bilgiler işlenmektedir. Masa siparişi verilen durumlarda masa numarası sipariş ile ilişkilendirilebilir."
+        },
+        {
+          "heading": "7. Online Sipariş Hizmeti",
+          "body": "Online sipariş verdiğinizde siparişin hazırlanması, teslim edilmesi ve gerektiğinde sizinle iletişime geçilebilmesi amacıyla adınız, iletişim bilgileriniz, teslimat adresiniz ve sipariş detaylarınız işlenmektedir."
+        },
+        {
+          "heading": "8. Rezervasyon Hizmeti",
+          "body": "Rezervasyon oluşturmanız halinde rezervasyonun yönetilebilmesi amacıyla adınız, telefon numaranız, rezervasyon tarihi, kişi sayısı ve gerekli diğer bilgiler işlenebilir."
+        },
+        {
+          "heading": "9. Çerezler",
+          "body": "Web sitemizde kullanıcı deneyimini geliştirmek ve sistemin güvenli şekilde çalışmasını sağlamak amacıyla çerezler kullanılabilir. Çerez kullanımı hakkında ayrıntılı bilgi Çerez Politikamızda yer almaktadır."
+        },
+        {
+          "heading": "10. Analitik Veriler",
+          "body": "Web sitesinin performansını geliştirmek amacıyla anonim kullanım istatistikleri toplanabilir. Bu veriler doğrudan kimliğinizi belirlemek amacıyla kullanılmaz."
+        },
+        {
+          "heading": "11. Verilerin Saklanma Süresi",
+          "body": "Kişisel veriler yalnızca işleme amacı devam ettiği sürece veya ilgili mevzuatta belirtilen süre kadar saklanmaktadır. Süre sonunda güvenli şekilde silinir, anonim hale getirilir veya imha edilir."
+        },
+        {
+          "heading": "12. Verilerin Paylaşılması",
+          "body": "Kişisel verileriniz yalnızca hizmetin sunulabilmesi amacıyla gerekli olduğu ölçüde ödeme kuruluşları, teslimat hizmetleri, teknik altyapı sağlayıcıları veya yetkili resmi kurumlarla paylaşılabilir. Bunun dışında üçüncü kişilere satılmaz veya ticari amaçla aktarılmaz."
+        },
+        {
+          "heading": "13. Veri Güvenliği",
+          "body": "{{restaurantName}}, kişisel verilerin güvenliği için güncel teknik ve idari tedbirleri uygulamaktadır. Yetkisiz erişim, kayıp, kötüye kullanım ve değiştirilmelere karşı gerekli güvenlik önlemleri alınmaktadır."
+        },
+        {
+          "heading": "14. Kullanıcı Hakları",
+          "body": "İlgili mevzuat kapsamında;\n\n• Hakkınızda işlenen verileri öğrenme,\n• Eksik veya yanlış verilerin düzeltilmesini isteme,\n• Verilerin silinmesini talep etme,\n• İşlemeye itiraz etme,\n• İşlenen verilerin hangi amaçla kullanıldığını öğrenme,\n• Kanuni haklarınızı kullanma hakkına sahipsiniz."
+        },
+        {
+          "heading": "15. Politika Güncellemeleri",
+          "body": "{{restaurantName}}, gerekli gördüğü durumlarda bu Gizlilik Politikasını güncelleyebilir. Güncel sürüm her zaman web sitesi üzerinden yayımlanır."
+        },
+        {
+          "heading": "16. İletişim",
+          "body": "Bu politika hakkında sorularınız veya kişisel verilerinizle ilgili talepleriniz için bizimle iletişim sayfamız üzerinden iletişime geçebilirsiniz."
         }
       ]
     },
     "cookies": {
       "title": "Çerez Politikası",
-      "description": "Bu sayfa, web sitemizde kullanılan çerezler hakkında bilgi verir.",
+      "description": "Bu web sitesinde kullanılan çerezler ve bunların kullanım amaçları hakkında bilgilendirme.",
       "sections": [
         {
           "heading": "1. Çerez Nedir?",
-          "body": "Çerezler, web sitesinin çalışmasını sağlamak ve kullanıcı deneyimini iyileştirmek amacıyla tarayıcınıza kaydedilen küçük metin dosyalarıdır."
+          "body": "Çerezler (Cookies), ziyaret ettiğiniz internet siteleri tarafından tarayıcınıza kaydedilen küçük metin dosyalarıdır. Çerezler sayesinde web sitesi sizi sonraki ziyaretlerinizde tanıyabilir, tercihlerinizi hatırlayabilir ve daha iyi bir kullanıcı deneyimi sunabilir."
         },
         {
-          "heading": "2. Kullanılan Çerezler",
-          "body": "Sitemizde temel işlevlerin çalışması için zorunlu çerezler ve kullanıcı deneyimini iyileştirmeye yardımcı çerezler kullanılabilir."
+          "heading": "2. Çerezleri Neden Kullanıyoruz?",
+          "body": "{{restaurantName}} web sitesi, kullanıcı deneyimini geliştirmek, sipariş süreçlerini kolaylaştırmak, sistem güvenliğini sağlamak ve web sitesinin performansını artırmak amacıyla çerezlerden faydalanmaktadır."
         },
         {
-          "heading": "3. Çerez Yönetimi",
-          "body": "Tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Ancak bazı temel özellikler bu durumda doğru çalışmayabilir."
+          "heading": "3. Kullanılan Çerez Türleri",
+          "body": "Web sitemizde aşağıdaki çerez türleri kullanılabilir:\n\n• Zorunlu Çerezler\n• Performans Çerezleri\n• İşlevsellik Çerezleri\n• Analitik Çerezler\n\nReklam veya hedefleme amaçlı çerezler varsayılan olarak kullanılmamaktadır."
         },
         {
-          "heading": "4. Üçüncü Taraf Çerezler",
-          "body": "Analitik veya reklam amaçlı üçüncü taraf çerezler kullanılması halinde bu konuda ayrıca bilgilendirme yapılır."
+          "heading": "4. Zorunlu Çerezler",
+          "body": "Bu çerezler web sitesinin temel fonksiyonlarının çalışabilmesi için gereklidir. Güvenli oturum yönetimi, dil tercihi, sipariş süreci ve QR Menü gibi temel özelliklerin çalışmasını sağlar."
+        },
+        {
+          "heading": "5. Performans Çerezleri",
+          "body": "Performans çerezleri web sitesinin hangi sayfalarının daha fazla ziyaret edildiğini ve kullanıcıların sistemi nasıl kullandığını anonim olarak analiz etmek amacıyla kullanılabilir."
+        },
+        {
+          "heading": "6. İşlevsellik Çerezleri",
+          "body": "Bu çerezler dil tercihi, kullanıcı arayüzü ayarları ve benzeri kişiselleştirme seçeneklerini hatırlayarak sonraki ziyaretlerde daha iyi bir deneyim sunar."
+        },
+        {
+          "heading": "7. Analitik Çerezler",
+          "body": "Web sitesinin geliştirilmesi amacıyla anonim kullanım istatistikleri toplanabilir. Bu bilgiler herhangi bir kişiyi doğrudan tanımlamaz ve yalnızca hizmet kalitesini artırmak amacıyla değerlendirilir."
+        },
+        {
+          "heading": "8. Sipariş Sürecinde Kullanılan Çerezler",
+          "body": "Online sipariş ve QR Menü sisteminde sepet bilgilerinin korunabilmesi, sipariş adımlarının güvenli şekilde tamamlanabilmesi ve kullanıcı deneyiminin devamlılığı amacıyla geçici çerezler kullanılabilir."
+        },
+        {
+          "heading": "9. Üçüncü Taraf Hizmetler",
+          "body": "Web sitesinde kullanılan bazı teknik altyapılar veya analiz servisleri kendi çerezlerini oluşturabilir. Bu çerezler ilgili hizmet sağlayıcıların kendi gizlilik politikalarına tabidir."
+        },
+        {
+          "heading": "10. Çerezlerin Saklanma Süresi",
+          "body": "Bazı çerezler yalnızca oturum boyunca saklanırken, bazıları tercihlerinizi hatırlamak amacıyla belirli bir süre cihazınızda tutulabilir. Saklama süresi çerezin kullanım amacına göre değişiklik gösterebilir."
+        },
+        {
+          "heading": "11. Çerezleri Nasıl Yönetebilirsiniz?",
+          "body": "Tarayıcı ayarlarınızı kullanarak çerezleri silebilir, engelleyebilir veya belirli internet siteleri için çerez kullanımını sınırlandırabilirsiniz. Ancak bazı çerezlerin devre dışı bırakılması halinde web sitesinin bazı özellikleri beklenen şekilde çalışmayabilir."
+        },
+        {
+          "heading": "12. Çerez Onayı",
+          "body": "İlk ziyaretiniz sırasında görüntülenen çerez bildirimi üzerinden tercihlerinizi belirleyebilirsiniz. Zorunlu çerezler dışında kalan çerezler yalnızca onay vermeniz halinde kullanılacaktır."
+        },
+        {
+          "heading": "13. Politika Güncellemeleri",
+          "body": "{{restaurantName}}, teknik veya yasal gereklilikler doğrultusunda bu Çerez Politikasını güncelleyebilir. Güncel sürüm her zaman web sitesinde yayımlanır."
+        },
+        {
+          "heading": "14. İletişim",
+          "body": "Çerez Politikamız hakkında sorularınız olması halinde bizimle iletişim sayfamız üzerinden iletişime geçebilirsiniz."
+        }
+      ]
+    },
+    "deliveryReturn": {
+      "title": "Teslimat ve İade Politikası",
+      "description": "Online siparişlerin hazırlanması, teslim edilmesi ve iade süreçleri hakkında bilgilendirme.",
+      "sections": [
+        {
+          "heading": "1. Genel Bilgilendirme",
+          "body": "{{restaurantName}}, müşterilerine kaliteli ve güvenilir hizmet sunmayı amaçlamaktadır. Bu politika, online siparişlerin hazırlanması, teslim edilmesi ve olası iade süreçleri hakkında bilgi vermek amacıyla hazırlanmıştır."
+        },
+        {
+          "heading": "2. Hizmet Bölgeleri",
+          "body": "Teslimat hizmeti yalnızca restoranın hizmet verdiği bölgeler içerisinde sunulmaktadır. Teslimat kapsamı dışında kalan adresler için sipariş kabul edilmeyebilir."
+        },
+        {
+          "heading": "3. Sipariş Hazırlama Süresi",
+          "body": "Siparişler, restoranın yoğunluk durumuna bağlı olarak mümkün olan en kısa sürede hazırlanmaktadır. Ortalama hazırlık ve teslimat süresi sipariş ekranında belirtilen tahmini sürelerden farklılık gösterebilir."
+        },
+        {
+          "heading": "4. Teslimat Süreci",
+          "body": "Siparişler restoran personeli veya anlaşmalı kurye hizmeti aracılığıyla teslim edilir. Teslimat sırasında müşterinin belirttiği adres bilgilerinin doğru olması müşterinin sorumluluğundadır."
+        },
+        {
+          "heading": "5. Teslimat Ücreti",
+          "body": "Teslimat ücreti sipariş sırasında müşteriye açık şekilde gösterilir. Belirli kampanyalar kapsamında ücretsiz teslimat uygulanabilir."
+        },
+        {
+          "heading": "6. Minimum Sipariş Tutarı",
+          "body": "Bazı teslimat bölgelerinde minimum sipariş tutarı uygulanabilir. Güncel minimum sipariş tutarı sipariş ekranında belirtilmektedir."
+        },
+        {
+          "heading": "7. Siparişin Kontrol Edilmesi",
+          "body": "Teslimat sırasında siparişinizi teslim almadan önce ürünleri kontrol etmeniz önerilir. Eksik veya hatalı ürün tespit edilmesi halinde mümkün olan en kısa sürede restoran ile iletişime geçilmelidir."
+        },
+        {
+          "heading": "8. Eksik veya Hatalı Ürün",
+          "body": "Siparişin eksik hazırlanması, yanlış ürün gönderilmesi veya restoran kaynaklı bir hata oluşması halinde gerekli inceleme yapılarak uygun görülen durumlarda ürün yeniden gönderilebilir veya ücret iadesi sağlanabilir."
+        },
+        {
+          "heading": "9. İade Koşulları",
+          "body": "Hazırlanarak teslim edilen gıda ürünlerinde hijyen ve gıda güvenliği nedeniyle genel olarak iade kabul edilmemektedir. Ancak restoran kaynaklı hata, eksik ürün veya ayıplı hizmet durumlarında ilgili mevzuat kapsamında değerlendirme yapılır."
+        },
+        {
+          "heading": "10. Sipariş İptali",
+          "body": "Sipariş hazırlanmaya başlamadan önce iptal talebinde bulunabilirsiniz. Hazırlık sürecine geçen siparişlerde iptal talebi restoranın değerlendirmesine bağlıdır."
+        },
+        {
+          "heading": "11. Mücbir Sebepler",
+          "body": "Olumsuz hava koşulları, trafik, teknik arızalar, resmi makam kararları veya restoranın kontrolü dışında gelişen olağanüstü durumlarda teslimat süreleri uzayabilir veya teslimat gerçekleştirilemeyebilir."
+        },
+        {
+          "heading": "12. Ücret İadesi",
+          "body": "İade kararı verilmesi halinde ücret iadesi kullanılan ödeme yöntemine göre ilgili ödeme kuruluşunun süreçlerine bağlı olarak gerçekleştirilmektedir."
+        },
+        {
+          "heading": "13. Müşteri Sorumluluğu",
+          "body": "Müşteri; sipariş sırasında doğru iletişim bilgisi, telefon numarası ve teslimat adresi vermekle yükümlüdür. Yanlış veya eksik bilgi verilmesinden kaynaklanan teslimat problemlerinden restoran sorumlu değildir."
+        },
+        {
+          "heading": "14. İletişim",
+          "body": "Teslimat veya iade süreçleri hakkında her türlü soru ve talebiniz için {{restaurantName}} ile iletişim sayfasında yer alan bilgiler üzerinden bizimle iletişime geçebilirsiniz."
+        }
+      ]
+    },
+    "distanceSales": {
+      "title": "Mesafeli Satış Sözleşmesi",
+      "description": "Online sipariş hizmetlerine ilişkin mesafeli satış sözleşmesi.",
+      "sections": [
+        {
+          "heading": "1. Taraflar",
+          "body": "İşbu Mesafeli Satış Sözleşmesi, {{restaurantName}} ile internet sitesi üzerinden sipariş oluşturan müşteri arasında elektronik ortamda kurulmaktadır."
+        },
+        {
+          "heading": "2. Konu",
+          "body": "Bu sözleşmenin konusu, müşterinin internet sitesi veya QR Menü üzerinden verdiği siparişe ilişkin tarafların hak ve yükümlülüklerinin belirlenmesidir."
+        },
+        {
+          "heading": "3. Sipariş Süreci",
+          "body": "Müşteri siparişini tamamlamadan önce ürün bilgilerini, fiyatları, teslimat ücretini ve toplam sipariş tutarını kontrol etmekle yükümlüdür. Siparişin onaylanması ile birlikte müşteri sözleşme şartlarını kabul etmiş sayılır."
+        },
+        {
+          "heading": "4. Ürün ve Hizmet Bilgileri",
+          "body": "Siparişe konu ürünlerin adı, miktarı, birim fiyatı, teslimat ücreti ve toplam ödeme tutarı sipariş ekranında açık şekilde gösterilmektedir."
+        },
+        {
+          "heading": "5. Ödeme",
+          "body": "Ödeme, sipariş sırasında sunulan ödeme yöntemlerinden biri kullanılarak gerçekleştirilir. Kullanılan ödeme altyapısına ilişkin güvenlik süreçleri ilgili ödeme kuruluşu tarafından yürütülmektedir."
+        },
+        {
+          "heading": "6. Teslimat",
+          "body": "Siparişler restoranın hizmet verdiği teslimat bölgeleri içerisinde belirtilen adrese teslim edilir. Teslimat süresi restoranın yoğunluğu, trafik durumu ve diğer operasyonel koşullara göre değişebilir."
+        },
+        {
+          "heading": "7. Siparişin Hazırlanması",
+          "body": "Sipariş, müşterinin onayından sonra hazırlık sürecine alınır. Hazırlanmaya başlanmış siparişlerde değişiklik veya iptal talepleri restoranın değerlendirmesine bağlıdır."
+        },
+        {
+          "heading": "8. Cayma Hakkı",
+          "body": "6502 Sayılı Tüketicinin Korunması Hakkında Kanun ve ilgili Mesafeli Sözleşmeler Yönetmeliği uyarınca; çabuk bozulabilen veya son kullanma tarihi geçebilecek gıda ürünlerinde cayma hakkı bulunmamaktadır."
+        },
+        {
+          "heading": "9. İade Koşulları",
+          "body": "Hijyen ve gıda güvenliği nedeniyle teslim edilen yiyecek ve içecek ürünlerinde genel olarak iade kabul edilmez. Ancak eksik ürün, yanlış sipariş veya restoran kaynaklı hatalar değerlendirilerek uygun çözüm sağlanır."
+        },
+        {
+          "heading": "10. Müşteri Yükümlülükleri",
+          "body": "Müşteri, sipariş sırasında verdiği bilgilerin doğru ve güncel olduğunu kabul eder. Yanlış adres, eksik iletişim bilgisi veya ulaşılamayan telefon numarası nedeniyle oluşabilecek gecikmelerden restoran sorumlu değildir."
+        },
+        {
+          "heading": "11. Restoranın Hakları",
+          "body": "{{restaurantName}}, teknik arıza, ürün stok yetersizliği, mücbir sebepler veya hizmetin sunulmasını engelleyen olağanüstü durumlarda siparişi iptal etme veya müşteriyle iletişime geçerek alternatif çözüm sunma hakkını saklı tutar."
+        },
+        {
+          "heading": "12. Mücbir Sebepler",
+          "body": "Doğal afetler, yoğun hava koşulları, savaş, resmi makam kararları, teknik altyapı problemleri veya tarafların kontrolü dışında gelişen olaylarda taraflar yükümlülüklerini yerine getiremedikleri ölçüde sorumlu tutulamaz."
+        },
+        {
+          "heading": "13. Kişisel Verilerin Korunması",
+          "body": "Sipariş sırasında paylaşılan kişisel veriler Gizlilik Politikası ve KVKK Aydınlatma Metni kapsamında işlenmektedir."
+        },
+        {
+          "heading": "14. Uyuşmazlıkların Çözümü",
+          "body": "Bu sözleşmeden doğabilecek uyuşmazlıklarda yürürlükte bulunan tüketici mevzuatı uygulanır. Yetkili Tüketici Hakem Heyetleri ve Tüketici Mahkemeleri görevli ve yetkilidir."
+        },
+        {
+          "heading": "15. Yürürlük",
+          "body": "Müşteri siparişini tamamlayarak işbu Mesafeli Satış Sözleşmesini elektronik ortamda okuduğunu, anladığını ve kabul ettiğini beyan eder."
         }
       ]
     },
     "kvkk": {
       "title": "KVKK Aydınlatma Metni",
-      "description": "Kişisel verilerinizin işlenmesine ilişkin aydınlatma metni.",
+      "description": "6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin işlenmesine ilişkin bilgilendirme.",
       "sections": [
         {
           "heading": "1. Veri Sorumlusu",
-          "body": "Kişisel verileriniz Erzenler Et Sofrası tarafından, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir."
+          "body": "6698 sayılı Kişisel Verilerin Korunması Kanunu ('KVKK') kapsamında, {{restaurantName}} veri sorumlusu sıfatıyla kişisel verilerinizi aşağıda açıklanan kapsamda işlemektedir."
         },
         {
           "heading": "2. İşlenen Kişisel Veriler",
-          "body": "Ad soyad, telefon, e-posta, adres, sipariş bilgileri ve talep/şikayet içerikleri işlenebilir."
+          "body": "Sunulan hizmete göre aşağıdaki kişisel veriler işlenebilir:\n\n• Ad ve soyad\n• Telefon numarası\n• E-posta adresi\n• Teslimat adresi\n• Sipariş bilgileri\n• Rezervasyon bilgileri\n• Masa numarası (QR siparişlerinde)\n• Müşteri notları\n• Ödeme bilgileri (ödeme altyapısı tarafından işlenen kısımlar hariç)\n• IP adresi, cihaz bilgileri ve teknik kullanım kayıtları"
         },
         {
-          "heading": "3. İşleme Amaçları",
-          "body": "Verileriniz sipariş süreçlerinin yürütülmesi, teslimat, müşteri iletişimi, rezervasyon ve yasal yükümlülüklerin yerine getirilmesi amaçlarıyla işlenir."
+          "heading": "3. Kişisel Verilerin Toplanma Yöntemi",
+          "body": "Kişisel verileriniz; web sitesi, QR Menü sistemi, online sipariş ekranı, rezervasyon formları, iletişim formları ve elektronik iletişim kanalları aracılığıyla otomatik veya kısmen otomatik yöntemlerle toplanmaktadır."
         },
         {
-          "heading": "4. Haklarınız",
-          "body": "KVKK kapsamında kişisel verilerinizle ilgili bilgi talep etme, düzeltme, silme veya işlenmesine itiraz etme haklarına sahipsiniz."
-        }
-      ]
-    },
-    "delivery-return": {
-      "title": "Teslimat ve İade",
-      "description": "Online siparişlerde teslimat ve iade süreçleri hakkında bilgilendirme.",
-      "sections": [
-        {
-          "heading": "1. Teslimat",
-          "body": "Online siparişler, restoranın hizmet verdiği bölgeler içinde belirtilen adrese teslim edilir. Teslimat süresi yoğunluğa ve adrese göre değişebilir."
+          "heading": "4. Kişisel Verilerin İşlenme Amaçları",
+          "body": "Toplanan veriler aşağıdaki amaçlarla işlenebilir:\n\n• Sipariş oluşturulması\n• Sipariş hazırlanması ve teslimatı\n• Rezervasyon yönetimi\n• Müşteri desteği sağlanması\n• Sipariş durum bilgilendirmeleri\n• Hizmet kalitesinin artırılması\n• Güvenliğin sağlanması\n• Yasal yükümlülüklerin yerine getirilmesi"
         },
         {
-          "heading": "2. Sipariş Kontrolü",
-          "body": "Siparişinizi teslim alırken ürünleri kontrol etmeniz önerilir. Eksik veya hatalı ürün durumunda restoranla iletişime geçebilirsiniz."
+          "heading": "5. Hukuki Sebepler",
+          "body": "Kişisel verileriniz KVKK'nın 5. ve 6. maddelerinde belirtilen hukuki sebeplere dayanılarak; sözleşmenin kurulması ve ifası, hukuki yükümlülüklerin yerine getirilmesi, meşru menfaat ve açık rıza kapsamında işlenebilir."
         },
         {
-          "heading": "3. İade",
-          "body": "Gıda ürünlerinde hijyen ve sağlık koşulları nedeniyle teslim sonrası iade kabulü sınırlıdır. Hatalı veya eksik ürünlerde restoran değerlendirme yapar."
-        }
-      ]
-    },
-    "distance-sales": {
-      "title": "Mesafeli Satış Sözleşmesi",
-      "description": "Online siparişlere ilişkin mesafeli satış bilgilendirmesi.",
-      "sections": [
-        {
-          "heading": "1. Taraflar",
-          "body": "Bu sözleşme, online sipariş veren müşteri ile Erzenler Et Sofrası arasında elektronik ortamda kurulur."
+          "heading": "6. Verilerin Aktarılması",
+          "body": "Kişisel verileriniz yalnızca hizmetin sunulabilmesi amacıyla; ödeme kuruluşları, teknik altyapı sağlayıcıları, teslimat hizmetleri, resmi kurumlar veya kanunen yetkili merciler ile gerekli olduğu ölçüde paylaşılabilir."
         },
         {
-          "heading": "2. Ürün ve Hizmet",
-          "body": "Sözleşmenin konusu, müşterinin web sitesi üzerinden verdiği yemek siparişinin hazırlanması ve teslim edilmesidir."
+          "heading": "7. Saklama Süresi",
+          "body": "Kişisel veriler yalnızca işleme amacı devam ettiği sürece veya ilgili mevzuatta belirtilen süre kadar saklanmaktadır. Süre sonunda güvenli şekilde silinir, anonim hale getirilir veya imha edilir."
         },
         {
-          "heading": "3. Ödeme ve Teslimat",
-          "body": "Sipariş tutarı, teslimat ücreti ve toplam bedel checkout ekranında müşteriye gösterilir. Teslimat, belirtilen adrese yapılır."
+          "heading": "8. Veri Güvenliği",
+          "body": "{{restaurantName}}, kişisel verilerin gizliliğini korumak amacıyla güncel teknik ve idari güvenlik önlemlerini uygulamaktadır. Yetkisiz erişim, veri kaybı ve kötüye kullanımın önlenmesi için gerekli tedbirler alınmaktadır."
         },
         {
-          "heading": "4. Cayma Hakkı",
-          "body": "Çabuk bozulabilen veya son kullanma tarihi geçebilecek gıda ürünlerinde cayma hakkı mevzuat gereği sınırlı olabilir."
+          "heading": "9. İlgili Kişinin Hakları",
+          "body": "KVKK'nın 11. maddesi kapsamında;\n\n• Kişisel verilerinizin işlenip işlenmediğini öğrenme,\n• İşlenmişse bilgi talep etme,\n• İşleme amacını öğrenme,\n• Verilerin düzeltilmesini isteme,\n• Silinmesini veya yok edilmesini talep etme,\n• İşlemenin hukuka aykırı olması halinde zararın giderilmesini talep etme haklarına sahipsiniz."
+        },
+        {
+          "heading": "10. Başvuru Yöntemi",
+          "body": "KVKK kapsamındaki taleplerinizi, yürürlükteki mevzuata uygun şekilde {{restaurantName}} ile iletişime geçerek iletebilirsiniz. Başvurular mümkün olan en kısa sürede ve yasal süreler içerisinde sonuçlandırılır."
         }
       ]
     }

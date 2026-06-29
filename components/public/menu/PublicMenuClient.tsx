@@ -18,7 +18,7 @@ import { useMenuData } from "./hooks/useMenuData";
 import { MenuHeader } from "./components/MenuHeader";
 import { ProductCard } from "./components/ProductCard";
 import { ProductModal } from "./components/ProductModal";
-import { CartBar } from "./components/CartBar";
+//import { CartBar } from "./components/CartBar";
 
 type PublicMenuClientProps = {
   locale: string;
@@ -35,8 +35,8 @@ export function PublicMenuClient({
   const activeLocale = normalizeLocale(locale);
 
   const addItem = useCartStore((state) => state.addItem);
-  const cartQuantity = useCartStore((state) => state.getTotalQuantity());
-  const cartSubtotal = useCartStore((state) => state.getSubtotal());
+  // const cartQuantity = useCartStore((state) => state.getTotalQuantity());
+  // const cartSubtotal = useCartStore((state) => state.getSubtotal());
   const showToast = useToastStore((state) => state.showToast);
 
   const {
@@ -339,13 +339,13 @@ export function PublicMenuClient({
         )}
       </section>
 
-      {canAddToCart && (
+      {/* {canAddToCart && (
         <CartBar
           activeLocale={activeLocale}
           cartQuantity={cartQuantity}
           cartSubtotal={cartSubtotal}
         />
-      )}
+      )} */}
 
       {selectedProduct && (
         <ProductModal
