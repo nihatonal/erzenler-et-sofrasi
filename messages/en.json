@@ -237,6 +237,14 @@
           "description": "Friendly service and genuine hospitality in every visit."
         }
       }
+    },
+    "video": {
+      "eyebrow": "Video",
+      "title": "Discover Our Restaurant Up Close",
+      "description": "Explore the atmosphere, kitchen and flavor journey of Erzenler Et Sofrası through our short introduction video.",
+      "play": "Play video",
+      "close": "Close video",
+      "imageAlt": "Erzenler Et Sofrası introduction video"
     }
   },
   "menu": {

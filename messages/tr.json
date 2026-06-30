@@ -237,6 +237,14 @@
           "description": "Güler yüzlü hizmet ve unutulmaz bir misafir deneyimi."
         }
       }
+    },
+    "video": {
+      "eyebrow": "Video",
+      "title": "Restoranımızı Yakından Tanıyın",
+      "description": "Erzenler Et Sofrası’nın atmosferini, mutfağını ve lezzet yolculuğunu kısa tanıtım videomuzla keşfedin.",
+      "play": "Videoyu oynat",
+      "close": "Videoyu kapat",
+      "imageAlt": "Erzenler Et Sofrası tanıtım videosu"
     }
   },
   "menu": {

@@ -13,6 +13,7 @@ import { buildSeoMetadata } from "@/lib/seo";
 import { HomeWhyErzenler } from "@/components/public/home/HomeWhyErzenler";
 import { HomeRestaurant } from "@/components/public/home/HomeRestaurant";
 import { HomeDiningRoom } from "@/components/public/home/HomeDiningRoom";
+import { HomeVideoSection } from "@/components/public/home/HomeVideoSection";
 
 type HomePageProps = {
   params: Promise<{
@@ -46,6 +47,7 @@ export default async function HomePage({ params }: HomePageProps) {
       <HomeOrderCta locale={currentLocale} />
       <HomeRestaurant locale={currentLocale} />
       <HomeDiningRoom locale={currentLocale} />
+      <HomeVideoSection locale={currentLocale} />
       <HomeOrderPlatforms locale={currentLocale} />
       {/* <HomeReviews locale={currentLocale} /> */}
       {/* <HomeGalleryPreview locale={currentLocale} /> */}
