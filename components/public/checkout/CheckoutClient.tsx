@@ -85,7 +85,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
   if (successOrderNumber) {
     return (
-      <main className="min-h-screen bg-brand-cream px-4 pt-20">
+      <main className="min-h-screen bg-brand-cream px-4 pt-20 md:pt-28">
         <div className="mx-auto max-w-xl rounded-2xl border border-brand-sand bg-white p-8 text-center">
           <h1 className="text-2xl font-bold text-brand-green">
             {t("success.title")}
@@ -306,8 +306,6 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                       <label className="admin-label">{t("fields.city")}</label>
                       <input
                         name="address_city"
-                        value={"Istanbul"}
-                        defaultValue={"Istanbul"}
                         required
                         className="admin-input mt-2 text-brand-muted"
                       />
