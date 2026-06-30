@@ -31,7 +31,7 @@ export function ChangePasswordForm() {
     >
       <h2 className="text-xl font-semibold text-brand-green">Şifre Değiştir</h2>
 
-      <div className="mt-6 grid md:grid-cols-2 gap-4">
+      <div className="mt-6 grid gap-4">
         <div>
           <label className="admin-label">Yeni Şifre</label>
           <div className="mt-2 flex h-12 items-center gap-3 rounded-xl border border-brand-sand bg-white px-4">

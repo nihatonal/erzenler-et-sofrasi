@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { Save } from "lucide-react";
+import { ChangePasswordForm } from "../auth/ChangePasswordForm";
 
 type RestaurantSettings = {
   restaurant_name: string | null;
@@ -111,9 +112,9 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                   className="admin-input mt-2"
                 />
               </div>
-            </div> */}
+            </div>
 
-            {/* <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="admin-label">Email</label>
                 <input
@@ -195,7 +196,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
             />
           </label>
         </section>
-        {/* <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
+        <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
           <h3 className="text-lg font-semibold text-brand-green">
             Sipariş Yönetimi
           </h3>
@@ -256,7 +257,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               />
             </label>
           </div>
-        </div> */}
+        </div>
       </div>
       {/* dil yonetimi */}
       <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
@@ -307,10 +308,11 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
             />
           </label>
         </div>
+        <ChangePasswordForm />
       </section>
       {/* bildirim ayarlari */}
       <aside className="space-y-8">
-        <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+        {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <h2 className="text-xl font-bold text-brand-green">
             Bildirim Ayarları
           </h2>
@@ -324,7 +326,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               className="admin-input mt-2"
             />
           </div>
-        </section>
+        </section> */}
 
         {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <h2 className="text-xl font-bold text-brand-green">QR Tasarımı</h2>
