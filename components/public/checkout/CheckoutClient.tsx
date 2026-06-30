@@ -307,7 +307,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                       <input
                         name="address_city"
                         required
-                        className="admin-input mt-2 text-brand-muted"
+                        className="admin-input mt-2"
                       />
                     </div>
                     <div>
