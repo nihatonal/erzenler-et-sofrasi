@@ -1,6 +1,7 @@
 import { SettingsForm } from "@/components/admin/settings/SettingsForm";
 import { getAdminRestaurant } from "@/lib/admin/get-admin-restaurant";
 import { updateSettingsAction } from "./actions";
+import { ChangePasswordForm } from "@/components/admin/auth/ChangePasswordForm";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -24,11 +25,13 @@ export default async function AdminSettingsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-brand-green">Ayarlar</h1>
         <p className="mt-2 text-sm text-brand-muted">
-          Restoran bilgileri, sipariş ayarları ve QR tasarım bilgilerini yönetin.
+          Restoran bilgileri, sipariş ayarları ve QR tasarım bilgilerini
+          yönetin.
         </p>
       </div>
 
       <SettingsForm settings={settings} action={updateSettingsAction} />
+      <ChangePasswordForm />
     </main>
   );
 }

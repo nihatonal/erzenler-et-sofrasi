@@ -30,13 +30,13 @@ export default async function SiteLayout({
 
   return (
     <>
-      <AppProviders locale={locale} whatsappNumber="905445182342">
+      <AppProviders locale={locale} whatsappNumber="905435182342">
         <Header locale={currentLocale} />
         <MobileAppHeader locale={currentLocale} />
 
         <div>{children}</div>
         <SmartFloatingCTA
-          whatsappNumber="905445182342"
+          whatsappNumber="905435182342"
           locale={currentLocale}
         />
 

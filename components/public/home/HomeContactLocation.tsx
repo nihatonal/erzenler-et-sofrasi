@@ -137,11 +137,11 @@ export async function HomeContactLocation({
                       {t("whatsappTitle")}
                     </h3>
                     <Link
-                      href="https://wa.me/905445182342"
+                      href="https://wa.me/905435182342"
                       target="_blank"
                       className="mt-1 block text-sm font-semibold text-brand-muted transition hover:text-brand-red"
                     >
-                      0544 518 23 42
+                      +90 543 518 23 42
                     </Link>
                   </div>
                 </div>

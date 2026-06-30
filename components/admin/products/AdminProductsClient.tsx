@@ -319,6 +319,7 @@ export function AdminProductsClient({
                     src={item.image_url || "/images/menu/fettuccine.webp"}
                     alt={item.name_tr}
                     fill
+                    unoptimized
                     className="object-cover"
                     sizes="76px"
                   />

@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useTransition } from "react";
-import { Loader2, Lock, Mail } from "lucide-react";
+import { Loader2, Lock } from "lucide-react";
 import { loginAction } from "@/app/admin/(auth)/login/actions";
 
 export function AdminLoginForm() {
@@ -9,7 +10,9 @@ export function AdminLoginForm() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
+
     startTransition(async () => {
       await loginAction(formData);
     });
@@ -22,31 +25,10 @@ export function AdminLoginForm() {
     >
       <div>
         <label
-          htmlFor="email"
-          className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70"
-        >
-          Email
-        </label>
-
-        <div className="mt-3 flex h-14 items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4">
-          <Mail className="h-5 w-5 text-brand-red" />
-          <input
-            name="email"
-            id="email"
-            type="email"
-            placeholder="admin@restaurant.com"
-            required
-            className="pl-2 h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
-          />
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <label
           htmlFor="password"
           className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70"
         >
-          Şifre
+          Admin Şifresi
         </label>
 
         <div className="mt-3 flex h-14 items-center gap-3 rounded-xl border border-white/10 bg-black/20 px-4">
@@ -57,9 +39,18 @@ export function AdminLoginForm() {
             type="password"
             placeholder="••••••••"
             required
-            className="pl-2 h-full w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
+            className="h-full w-full bg-transparent pl-2 text-sm text-white outline-none placeholder:text-white/30"
           />
         </div>
+      </div>
+
+      <div className="mt-5 text-right">
+        <Link
+          href="/admin/forgot-password"
+          className="text-sm font-semibold text-white/70 transition hover:text-white"
+        >
+          Şifremi unuttum
+        </Link>
       </div>
 
       <button

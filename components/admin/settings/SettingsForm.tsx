@@ -73,7 +73,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="admin-label">Kısa Açıklama</label>
               <textarea
                 name="restaurant_description"
@@ -81,9 +81,9 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                 defaultValue={settings.restaurant_description || ""}
                 className="admin-input mt-2 min-h-28 py-4"
               />
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <label className="admin-label">Logo URL</label>
               <input
                 name="logo_url"
@@ -91,9 +91,9 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                 placeholder="/images/erzenler-logo.png"
                 className="admin-input mt-2"
               />
-            </div>
+            </div> */}
 
-            <div className="grid gap-5 md:grid-cols-2">
+            {/* <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="admin-label">Telefon</label>
                 <input
@@ -111,9 +111,9 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                   className="admin-input mt-2"
                 />
               </div>
-            </div>
+            </div> */}
 
-            <div className="grid gap-5 md:grid-cols-2">
+            {/* <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="admin-label">Email</label>
                 <input
@@ -142,7 +142,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                 defaultValue={settings.address || ""}
                 className="admin-input mt-2 min-h-24 py-4"
               />
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -195,7 +195,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
             />
           </label>
         </section>
-        <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
+        {/* <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
           <h3 className="text-lg font-semibold text-brand-green">
             Sipariş Yönetimi
           </h3>
@@ -256,7 +256,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               />
             </label>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* dil yonetimi */}
       <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
@@ -326,7 +326,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+        {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <h2 className="text-xl font-bold text-brand-green">QR Tasarımı</h2>
 
           <div className="mt-5">
@@ -338,7 +338,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               className="admin-input mt-2 min-h-28 py-4"
             />
           </div>
-        </section>
+        </section> */}
 
         <button
           type="submit"

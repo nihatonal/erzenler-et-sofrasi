@@ -125,7 +125,7 @@ export async function Footer({ locale }: FooterProps) {
             </a>
 
             <a
-              href="https://wa.me/905445182342"
+              href="https://wa.me/905435182342"
               target={"_blank"}
               rel="noopener noreferrer"
               className="flex items-center gap-2 transition hover:text-white"

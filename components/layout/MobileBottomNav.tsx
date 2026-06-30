@@ -34,7 +34,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export function MobileBottomNav({ locale }: MobileBottomNavProps) {
   const pathname = usePathname();
   const t = useTranslations("nav");
-  const whatsappNumber = "905445182342";
+  const whatsappNumber = "905435182342";
   const items = [
     {
       label: t("home"),
