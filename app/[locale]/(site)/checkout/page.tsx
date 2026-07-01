@@ -21,7 +21,8 @@ export async function generateMetadata({
     locale,
     page: "checkout",
     path: "/checkout",
-    image: "/images/og/menu-og.jpg",
+    image: "/images/og/checkout-og.webp",
+    index: false,
   });
 }
 

@@ -30,7 +30,7 @@ export async function generateMetadata({
     locale,
     page: "home",
     path: "",
-    image: "/images/og/home-og.jpg",
+    image: "/images/og/home-og.webp",
   });
 }
 

@@ -23,7 +23,7 @@ export async function generateMetadata({
     locale,
     page: "menu",
     path: "/menu",
-    image: "/images/og/menu-og.jpg",
+    image: "/images/og/menu-og.webp",
   });
 }
 

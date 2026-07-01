@@ -10,6 +10,7 @@ type BuildSeoMetadataArgs = {
   page: SeoPage;
   path: string;
   image?: string;
+  index?: boolean;
 };
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -26,7 +27,8 @@ export async function buildSeoMetadata({
   locale,
   page,
   path,
-  image = "/images/og/erzenler-og.jpg",
+  image = "/images/og/home-og.webp",
+  index = true,
 }: BuildSeoMetadataArgs): Promise<Metadata> {
   const currentLocale = normalizeLocale(locale);
 
@@ -39,13 +41,21 @@ export async function buildSeoMetadata({
   const description = t("description");
   const keywords = t.raw("keywords") as string[];
 
-  const canonicalPath = `/${currentLocale}${path}`;
+  const cleanPath = path === "/" ? "" : path;
+
+  const canonicalPath = `/${currentLocale}${cleanPath}`;
   const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
   const imageUrl = new URL(image, siteUrl).toString();
 
-  const languages = Object.fromEntries(
-    locales.map((item) => [item, `/${item}${path}`]),
-  );
+  const languages = {
+    ...Object.fromEntries(
+      locales.map((item) => [
+        item,
+        new URL(`/${item}${cleanPath}`, siteUrl).toString(),
+      ]),
+    ),
+    "x-default": new URL(`/tr${cleanPath}`, siteUrl).toString(),
+  };
 
   return {
     title,
@@ -53,7 +63,7 @@ export async function buildSeoMetadata({
     keywords,
     metadataBase: new URL(siteUrl),
     alternates: {
-      canonical: canonicalPath,
+      canonical: canonicalUrl,
       languages,
     },
     openGraph: {
@@ -79,11 +89,11 @@ export async function buildSeoMetadata({
       images: [imageUrl],
     },
     robots: {
-      index: true,
-      follow: true,
+      index,
+      follow: index,
       googleBot: {
-        index: true,
-        follow: true,
+        index,
+        follow: index,
         "max-image-preview": "large",
         "max-snippet": -1,
         "max-video-preview": -1,
