@@ -20,16 +20,20 @@ import { ProductCard } from "./components/ProductCard";
 import { ProductModal } from "./components/ProductModal";
 //import { CartBar } from "./components/CartBar";
 
+type QrMode = "table" | "online" | null;
+
 type PublicMenuClientProps = {
   locale: string;
   restaurantId: string;
   tableSlug: string | null;
+  qrMode?: QrMode;
 };
 
 export function PublicMenuClient({
   locale,
   restaurantId,
   tableSlug,
+  qrMode,
 }: PublicMenuClientProps) {
   const t = useTranslations("menu");
   const activeLocale = normalizeLocale(locale);
@@ -62,8 +66,11 @@ export function PublicMenuClient({
   const [quantity, setQuantity] = useState(1);
   const [note, setNote] = useState("");
 
+  const forcedMenuOnly = qrMode === "table";
+  const forcedOnlineOrder = qrMode === "online";
   const orderMode = getOrderMode(settings, table);
-  const canAddToCart = orderMode !== "menu_only";
+  const canAddToCart =
+    !forcedMenuOnly && (forcedOnlineOrder || orderMode !== "menu_only");
 
   // Modal-scoped data
   const selectedOptions = useMemo(() => {

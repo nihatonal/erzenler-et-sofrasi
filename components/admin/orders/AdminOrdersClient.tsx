@@ -1,20 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { RefreshCw, ChevronDown } from "lucide-react";
+import { ChevronDown, RefreshCw } from "lucide-react";
 
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { formatCurrency } from "@/lib/utils";
 import { updateOrderStatusAction } from "@/app/admin/(dashboard)/orders/actions";
-import Link from "next/link";
+import { OrderPrintButton } from "./OrdersPrintButton";
 
-type OrderStatus =
-  | "pending"
-  | "confirmed"
-  | "preparing"
-  | "out_for_delivery"
-  | "delivered"
-  | "cancelled";
+type OrderStatus = "confirmed" | "delivered" | "cancelled";
 
 type OrderRow = {
   id: string;
@@ -37,22 +32,23 @@ type AdminOrdersClientProps = {
 };
 
 const statusLabels: Record<OrderStatus, string> = {
-  pending: "Bekliyor",
   confirmed: "Onaylandı",
-  preparing: "Hazırlanıyor",
-  out_for_delivery: "Yolda",
   delivered: "Teslim Edildi",
   cancelled: "İptal Edildi",
 };
 
 const statusClasses: Record<OrderStatus, string> = {
-  pending: "bg-yellow-100 text-yellow-800",
-  confirmed: "bg-blue-100 text-blue-800",
-  preparing: "bg-orange-100 text-orange-800",
-  out_for_delivery: "bg-purple-100 text-purple-800",
-  delivered: "bg-green-100 text-green-800",
-  cancelled: "bg-red-100 text-red-800",
+  confirmed: "bg-brand-red/10 text-brand-red",
+  delivered: "bg-status-active/10 text-status-active",
+  cancelled: "bg-status-inactive/10 text-status-inactive",
 };
+
+const statusOptions: OrderStatus[] = ["confirmed", "delivered", "cancelled"];
+
+function normalizeStatus(status: string | null): OrderStatus {
+  if (status === "delivered" || status === "cancelled") return status;
+  return "confirmed";
+}
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("tr-TR", {
@@ -64,53 +60,84 @@ function formatDate(value: string) {
   }).format(new Date(value));
 }
 
+function getPhoneHref(phone: string) {
+  return `tel:${phone.replace(/\s+/g, "")}`;
+}
+
 export function AdminOrdersClient({ restaurantId }: AdminOrdersClientProps) {
   const [orders, setOrders] = useState<OrderRow[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [errorText, setErrorText] = useState("");
 
-  const loadOrders = useCallback(async () => {
-    setIsLoading(true);
-    setErrorText("");
+  const loadOrders = useCallback(
+    async (showRefreshing = false) => {
+      if (showRefreshing) {
+        setIsRefreshing(true);
+      } else {
+        setIsLoading(true);
+      }
 
-    const supabase = createSupabaseBrowserClient();
+      setErrorText("");
 
-    try {
-      const { data, error } = await supabase
-        .from("orders")
-        .select(
-          `
-          id,
-          order_number,
-          customer_full_name,
-          customer_phone,
-          customer_email,
-          address_neighborhood,
-          address_street,
-          address_building_no,
-          address_floor,
-          address_apartment_no,
-          status,
-          total_try,
-          created_at
-        `,
-        )
-        .eq("restaurant_id", restaurantId)
-        .order("created_at", { ascending: false });
+      const supabase = createSupabaseBrowserClient();
 
-      if (error) throw error;
+      try {
+        const { data, error } = await supabase
+          .from("orders")
+          .select(
+            `
+            id,
+            order_number,
+            customer_full_name,
+            customer_phone,
+            customer_email,
+            address_neighborhood,
+            address_street,
+            address_building_no,
+            address_floor,
+            address_apartment_no,
+            status,
+            total_try,
+            created_at
+          `,
+          )
+          .eq("restaurant_id", restaurantId)
+          .order("created_at", { ascending: false });
 
-      setOrders((data || []) as OrderRow[]);
-    } catch (error) {
-      console.error(error);
-      setErrorText("Siparişler yüklenemedi.");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [restaurantId]);
+        if (error) throw error;
+
+        const rows = (data || []).map((order) => ({
+          ...order,
+          status: normalizeStatus(order.status),
+        })) as OrderRow[];
+
+        setOrders(rows);
+      } catch (error) {
+        console.error(error);
+        setErrorText("Siparişler yüklenemedi.");
+      } finally {
+        setIsLoading(false);
+        setIsRefreshing(false);
+      }
+    },
+    [restaurantId],
+  );
 
   useEffect(() => {
     void loadOrders();
+  }, [loadOrders]);
+
+  useEffect(() => {
+    function handleNewOrder() {
+      void loadOrders(true);
+    }
+
+    window.addEventListener("admin:new-order", handleNewOrder);
+
+    return () => {
+      window.removeEventListener("admin:new-order", handleNewOrder);
+    };
   }, [loadOrders]);
 
   async function handleStatusChange(orderId: string, status: OrderStatus) {
@@ -130,9 +157,6 @@ export function AdminOrdersClient({ restaurantId }: AdminOrdersClientProps) {
       alert("Sipariş durumu güncellenemedi.");
     }
   }
-  function getPhoneHref(phone: string) {
-    return `tel:${phone.replace(/\s+/g, "")}`;
-  }
 
   return (
     <div className="rounded-2xl border border-brand-sand bg-brand-ivory p-4 md:p-6">
@@ -148,10 +172,13 @@ export function AdminOrdersClient({ restaurantId }: AdminOrdersClientProps) {
 
         <button
           type="button"
-          onClick={loadOrders}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-sand text-brand-green transition hover:border-brand-red hover:text-brand-red"
+          onClick={() => void loadOrders(true)}
+          disabled={isRefreshing}
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-sand text-brand-green transition hover:border-brand-red hover:text-brand-red disabled:opacity-60"
         >
-          <RefreshCw className="h-4 w-4" />
+          <RefreshCw
+            className={isRefreshing ? "h-4 w-4 animate-spin" : "h-4 w-4"}
+          />
         </button>
       </div>
 
@@ -246,7 +273,9 @@ export function AdminOrdersClient({ restaurantId }: AdminOrdersClientProps) {
                   <p className="mt-3 text-2xl font-bold text-brand-red">
                     {formatCurrency(Number(order.total_try), "TRY")}
                   </p>
+
                   <div className="mt-4 flex flex-wrap justify-start gap-2 lg:justify-end">
+                    <OrderPrintButton orderId={order.id} restaurantId={restaurantId} />
                     <Link
                       href={`/admin/orders/${order.id}`}
                       prefetch={false}
@@ -264,31 +293,16 @@ export function AdminOrdersClient({ restaurantId }: AdminOrdersClientProps) {
                             event.target.value as OrderStatus,
                           )
                         }
-                        className="
-        h-10 appearance-none rounded-xl
-        border border-brand-sand bg-white
-        px-3 pr-10 text-sm font-semibold
-        text-brand-green outline-none cursor-pointer
-      "
+                        className="h-10 cursor-pointer appearance-none rounded-xl border border-brand-sand bg-white px-3 pr-10 text-sm font-semibold text-brand-green outline-none"
                       >
-                        {Object.entries(statusLabels).map(([value, label]) => (
-                          <option
-                            key={value}
-                            value={value}
-                            className="cursor-pointer"
-                          >
-                            {label}
+                        {statusOptions.map((value) => (
+                          <option key={value} value={value}>
+                            {statusLabels[value]}
                           </option>
                         ))}
                       </select>
 
-                      <ChevronDown
-                        className="
-        pointer-events-none absolute
-        right-3 top-1/2 h-4 w-4
-        -translate-y-1/2 text-brand-green
-      "
-                      />
+                      <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-green" />
                     </div>
                   </div>
                 </div>

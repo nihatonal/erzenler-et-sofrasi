@@ -54,27 +54,28 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
   }
   const enabledLocales = settings.enabled_locales || ["tr", "en", "ru", "ar"];
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid gap-8 xl:grid-cols-[1fr_380px]"
-    >
-      <div className="space-y-8">
-        <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
-          <h2 className="text-2xl font-bold text-brand-green">
-            Restoran Bilgileri
-          </h2>
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="grid gap-8 xl:grid-cols-[1fr_380px]"
+      >
+        <div className="space-y-8">
+          <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
+            <h2 className="text-2xl font-bold text-brand-green">
+              Restoran Bilgileri
+            </h2>
 
-          <div className="mt-6 grid gap-5">
-            <div>
-              <label className="admin-label">Restoran Adı</label>
-              <input
-                name="restaurant_name"
-                defaultValue={settings.restaurant_name || ""}
-                className="admin-input mt-2"
-              />
-            </div>
+            <div className="mt-6 grid gap-5">
+              <div>
+                <label className="admin-label">Restoran Adı</label>
+                <input
+                  name="restaurant_name"
+                  defaultValue={settings.restaurant_name || ""}
+                  className="admin-input mt-2"
+                />
+              </div>
 
-            {/* <div>
+              {/* <div>
               <label className="admin-label">Kısa Açıklama</label>
               <textarea
                 name="restaurant_description"
@@ -84,7 +85,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               />
             </div> */}
 
-            {/* <div>
+              {/* <div>
               <label className="admin-label">Logo URL</label>
               <input
                 name="logo_url"
@@ -94,7 +95,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
               />
             </div> */}
 
-            {/* <div className="grid gap-5 md:grid-cols-2">
+              {/* <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className="admin-label">Telefon</label>
                 <input
@@ -144,175 +145,179 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
                 className="admin-input mt-2 min-h-24 py-4"
               />
             </div> */}
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
-          <h2 className="text-2xl font-bold text-brand-green">
-            Sipariş Ayarları
-          </h2>
-
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
-            <div>
-              <label className="admin-label">Minimum Sipariş ₺</label>
-              <input
-                name="minimum_order_try"
-                type="number"
-                step="0.01"
-                defaultValue={Number(settings.minimum_order_try || 0)}
-                className="admin-input mt-2"
-              />
             </div>
+          </section>
 
-            <div>
-              <label className="admin-label">Teslimat Ücreti ₺</label>
-              <input
-                name="delivery_fee_try"
-                type="number"
-                step="0.01"
-                defaultValue={Number(settings.delivery_fee_try || 0)}
-                className="admin-input mt-2"
-              />
-            </div>
+          <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
+            <h2 className="text-2xl font-bold text-brand-green">
+              Sipariş Ayarları
+            </h2>
 
-            <div>
-              <label className="admin-label">Tahmini Süre / dk</label>
-              <input
-                name="estimated_delivery_minutes"
-                type="number"
-                defaultValue={Number(settings.estimated_delivery_minutes || 45)}
-                className="admin-input mt-2"
-              />
-            </div>
-          </div>
-
-          <label className="mt-6 flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
-            Online sipariş aktif
-            <input
-              name="is_ordering_enabled"
-              type="checkbox"
-              defaultChecked={settings.is_ordering_enabled}
-              className="h-4 w-4 accent-brand-red"
-            />
-          </label>
-        </section>
-        <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
-          <h3 className="text-lg font-semibold text-brand-green">
-            Sipariş Yönetimi
-          </h3>
-
-          <div className="mt-5 space-y-4">
-            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
+            <div className="mt-6 grid gap-5 md:grid-cols-3">
               <div>
-                <p className="font-semibold text-brand-green">
-                  QR Menü Siparişi
-                </p>
-
-                <p className="mt-1 text-xs text-brand-muted">
-                  Masadaki QR kod üzerinden sipariş alınsın.
-                </p>
+                <label className="admin-label">Minimum Sipariş ₺</label>
+                <input
+                  name="minimum_order_try"
+                  type="number"
+                  step="0.01"
+                  defaultValue={Number(settings.minimum_order_try || 0)}
+                  className="admin-input mt-2"
+                />
               </div>
 
-              <input
-                type="checkbox"
-                name="is_qr_ordering_enabled"
-                defaultChecked={settings.is_qr_ordering_enabled}
-                className="h-5 w-5 accent-brand-red"
-              />
-            </label>
-
-            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
               <div>
-                <p className="font-semibold text-brand-green">Online Sipariş</p>
-
-                <p className="mt-1 text-xs text-brand-muted">
-                  Web sitesi üzerinden sipariş alınsın.
-                </p>
+                <label className="admin-label">Teslimat Ücreti ₺</label>
+                <input
+                  name="delivery_fee_try"
+                  type="number"
+                  step="0.01"
+                  defaultValue={Number(settings.delivery_fee_try || 0)}
+                  className="admin-input mt-2"
+                />
               </div>
 
-              <input
-                type="checkbox"
-                name="is_online_ordering_enabled"
-                defaultChecked={settings.is_online_ordering_enabled}
-                className="h-5 w-5 accent-brand-red"
-              />
-            </label>
-
-            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
               <div>
-                <p className="font-semibold text-brand-green">
-                  Rezervasyon Sistemi
-                </p>
-
-                <p className="mt-1 text-xs text-brand-muted">
-                  Müşteriler rezervasyon oluşturabilsin.
-                </p>
+                <label className="admin-label">Tahmini Süre / dk</label>
+                <input
+                  name="estimated_delivery_minutes"
+                  type="number"
+                  defaultValue={Number(
+                    settings.estimated_delivery_minutes || 45,
+                  )}
+                  className="admin-input mt-2"
+                />
               </div>
+            </div>
 
+            <label className="mt-6 flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
+              Online sipariş aktif
               <input
+                name="is_ordering_enabled"
                 type="checkbox"
-                name="is_reservation_enabled"
-                defaultChecked={settings.is_reservation_enabled}
-                className="h-5 w-5 accent-brand-red"
+                defaultChecked={settings.is_ordering_enabled}
+                className="h-4 w-4 accent-brand-red"
               />
             </label>
+          </section>
+          <div className="rounded-2xl border border-brand-sand bg-brand-cream p-5">
+            <h3 className="text-lg font-semibold text-brand-green">
+              Sipariş Yönetimi
+            </h3>
+
+            <div className="mt-5 space-y-4">
+              <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
+                <div>
+                  <p className="font-semibold text-brand-green">
+                    QR Menü Siparişi
+                  </p>
+
+                  <p className="mt-1 text-xs text-brand-muted">
+                    Masadaki QR kod üzerinden sipariş alınsın.
+                  </p>
+                </div>
+
+                <input
+                  type="checkbox"
+                  name="is_qr_ordering_enabled"
+                  defaultChecked={settings.is_qr_ordering_enabled}
+                  className="h-5 w-5 accent-brand-red"
+                />
+              </label>
+
+              <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
+                <div>
+                  <p className="font-semibold text-brand-green">
+                    Online Sipariş
+                  </p>
+
+                  <p className="mt-1 text-xs text-brand-muted">
+                    Web sitesi üzerinden sipariş alınsın.
+                  </p>
+                </div>
+
+                <input
+                  type="checkbox"
+                  name="is_online_ordering_enabled"
+                  defaultChecked={settings.is_online_ordering_enabled}
+                  className="h-5 w-5 accent-brand-red"
+                />
+              </label>
+
+              <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4">
+                <div>
+                  <p className="font-semibold text-brand-green">
+                    Rezervasyon Sistemi
+                  </p>
+
+                  <p className="mt-1 text-xs text-brand-muted">
+                    Müşteriler rezervasyon oluşturabilsin.
+                  </p>
+                </div>
+
+                <input
+                  type="checkbox"
+                  name="is_reservation_enabled"
+                  defaultChecked={settings.is_reservation_enabled}
+                  className="h-5 w-5 accent-brand-red"
+                />
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      {/* dil yonetimi */}
-      <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6 lg:p-8">
-        <h2 className="text-2xl font-bold text-brand-green">Dil Yönetimi</h2>
+        {/* dil yonetimi */}
+        <section className="rounded-2xl border max-h-72 border-brand-sand bg-brand-ivory p-6 lg:p-8">
+          <h2 className="text-2xl font-bold text-brand-green">Dil Yönetimi</h2>
 
-        <p className="mt-2 text-sm text-brand-muted">
-          Aktif dilleri buradan yönetin. Türkçe ana dil olduğu için kapatılamaz.
-        </p>
+          <p className="mt-2 text-sm text-brand-muted">
+            Aktif dilleri buradan yönetin. Türkçe ana dil olduğu için
+            kapatılamaz.
+          </p>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green opacity-70">
-            Türkçe
-            <input
-              type="checkbox"
-              checked
-              disabled
-              className="h-4 w-4 accent-brand-red"
-            />
-          </label>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green opacity-70">
+              Türkçe
+              <input
+                type="checkbox"
+                checked
+                disabled
+                className="h-4 w-4 accent-brand-red"
+              />
+            </label>
 
-          <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
-            İngilizce
-            <input
-              name="locale_en"
-              type="checkbox"
-              defaultChecked={enabledLocales.includes("en")}
-              className="h-4 w-4 accent-brand-red"
-            />
-          </label>
+            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
+              İngilizce
+              <input
+                name="locale_en"
+                type="checkbox"
+                defaultChecked={enabledLocales.includes("en")}
+                className="h-4 w-4 accent-brand-red"
+              />
+            </label>
 
-          <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
-            Rusça
-            <input
-              name="locale_ru"
-              type="checkbox"
-              defaultChecked={enabledLocales.includes("ru")}
-              className="h-4 w-4 accent-brand-red"
-            />
-          </label>
+            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
+              Rusça
+              <input
+                name="locale_ru"
+                type="checkbox"
+                defaultChecked={enabledLocales.includes("ru")}
+                className="h-4 w-4 accent-brand-red"
+              />
+            </label>
 
-          <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
-            Arapça
-            <input
-              name="locale_ar"
-              type="checkbox"
-              defaultChecked={enabledLocales.includes("ar")}
-              className="h-4 w-4 accent-brand-red"
-            />
-          </label>
-        </div>
-        <ChangePasswordForm />
-      </section>
-      {/* bildirim ayarlari */}
-      <aside className="space-y-8">
-        {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+            <label className="flex items-center justify-between rounded-xl border border-brand-sand bg-white px-4 py-4 text-sm font-medium text-brand-green">
+              Arapça
+              <input
+                name="locale_ar"
+                type="checkbox"
+                defaultChecked={enabledLocales.includes("ar")}
+                className="h-4 w-4 accent-brand-red"
+              />
+            </label>
+          </div>
+        </section>
+        {/* bildirim ayarlari */}
+        <aside className="space-y-8">
+          {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <h2 className="text-xl font-bold text-brand-green">
             Bildirim Ayarları
           </h2>
@@ -328,7 +333,7 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
           </div>
         </section> */}
 
-        {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+          {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <h2 className="text-xl font-bold text-brand-green">QR Tasarımı</h2>
 
           <div className="mt-5">
@@ -342,21 +347,25 @@ export function SettingsForm({ settings, action }: SettingsFormProps) {
           </div>
         </section> */}
 
-        <button
-          type="submit"
-          disabled={isPending}
-          className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight disabled:opacity-60"
-        >
-          <Save className="h-4 w-4" />
-          {isPending ? "Kaydediliyor..." : "Ayarları Kaydet"}
-        </button>
+          <button
+            type="submit"
+            disabled={isPending}
+            className="flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:bg-brand-redLight disabled:opacity-60"
+          >
+            <Save className="h-4 w-4" />
+            {isPending ? "Kaydediliyor..." : "Ayarları Kaydet"}
+          </button>
 
-        {successText && (
-          <p className="rounded-xl bg-status-active/10 px-4 py-3 text-sm font-semibold text-status-active">
-            {successText}
-          </p>
-        )}
-      </aside>
-    </form>
+          {successText && (
+            <p className="rounded-xl bg-status-active/10 px-4 py-3 text-sm font-semibold text-status-active">
+              {successText}
+            </p>
+          )}
+        </aside>
+      </form>
+      <div className="mt-8 max-w-xl">
+        <ChangePasswordForm />
+      </div>
+    </>
   );
 }

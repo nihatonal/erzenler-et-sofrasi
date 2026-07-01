@@ -18,12 +18,27 @@ type OrderNotification = {
 };
 
 function playNotificationSound() {
-  const audio = new Audio("/sounds/notification.mp3");
-  audio.volume = 0.8;
+  let playCount = 0;
+  const maxPlayCount = 1;
 
-  audio.play().catch((error) => {
-    console.warn("NOTIFICATION_SOUND_BLOCKED:", error);
-  });
+  function playOnce() {
+    const audio = new Audio("/sounds/notification.mp3");
+    audio.volume = 1;
+
+    audio.play().catch((error) => {
+      console.warn("NOTIFICATION_SOUND_BLOCKED:", error);
+    });
+
+    audio.onended = () => {
+      playCount += 1;
+
+      if (playCount < maxPlayCount) {
+        window.setTimeout(playOnce, 250);
+      }
+    };
+  }
+
+  playOnce();
 }
 
 export function AdminRealtimeProvider({

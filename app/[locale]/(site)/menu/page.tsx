@@ -11,6 +11,7 @@ type MenuPageProps = {
   }>;
   searchParams: Promise<{
     table?: string;
+    qr?: "table" | "online";
   }>;
 };
 
@@ -32,7 +33,7 @@ export default async function MenuPage({
   searchParams,
 }: MenuPageProps) {
   const { locale } = await params;
-  const { table } = await searchParams;
+  const { table, qr } = await searchParams;
 
   const restaurantId =
     process.env.NEXT_PUBLIC_RESTAURANT_ID ||
@@ -47,6 +48,7 @@ export default async function MenuPage({
       locale={locale}
       restaurantId={restaurantId}
       tableSlug={table || null}
+      qrMode={qr || null}
     />
   );
 }

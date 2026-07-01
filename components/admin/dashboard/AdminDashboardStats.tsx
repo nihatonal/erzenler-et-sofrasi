@@ -10,13 +10,7 @@ type Props = {
   restaurantId: string;
 };
 
-type OrderStatus =
-  | "pending"
-  | "confirmed"
-  | "preparing"
-  | "out_for_delivery"
-  | "delivered"
-  | "cancelled";
+type OrderStatus = "confirmed" | "delivered" | "cancelled";
 
 type Stats = {
   todayOrders: number;
@@ -32,24 +26,9 @@ const statusCards: {
   className: string;
 }[] = [
   {
-    key: "pending",
-    label: "Bekliyor",
-    className: "bg-yellow-500/10 text-yellow-700",
-  },
-  {
     key: "confirmed",
     label: "Onaylandı",
     className: "bg-blue-500/10 text-blue-700",
-  },
-  {
-    key: "preparing",
-    label: "Hazırlanıyor",
-    className: "bg-orange-500/10 text-orange-700",
-  },
-  {
-    key: "out_for_delivery",
-    label: "Yolda",
-    className: "bg-purple-500/10 text-purple-700",
   },
   {
     key: "delivered",
@@ -75,10 +54,7 @@ const initialStats: Stats = {
   activeOrders: 0,
   todayRevenue: 0,
   byStatus: {
-    pending: 0,
     confirmed: 0,
-    preparing: 0,
-    out_for_delivery: 0,
     delivered: 0,
     cancelled: 0,
   },
@@ -147,11 +123,7 @@ export function AdminDashboardStats({ restaurantId }: Props) {
           }
         }
 
-        const activeOrders =
-          byStatus.pending +
-          byStatus.confirmed +
-          byStatus.preparing +
-          byStatus.out_for_delivery;
+        const activeOrders = byStatus.confirmed;
 
         setStats({
           todayOrders: todayOrdersResult.count || 0,

@@ -2,19 +2,14 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { ArrowLeft, RefreshCw } from "lucide-react";
+import { ArrowLeft, ChevronDown, RefreshCw } from "lucide-react";
 
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { formatCurrency } from "@/lib/utils";
 import { updateOrderStatusAction } from "@/app/admin/(dashboard)/orders/actions";
+import { OrderPrintButton } from "./OrdersPrintButton";
 
-type OrderStatus =
-  | "pending"
-  | "confirmed"
-  | "preparing"
-  | "out_for_delivery"
-  | "delivered"
-  | "cancelled";
+type OrderStatus = "confirmed" | "delivered" | "cancelled";
 
 type OrderItem = {
   id: string;
@@ -57,19 +52,29 @@ type OrderDetail = {
   order_items: OrderItem[];
 };
 
-const statusLabels: Record<OrderStatus, string> = {
-  pending: "Bekliyor",
-  confirmed: "Onaylandı",
-  preparing: "Hazırlanıyor",
-  out_for_delivery: "Yolda",
-  delivered: "Teslim Edildi",
-  cancelled: "İptal Edildi",
-};
-
 type OrderDetailClientProps = {
   orderId: string;
   restaurantId: string;
 };
+
+const statusLabels: Record<OrderStatus, string> = {
+  confirmed: "Onaylandı",
+  delivered: "Teslim Edildi",
+  cancelled: "İptal Edildi",
+};
+
+const statusClasses: Record<OrderStatus, string> = {
+  confirmed: "bg-brand-red/10 text-brand-red",
+  delivered: "bg-status-active/10 text-status-active",
+  cancelled: "bg-status-inactive/10 text-status-inactive",
+};
+
+const statusOptions: OrderStatus[] = ["confirmed", "delivered", "cancelled"];
+
+function normalizeStatus(status: string | null): OrderStatus {
+  if (status === "delivered" || status === "cancelled") return status;
+  return "confirmed";
+}
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("tr-TR", {
@@ -80,80 +85,95 @@ function formatDate(value: string) {
     minute: "2-digit",
   }).format(new Date(value));
 }
+
 function getPhoneHref(phone: string) {
   return `tel:${phone.replace(/\s+/g, "")}`;
 }
+
 export function OrderDetailClient({
   orderId,
   restaurantId,
 }: OrderDetailClientProps) {
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [errorText, setErrorText] = useState("");
 
-  const loadOrder = useCallback(async () => {
-    setIsLoading(true);
-    setErrorText("");
+  const loadOrder = useCallback(
+    async (showRefreshing = false) => {
+      if (showRefreshing) {
+        setIsRefreshing(true);
+      } else {
+        setIsLoading(true);
+      }
 
-    const supabase = createSupabaseBrowserClient();
+      setErrorText("");
 
-    try {
-      const { data, error } = await supabase
-        .from("orders")
-        .select(
-          `
-          id,
-          order_number,
-          customer_full_name,
-          customer_phone,
-          customer_email,
-          address_city,
-          address_district,
-          address_neighborhood,
-          address_street,
-          address_building_no,
-          address_floor,
-          address_apartment_no,
-          address_note,
-          customer_note,
-          status,
-          subtotal_try,
-          delivery_fee_try,
-          total_try,
-          created_at,
-          order_items (
+      const supabase = createSupabaseBrowserClient();
+
+      try {
+        const { data, error } = await supabase
+          .from("orders")
+          .select(
+            `
             id,
-            product_name_tr,
-            quantity,
-            unit_price_try,
-            total_price_try,
-            item_note,
-            order_item_options (
+            order_number,
+            customer_full_name,
+            customer_phone,
+            customer_email,
+            address_city,
+            address_district,
+            address_neighborhood,
+            address_street,
+            address_building_no,
+            address_floor,
+            address_apartment_no,
+            address_note,
+            customer_note,
+            status,
+            subtotal_try,
+            delivery_fee_try,
+            total_try,
+            created_at,
+            order_items (
               id,
-              option_name_tr,
-              price_difference_try
-            ),
-            order_item_removables (
-              id,
-              removable_name_tr
+              product_name_tr,
+              quantity,
+              unit_price_try,
+              total_price_try,
+              item_note,
+              order_item_options (
+                id,
+                option_name_tr,
+                price_difference_try
+              ),
+              order_item_removables (
+                id,
+                removable_name_tr
+              )
             )
+          `,
           )
-        `,
-        )
-        .eq("id", orderId)
-        .eq("restaurant_id", restaurantId)
-        .single();
+          .eq("id", orderId)
+          .eq("restaurant_id", restaurantId)
+          .single();
 
-      if (error) throw error;
+        if (error) throw error;
 
-      setOrder(data as OrderDetail);
-    } catch (error) {
-      console.error(error);
-      setErrorText("Sipariş detayı yüklenemedi.");
-    } finally {
-      setIsLoading(false);
-    }
-  }, [orderId, restaurantId]);
+        setOrder({
+          ...(data as OrderDetail),
+          status: normalizeStatus(data.status),
+        });
+      } catch (error) {
+        console.error(error);
+        setErrorText("Sipariş detayı yüklenemedi.");
+      } finally {
+        setIsLoading(false);
+        setIsRefreshing(false);
+      }
+    },
+    [orderId, restaurantId],
+  );
 
   useEffect(() => {
     void loadOrder();
@@ -163,7 +183,6 @@ export function OrderDetailClient({
     if (!order) return;
 
     const previous = order;
-
     setOrder({ ...order, status });
 
     try {
@@ -187,9 +206,12 @@ export function OrderDetailClient({
         <h1 className="text-xl font-semibold text-brand-green">
           Sipariş yüklenemedi
         </h1>
+
         <p className="mt-2 text-sm text-brand-muted">{errorText}</p>
+
         <button
-          onClick={loadOrder}
+          type="button"
+          onClick={() => void loadOrder(true)}
           className="mt-6 inline-flex h-11 items-center gap-2 rounded-xl bg-brand-red px-5 text-sm font-bold text-white"
         >
           <RefreshCw className="h-4 w-4" />
@@ -214,30 +236,64 @@ export function OrderDetailClient({
         <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
           <div className="flex flex-col gap-4 border-b border-brand-sand pb-6 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <p className="text-sm font-semibold text-brand-red">
-                #{order.order_number}
-              </p>
-              <h1 className="mt-2 text-3xl font-bold text-brand-green">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="rounded-full bg-brand-green/10 px-3 py-1 text-xs font-semibold text-brand-green">
+                  #{order.order_number}
+                </p>
+
+                <span
+                  className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                    statusClasses[order.status]
+                  }`}
+                >
+                  {statusLabels[order.status]}
+                </span>
+              </div>
+
+              <h1 className="mt-3 text-3xl font-bold text-brand-green">
                 Sipariş Detayı
               </h1>
+
               <p className="mt-2 text-sm text-brand-muted">
                 {formatDate(order.created_at)}
               </p>
             </div>
 
-            <select
-              value={order.status}
-              onChange={(event) =>
-                handleStatusChange(event.target.value as OrderStatus)
-              }
-              className="h-10 rounded-xl border border-brand-sand bg-white px-3 text-sm font-semibold text-brand-green outline-none"
-            >
-              {Object.entries(statusLabels).map(([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
-              ))}
-            </select>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => void loadOrder(true)}
+                disabled={isRefreshing}
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-sand bg-white text-brand-green transition hover:border-brand-red hover:text-brand-red disabled:opacity-60"
+              >
+                <RefreshCw
+                  className={isRefreshing ? "h-4 w-4 animate-spin" : "h-4 w-4"}
+                />
+              </button>
+              <OrderPrintButton
+                orderId={orderId}
+                restaurantId={restaurantId}
+                initialOrder={order}
+              />
+
+              <div className="relative">
+                <select
+                  value={order.status}
+                  onChange={(event) =>
+                    handleStatusChange(event.target.value as OrderStatus)
+                  }
+                  className="h-10 cursor-pointer appearance-none rounded-xl border border-brand-sand bg-white px-3 pr-10 text-sm font-semibold text-brand-green outline-none"
+                >
+                  {statusOptions.map((value) => (
+                    <option key={value} value={value}>
+                      {statusLabels[value]}
+                    </option>
+                  ))}
+                </select>
+
+                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-green" />
+              </div>
+            </div>
           </div>
 
           <div className="mt-6 grid gap-4">
@@ -257,6 +313,7 @@ export function OrderDetailClient({
                         <p className="font-semibold text-brand-green">
                           Seçenekler:
                         </p>
+
                         {item.order_item_options.map((option) => (
                           <p key={option.id}>
                             {option.option_name_tr}{" "}
@@ -274,6 +331,7 @@ export function OrderDetailClient({
                     {item.order_item_removables.length > 0 && (
                       <div className="mt-3 text-sm text-brand-muted">
                         <p className="font-semibold text-brand-green">Çıkar:</p>
+
                         {item.order_item_removables.map((removable) => (
                           <p key={removable.id}>
                             {removable.removable_name_tr}
@@ -299,11 +357,13 @@ export function OrderDetailClient({
         </section>
 
         <aside className="space-y-6 lg:sticky lg:top-6 lg:self-start">
-          <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+          {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
             <h2 className="text-xl font-semibold text-brand-green">Müşteri</h2>
+
             <p className="mt-4 font-semibold text-brand-green">
               {order.customer_full_name}
             </p>
+
             <a
               href={getPhoneHref(order.customer_phone)}
               className="mt-1 block text-sm text-brand-muted transition hover:text-brand-red"
@@ -317,10 +377,11 @@ export function OrderDetailClient({
             >
               {order.customer_email}
             </a>
-          </section>
+          </section> */}
 
-          <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
+          {/* <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
             <h2 className="text-xl font-semibold text-brand-green">Adres</h2>
+
             <p className="mt-4 text-sm leading-6 text-brand-muted">
               {[
                 order.address_city,
@@ -341,7 +402,7 @@ export function OrderDetailClient({
                 Adres Notu: {order.address_note}
               </p>
             )}
-          </section>
+          </section> */}
 
           <section className="rounded-2xl border border-brand-sand bg-brand-ivory p-6">
             <h2 className="text-xl font-semibold text-brand-green">Özet</h2>
@@ -361,7 +422,7 @@ export function OrderDetailClient({
                 </span>
               </div>
 
-              <div className="border-t border-brand-sand pt-3 flex justify-between text-lg">
+              <div className="flex justify-between border-t border-brand-sand pt-3 text-lg">
                 <span className="font-bold text-brand-green">Toplam</span>
                 <span className="font-bold text-brand-red">
                   {formatCurrency(Number(order.total_try), "TRY")}

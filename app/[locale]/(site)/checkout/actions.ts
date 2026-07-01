@@ -170,11 +170,11 @@ export async function createCheckoutOrderAction(
     };
   }
   if (!isValidEmail(customerEmail)) {
-  return {
-    success: false,
-    message: "Geçerli bir email adresi girin.",
-  };
-}
+    return {
+      success: false,
+      message: "Geçerli bir email adresi girin.",
+    };
+  }
 
   const addressCity = getString(formData, "address_city");
   const addressDistrict = getString(formData, "address_district");
@@ -197,6 +197,13 @@ export async function createCheckoutOrderAction(
     return {
       success: false,
       message: "Adres bilgileri eksik.",
+    };
+  }
+
+  if (!isValidEmail(customerEmail)) {
+    return {
+      success: false,
+      message: "Geçerli bir email adresi girin.",
     };
   }
 
@@ -243,7 +250,7 @@ export async function createCheckoutOrderAction(
 
       customer_note: customerNote || null,
 
-      status: "pending",
+      status: "confirmed",
 
       subtotal_try: subtotalTry,
       delivery_fee_try: deliveryFeeTry,

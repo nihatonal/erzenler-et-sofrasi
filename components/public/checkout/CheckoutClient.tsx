@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMemo, useState, useTransition } from "react";
 import { ArrowLeft, Minus, Plus, Trash2, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+
 import { formatCurrency } from "@/lib/utils";
 import { createCheckoutOrderAction } from "@/app/[locale]/(site)/checkout/actions";
 import { CartItem, useCartStore } from "@/lib/cart/card-store";
@@ -13,6 +14,82 @@ type CheckoutClientProps = {
   locale: string;
   restaurantId: string;
 };
+
+const deliveryDistricts = {
+  Avcılar: [
+    "Ambarlı",
+    "Cihangir",
+    "Denizköşkler",
+    "Firuzköy",
+    "Gümüşpala",
+    "Merkez",
+    "Mustafa Kemal Paşa",
+    "Tahtakale",
+    "Üniversite",
+    "Yeşilkent",
+  ],
+  Esenyurt: [
+    "Akçaburgaz",
+    "Akevler",
+    "Akşemseddin",
+    "Ardıçlı",
+    "Aşık Veysel",
+    "Atatürk",
+    "Bağlarçeşme",
+    "Balıkyolu",
+    "Barbaros Hayrettin Paşa",
+    "Battalgazi",
+    "Cumhuriyet",
+    "Çınar",
+    "Esenkent",
+    "Fatih",
+    "Gökevler",
+    "Güzelyurt",
+    "Hürriyet",
+    "İncirtepe",
+    "İnönü",
+    "İstiklal",
+    "Koza",
+    "Mehmet Akif Ersoy",
+    "Mehterçeşme",
+    "Merkez",
+    "Mevlana",
+    "Namık Kemal",
+    "Necip Fazıl Kısakürek",
+    "Orhan Gazi",
+    "Osmangazi",
+    "Örnek",
+    "Pınar",
+    "Piri Reis",
+    "Saadetdere",
+    "Selahaddin Eyyubi",
+    "Sultaniye",
+    "Süleymaniye",
+    "Şehitler",
+    "Talatpaşa",
+    "Turgut Özal",
+    "Üçevler",
+    "Yenikent",
+    "Yeşilkent",
+    "Yunus Emre",
+    "Zafer",
+  ],
+  Beylikdüzü: [
+    "Adnan Kahveci",
+    "Barış",
+    "Beylikdüzü OSB",
+    "Büyükşehir",
+    "Cumhuriyet",
+    "Dereağzı",
+    "Gürpınar",
+    "Kavaklı",
+    "Marmara",
+    "Sahil",
+    "Yakuplu",
+  ],
+} as const;
+
+type DeliveryDistrict = keyof typeof deliveryDistricts;
 
 function getCartItemName(item: CartItem, locale: string): string {
   if (locale === "en") return item.productName_en || item.productName;
@@ -50,6 +127,11 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
   const [errorText, setErrorText] = useState("");
   const [successOrderNumber, setSuccessOrderNumber] = useState("");
 
+  const [selectedDistrict, setSelectedDistrict] = useState<DeliveryDistrict | "">(
+    "",
+  );
+  const [selectedNeighborhood, setSelectedNeighborhood] = useState("");
+
   const orderMode = items[0]?.orderMode || "delivery";
   const isTableOrder = orderMode === "table";
 
@@ -58,6 +140,15 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
   const cartJson = useMemo(() => {
     return JSON.stringify(items);
   }, [items]);
+
+  const neighborhoodOptions = selectedDistrict
+    ? deliveryDistricts[selectedDistrict]
+    : [];
+
+  function handleDistrictChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedDistrict(event.target.value as DeliveryDistrict);
+    setSelectedNeighborhood("");
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -73,13 +164,13 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
 
       if (!result.success) {
         setErrorText(result.message);
-        window.scrollTo({ top: 0, behavior: "smooth" }); // ← hata durumunda da en üste git
+        window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
 
       clearCart();
       setSuccessOrderNumber(result.orderNumber);
-      window.scrollTo({ top: 0, behavior: "smooth" }); // ← başarı durumunda
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
@@ -134,7 +225,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
   }
 
   return (
-    <main className="min-h-screen bg-brand-cream px-4 pt-20 md:px-6">
+    <main className="min-h-screen bg-brand-cream px-4 py-20 md:py-28 md:px-6">
       <div className="mx-auto max-w-6xl">
         <Link
           href={`/${locale}/menu`}
@@ -246,7 +337,8 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                 );
               })}
             </div>
-            <div className="flex mt-6 px-2 justify-between text-sm">
+
+            <div className="mt-6 flex justify-between px-2 text-sm">
               <span className="text-brand-muted">{t("summary.subtotal")}:</span>
               <span className="font-bold text-brand-green">
                 {formatCurrency(subtotal, "TRY")}
@@ -312,15 +404,25 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2 cursor-not-allowed bg-brand-cream text-brand-muted"
                       />
                     </div>
+
                     <div>
                       <label className="admin-label">
                         {t("fields.district")}
                       </label>
-                      <input
+                      <select
                         name="address_district"
+                        value={selectedDistrict}
+                        onChange={handleDistrictChange}
                         required
                         className="admin-input mt-2"
-                      />
+                      >
+                        <option value="">İlçe seçin</option>
+                        {Object.keys(deliveryDistricts).map((district) => (
+                          <option key={district} value={district}>
+                            {district}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
 
@@ -328,20 +430,33 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                     <label className="admin-label">
                       {t("fields.neighborhood")}
                     </label>
-                    <input
+                    <select
                       name="address_neighborhood"
+                      value={selectedNeighborhood}
+                      onChange={(event) =>
+                        setSelectedNeighborhood(event.target.value)
+                      }
                       required
-                      className="admin-input mt-2"
-                    />
+                      disabled={!selectedDistrict}
+                      className="admin-input mt-2 disabled:cursor-not-allowed disabled:bg-brand-cream disabled:text-brand-muted"
+                    >
+                      <option value="">
+                        {selectedDistrict
+                          ? "Mahalle seçin"
+                          : "Önce ilçe seçin"}
+                      </option>
+
+                      {neighborhoodOptions.map((neighborhood) => (
+                        <option key={neighborhood} value={neighborhood}>
+                          {neighborhood}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
                   <div>
                     <label className="admin-label">{t("fields.street")}</label>
-                    <input
-                      name="address_street"
-                      required
-                      className="admin-input mt-2"
-                    />
+                    <input name="address_street" required className="admin-input mt-2" />
                   </div>
 
                   <div className="grid grid-cols-3 gap-3">
@@ -355,6 +470,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2"
                       />
                     </div>
+
                     <div>
                       <label className="admin-label">{t("fields.floor")}</label>
                       <input
@@ -362,6 +478,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
                         className="admin-input mt-2"
                       />
                     </div>
+
                     <div>
                       <label className="admin-label">
                         {t("fields.apartmentNo")}
@@ -427,7 +544,7 @@ export function CheckoutClient({ locale }: CheckoutClientProps) {
             <button
               type="submit"
               disabled={isPending}
-              className="mt-6 flex h-13 w-full items-center justify-center rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.12em] text-white disabled:opacity-60"
+              className="mt-6 flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-brand-red text-sm font-bold uppercase tracking-[0.12em] text-white disabled:opacity-60"
             >
               {isPending ? (
                 <>

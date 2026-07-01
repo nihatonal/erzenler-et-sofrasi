@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,14 @@
 
 @layer base {
   :root {
-    --color-red: #A5161A;
-    --color-red-light: #C91F24;
-    --color-red-dark: #7F1115;
-    --color-green: #173B28;
-    --color-green-dark: #0E2418;
-    --color-cream: #FBF7EF;
-    --color-ivory: #FFFDF8;
-    --color-sand: #E7DED3;
+    --color-red: #a5161a;
+    --color-red-light: #c91f24;
+    --color-red-dark: #7f1115;
+    --color-green: #173b28;
+    --color-green-dark: #0e2418;
+    --color-cream: #fbf7ef;
+    --color-ivory: #fffdf8;
+    --color-sand: #e7ded3;
   }
 
   html {
@@ -58,12 +58,12 @@
   .admin-card {
     @apply rounded-2xl border border-admin-border bg-admin-card shadow-admin;
   }
-    .admin-label {
+  .admin-label {
     @apply text-xs font-semibold uppercase tracking-[0.16em] text-brand-muted;
   }
 
-.admin-input {
-  @apply h-12
+  .admin-input {
+    @apply h-12
          w-full
          rounded-xl
          border
@@ -75,5 +75,33 @@
          outline-none
          transition
          focus:border-brand-red;
+  }
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print\:block,
+  .print\:block * {
+    visibility: visible;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  @page {
+    size: 80mm auto;
+    margin: 4mm;
+  }
 }
